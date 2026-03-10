@@ -14,7 +14,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-warm-100 section-padding">
+      <section className="bg-[#111111] section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             items={[
@@ -22,10 +22,10 @@ export default function ServicesPage() {
               { label: "Our Services" },
             ]}
           />
-          <h1 className="mt-4 text-4xl md:text-5xl font-heading font-bold">
+          <h1 className="mt-4 text-4xl md:text-5xl font-heading font-bold text-white">
             Our Services
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-500">
+          <p className="mt-4 max-w-2xl text-lg text-white/50">
             MEK Homes offers a comprehensive range of carpentry and renovation
             services across Melbourne. Every project is delivered with quality
             craftsmanship and attention to detail.
@@ -60,10 +60,10 @@ export default function ServicesPage() {
 
                 {/* Card Body */}
                 <div className="p-6">
-                  <h2 className="text-xl font-heading font-semibold">
+                  <h2 className="text-xl font-heading font-semibold text-white">
                     {service.title}
                   </h2>
-                  <p className="mt-2 text-gray-500 line-clamp-2 mb-4">
+                  <p className="mt-2 text-white/50 line-clamp-2 mb-4">
                     {service.description}
                   </p>
 
@@ -72,14 +72,14 @@ export default function ServicesPage() {
                     {service.features.slice(0, 3).map((feature) => (
                       <span
                         key={feature}
-                        className="rounded-full bg-warm-100 px-3 py-1 text-xs text-gray-500"
+                        className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/50"
                       >
                         {feature}
                       </span>
                     ))}
                   </div>
 
-                  <span className="text-sm font-medium flex items-center gap-1">
+                  <span className="text-sm font-medium flex items-center gap-1 text-white">
                     Learn More →
                   </span>
                 </div>
@@ -90,25 +90,25 @@ export default function ServicesPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="section-padding bg-[#1F2937] text-white text-center">
+      <section className="section-padding bg-white text-black text-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-black">
             Ready to Get Started?
           </h2>
-          <p className="mt-4 mx-auto max-w-xl text-white/70 text-lg">
+          <p className="mt-4 mx-auto max-w-xl text-black/70 text-lg">
             Contact MEK Homes today for a free, no-obligation quote on any of
             our carpentry and renovation services.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-medium text-[#1F2937] hover:bg-warm-100 hover:scale-[1.02] transition-all duration-200"
+              className="inline-flex items-center justify-center rounded-xl bg-black px-6 py-3 font-medium text-white hover:bg-gray-800 hover:scale-[1.02] transition-all duration-200"
             >
               Request a Free Quote
             </Link>
             <Link
               href="tel:0400000000"
-              className="inline-flex items-center justify-center rounded-xl border-2 border-white px-6 py-3 font-medium text-white hover:bg-white hover:text-[#1F2937] hover:scale-[1.02] transition-all duration-200"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-black px-6 py-3 font-medium text-black hover:bg-black hover:text-white hover:scale-[1.02] transition-all duration-200"
             >
               Call 0400 000 000
             </Link>

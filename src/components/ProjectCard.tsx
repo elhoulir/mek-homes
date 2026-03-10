@@ -43,7 +43,7 @@ export default function ProjectCard({
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-warm-100">
+          <div className="absolute inset-0 flex items-center justify-center bg-[#111111]">
             <ImageIcon className="h-12 w-12 text-warm-300" />
           </div>
         )}

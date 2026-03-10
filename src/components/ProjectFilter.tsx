@@ -20,11 +20,11 @@ export default function ProjectFilter({ categories, active, onChange }: ProjectF
           {active === cat.slug && (
             <motion.div
               layoutId="activeFilter"
-              className="absolute inset-0 rounded-full bg-black"
+              className="absolute inset-0 rounded-full bg-white"
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             />
           )}
-          <span className={`relative z-10 ${active === cat.slug ? "text-white" : "text-gray-500 hover:text-black"}`}>
+          <span className={`relative z-10 ${active === cat.slug ? "text-black" : "text-white/50 hover:text-white"}`}>
             {cat.label}
           </span>
         </button>

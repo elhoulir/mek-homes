@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] text-warm-300 border-t border-warm-200/20">
+    <footer className="bg-[#0A0A0A] text-warm-300 border-t border-white/5">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div className="lg:col-span-1">
@@ -99,7 +99,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 border-t border-warm-200/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-warm-300/60">
+        <div className="mt-20 border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-warm-300/60">
           <p>&copy; {new Date().getFullYear()} MEK Homes. All rights reserved.</p>
           <div className="flex gap-4">
             <span>Licensed Carpenters</span>

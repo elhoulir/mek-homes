@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageWrapper from "@/components/PageWrapper";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,13 +32,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${outfit.variable} font-sans bg-warm-50 text-[#0A0A0A]`}>
+      <body className={`${inter.variable} ${outfit.variable} font-sans bg-[#0A0A0A] text-white`}>
         <Header />
         <main className="pt-20">
           <PageWrapper>{children}</PageWrapper>
         </main>
         <Footer />
         <FloatingCallButton />
+        <ScrollToTop />
       </body>
     </html>
   );

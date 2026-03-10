@@ -43,7 +43,7 @@ export default async function ServicePage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-warm-100 section-padding">
+      <section className="bg-[#111111] section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             items={[
@@ -52,10 +52,10 @@ export default async function ServicePage({
               { label: service.title },
             ]}
           />
-          <h1 className="mt-4 text-4xl md:text-5xl font-heading font-bold">
+          <h1 className="mt-4 text-4xl md:text-5xl font-heading font-bold text-white">
             {service.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-500">
+          <p className="mt-4 max-w-2xl text-lg text-white/50">
             {service.description}
           </p>
           <div className="mt-8">
@@ -74,20 +74,20 @@ export default async function ServicePage({
             {/* Left Column */}
             <div className="lg:w-2/3">
               {/* Long Description */}
-              <p className="text-gray-500 leading-relaxed text-lg">
+              <p className="text-white/50 leading-relaxed text-lg">
                 {service.longDescription}
               </p>
 
               {/* Features */}
               <div className="mt-12">
-                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
                   What&apos;s Included
                 </h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-black mt-0.5 shrink-0" />
-                      <span className="text-gray-500">{feature}</span>
+                      <CheckCircle2 className="h-5 w-5 text-white mt-0.5 shrink-0" />
+                      <span className="text-white/50">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -95,7 +95,7 @@ export default async function ServicePage({
 
               {/* Gallery */}
               <div className="mt-12">
-                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
                   Our Work
                 </h2>
                 <GallerySection
@@ -106,7 +106,7 @@ export default async function ServicePage({
 
               {/* FAQ */}
               <div className="mt-12">
-                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
                   Frequently Asked Questions
                 </h2>
                 <FAQAccordion faqs={service.faqs} />
@@ -115,7 +115,7 @@ export default async function ServicePage({
 
             {/* Right Sticky Column */}
             <div className="lg:w-1/3">
-              <div className="sticky top-24 bg-warm-100 rounded-2xl p-6">
+              <div className="sticky top-24 bg-[#141414] rounded-2xl p-6">
                 {/* Service Image */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl mb-6">
                   <Image
@@ -127,7 +127,7 @@ export default async function ServicePage({
                   />
                 </div>
 
-                <p className="font-heading font-semibold text-lg mb-4">
+                <p className="font-heading font-semibold text-lg mb-4 text-white">
                   Ready to transform your space?
                 </p>
 
@@ -148,9 +148,9 @@ export default async function ServicePage({
 
       {/* Related Projects */}
       {relatedProjects.length > 0 && (
-        <section className="section-padding bg-warm-50">
+        <section className="section-padding bg-[#0A0A0A]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-white">
               Related Projects
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -173,8 +173,8 @@ export default async function ServicePage({
       {/* Contact Form */}
       <section id="contact-form" className="section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="bg-warm-50 rounded-2xl p-8">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6">
+          <div className="bg-[#0A0A0A] rounded-2xl p-8">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
               Get a Quote for {service.title}
             </h2>
             <ContactFormEmbed preselectedService={service.contactFormValue} />

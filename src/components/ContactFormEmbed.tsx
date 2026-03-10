@@ -19,7 +19,7 @@ export default function ContactFormEmbed({
 
   if (submitted) {
     return (
-      <div className="rounded-xl border border-green-200 bg-warm-50 p-8 text-center">
+      <div className="rounded-xl border border-green-800 bg-[#141414] p-8 text-center">
         <svg
           className="mx-auto h-12 w-12 text-green-500"
           fill="none"
@@ -33,10 +33,10 @@ export default function ContactFormEmbed({
             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <h3 className="mt-4 text-lg font-semibold text-green-800">
+        <h3 className="mt-4 text-lg font-semibold text-green-400">
           Thank You!
         </h3>
-        <p className="mt-2 text-green-700">
+        <p className="mt-2 text-green-300">
           We&apos;ve received your enquiry and will get back to you within 24
           hours.
         </p>
@@ -45,9 +45,9 @@ export default function ContactFormEmbed({
   }
 
   const inputClasses =
-    "mt-1 block w-full rounded-xl border border-warm-200 bg-white px-4 py-3 text-black placeholder:text-gray-500 focus:border-black focus:outline-none transition-colors";
+    "mt-1 block w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-white/30 focus:outline-none transition-colors";
 
-  const labelClasses = "block text-sm font-medium text-gray-800";
+  const labelClasses = "block text-sm font-medium text-white/70";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">

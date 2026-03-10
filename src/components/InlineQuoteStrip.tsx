@@ -14,7 +14,7 @@ export default function InlineQuoteStrip() {
   };
 
   return (
-    <section className="bg-warm-100 border-y border-warm-200/50">
+    <section className="bg-[#111111] border-y border-white/10">
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
         <AnimatePresence mode="wait">
           {submitted ? (
@@ -25,7 +25,7 @@ export default function InlineQuoteStrip() {
               className="flex items-center justify-center gap-3 py-2"
             >
               <CheckCircle2 className="h-5 w-5 text-green-600" />
-              <p className="font-medium">Thanks! We&apos;ll be in touch shortly.</p>
+              <p className="font-medium text-white">Thanks! We&apos;ll be in touch shortly.</p>
             </motion.div>
           ) : (
             <motion.form
@@ -38,21 +38,21 @@ export default function InlineQuoteStrip() {
                 name="name"
                 placeholder="Your name"
                 required
-                className="rounded-xl border border-warm-200 bg-white px-4 py-3 text-sm
-                           placeholder:text-gray-500 focus:border-black focus:outline-none transition-colors"
+                className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white
+                           placeholder:text-white/40 focus:border-white/30 focus:outline-none transition-colors"
               />
               <input
                 type="tel"
                 name="phone"
                 placeholder="Phone number"
                 required
-                className="rounded-xl border border-warm-200 bg-white px-4 py-3 text-sm
-                           placeholder:text-gray-500 focus:border-black focus:outline-none transition-colors"
+                className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white
+                           placeholder:text-white/40 focus:border-white/30 focus:outline-none transition-colors"
               />
               <select
                 name="service"
-                className="rounded-xl border border-warm-200 bg-white px-4 py-3 text-sm
-                           text-gray-500 focus:border-black focus:outline-none transition-colors"
+                className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm
+                           text-white/50 focus:border-white/30 focus:outline-none transition-colors"
               >
                 <option value="">Select a service</option>
                 {services.map((s) => (

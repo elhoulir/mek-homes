@@ -23,7 +23,7 @@
   }
 
   body {
-    @apply bg-warm-50 text-[#0A0A0A] font-sans;
+    @apply bg-[#0A0A0A] text-white font-sans;
   }
 
   h1,
@@ -40,7 +40,7 @@
   }
 
   ::selection {
-    @apply bg-black/10 text-black;
+    @apply bg-white/20 text-white;
   }
 }
 
@@ -50,18 +50,30 @@
   }
 
   .warm-card {
-    @apply bg-white rounded-2xl border border-warm-200/50 shadow-sm
-           hover:shadow-lg hover:border-warm-200 hover:-translate-y-1
+    @apply bg-[#141414] rounded-2xl border border-white/10 shadow-sm
+           hover:shadow-lg hover:border-white/20 hover:-translate-y-1
            transition-all duration-300;
   }
 
   .btn-primary {
-    @apply bg-black text-white px-6 py-3 rounded-xl font-medium
-           hover:bg-gray-800 hover:scale-[1.02] transition-all duration-200;
+    @apply bg-white text-black px-6 py-3 rounded-xl font-medium
+           hover:bg-warm-200 hover:scale-[1.02] transition-all duration-200;
   }
 
   .btn-outline {
-    @apply border-2 border-black text-black px-6 py-3 rounded-xl font-medium
-           hover:bg-black hover:text-white hover:scale-[1.02] transition-all duration-200;
+    @apply border-2 border-white text-white px-6 py-3 rounded-xl font-medium
+           hover:bg-white hover:text-black hover:scale-[1.02] transition-all duration-200;
+  }
+
+  /* Safe area padding for mobile bottom bar */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Add bottom padding on mobile to prevent content hiding behind the action bar */
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: 4.5rem;
   }
 }

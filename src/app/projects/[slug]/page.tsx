@@ -97,13 +97,13 @@ export default async function ProjectPage({
           <div className="flex flex-col lg:flex-row gap-12">
             {/* Left: description + gallery */}
             <div className="lg:w-2/3">
-              <p className="text-gray-500 leading-relaxed text-lg">
+              <p className="text-white/50 leading-relaxed text-lg">
                 {project.longDescription}
               </p>
 
               {/* Gallery */}
               <div className="mt-12">
-                <h2 className="text-2xl font-heading font-bold mb-6">
+                <h2 className="text-2xl font-heading font-bold mb-6 text-white">
                   Project Gallery
                 </h2>
                 <GallerySection
@@ -116,31 +116,31 @@ export default async function ProjectPage({
             {/* Right: sticky sidebar */}
             <div className="lg:w-1/3">
               <div className="lg:sticky lg:top-24">
-                <div className="bg-warm-100 rounded-2xl p-6">
-                  <h3 className="font-heading font-semibold text-lg mb-4">
+                <div className="bg-[#141414] rounded-2xl p-6">
+                  <h3 className="font-heading font-semibold text-lg mb-4 text-white">
                     Project Details
                   </h3>
 
                   <ul className="space-y-4">
                     <li className="flex items-center gap-3">
-                      <MapPin className="h-4 w-4 text-gray-500 shrink-0" />
+                      <MapPin className="h-4 w-4 text-white/50 shrink-0" />
                       <div>
-                        <p className="text-sm text-gray-500">Location</p>
-                        <p className="font-medium">{project.location}</p>
+                        <p className="text-sm text-white/50">Location</p>
+                        <p className="font-medium text-white">{project.location}</p>
                       </div>
                     </li>
                     <li className="flex items-center gap-3">
-                      <Clock className="h-4 w-4 text-gray-500 shrink-0" />
+                      <Clock className="h-4 w-4 text-white/50 shrink-0" />
                       <div>
-                        <p className="text-sm text-gray-500">Duration</p>
-                        <p className="font-medium">{project.duration}</p>
+                        <p className="text-sm text-white/50">Duration</p>
+                        <p className="font-medium text-white">{project.duration}</p>
                       </div>
                     </li>
                     <li className="flex items-center gap-3">
-                      <Wrench className="h-4 w-4 text-gray-500 shrink-0" />
+                      <Wrench className="h-4 w-4 text-white/50 shrink-0" />
                       <div>
-                        <p className="text-sm text-gray-500">Service</p>
-                        <p className="font-medium">
+                        <p className="text-sm text-white/50">Service</p>
+                        <p className="font-medium text-white">
                           {service ? (
                             <Link
                               href={`/services/${service.slug}`}
@@ -155,15 +155,15 @@ export default async function ProjectPage({
                       </div>
                     </li>
                     <li className="flex items-center gap-3">
-                      <CalendarCheck className="h-4 w-4 text-gray-500 shrink-0" />
+                      <CalendarCheck className="h-4 w-4 text-white/50 shrink-0" />
                       <div>
-                        <p className="text-sm text-gray-500">Completed</p>
-                        <p className="font-medium">{project.completedDate}</p>
+                        <p className="text-sm text-white/50">Completed</p>
+                        <p className="font-medium text-white">{project.completedDate}</p>
                       </div>
                     </li>
                   </ul>
 
-                  <div className="border-t border-warm-200 my-4" />
+                  <div className="border-t border-white/10 my-4" />
 
                   <div className="flex flex-col gap-3">
                     <Link href="/contact" className="btn-primary text-center">
@@ -185,14 +185,14 @@ export default async function ProjectPage({
 
       {/* Related service section */}
       {service && (
-        <section className="bg-warm-100 section-padding">
+        <section className="bg-[#111111] section-padding">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
-                <h2 className="text-2xl md:text-3xl font-heading font-bold">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-white">
                   Looking for {service.title}?
                 </h2>
-                <p className="mt-2 text-gray-500 max-w-xl">
+                <p className="mt-2 text-white/50 max-w-xl">
                   {service.description.split(".").slice(0, 2).join(".")}.
                 </p>
               </div>
@@ -211,7 +211,7 @@ export default async function ProjectPage({
       {otherProjects.length > 0 && (
         <section className="section-padding">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-white">
               More Projects
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

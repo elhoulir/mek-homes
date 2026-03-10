@@ -56,7 +56,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-warm-100 section-padding">
+      <section className="bg-[#111111] section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             items={[
@@ -64,10 +64,10 @@ export default function AboutPage() {
               { label: "About" },
             ]}
           />
-          <h1 className="font-heading text-4xl font-bold md:text-5xl">
+          <h1 className="font-heading text-4xl font-bold md:text-5xl text-white">
             About MEK Homes
           </h1>
-          <p className="mt-4 text-lg text-gray-500">
+          <p className="mt-4 text-lg text-white/50">
             Melbourne&apos;s trusted carpentry and renovation experts, delivering quality craftsmanship for over 15 years.
           </p>
         </div>
@@ -87,10 +87,10 @@ export default function AboutPage() {
               />
             </div>
             <div>
-              <h2 className="font-heading text-3xl font-bold md:text-4xl">
+              <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
                 Redefining the standard of Melbourne renovations
               </h2>
-              <div className="mt-6 space-y-5 text-gray-500 leading-relaxed">
+              <div className="mt-6 space-y-5 text-white/50 leading-relaxed">
                 <p>
                   MEK Homes was founded with a simple mission: to deliver exceptional carpentry and renovation work that Melbourne homeowners can trust. What started as a small local carpentry operation has meticulously grown into a full-service, high-end renovation company serving all suburbs across Melbourne.
                 </p>
@@ -104,10 +104,10 @@ export default function AboutPage() {
           {/* Row 2: Text left, image right */}
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="font-heading text-3xl font-bold md:text-4xl">
+              <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
                 Built on trust, delivered with pride
               </h2>
-              <div className="mt-6 space-y-5 text-gray-500 leading-relaxed">
+              <div className="mt-6 space-y-5 text-white/50 leading-relaxed">
                 <p>
                   Today, MEK Homes stands proud as one of Melbourne&apos;s most trusted building teams. We remain steadfastly committed to the same foundational values that built our business from day one: unparalleled craftsmanship, transparent communication, and treating every home as if it were our own.
                 </p>
@@ -128,14 +128,49 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Our Process */}
+      <section className="section-padding bg-[#111111]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
+              How We Work
+            </h2>
+            <p className="mt-4 text-lg text-white/50">
+              A straightforward process from first call to final walkthrough
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { step: "01", title: "Consultation", description: "We visit your home, discuss your vision, and understand your requirements and budget." },
+              { step: "02", title: "Quote & Plan", description: "You receive a detailed, transparent quote with a clear project timeline and scope of work." },
+              { step: "03", title: "Build", description: "Our team gets to work — keeping you informed at every stage with a clean, safe worksite." },
+              { step: "04", title: "Handover", description: "We walk you through the finished project, ensuring every detail meets your expectations." },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="text-4xl font-heading font-bold text-white/10 mb-4">
+                  {item.step}
+                </div>
+                <h3 className="font-heading font-semibold text-lg text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-white/50">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Our Values */}
-      <section className="section-padding bg-warm-100">
+      <section className="section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl font-bold md:text-4xl">
+            <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
               Our Values
             </h2>
-            <p className="mt-4 text-lg text-gray-500">
+            <p className="mt-4 text-lg text-white/50">
               Everything we do at MEK Homes is driven by four core principles that ensure every project is a masterpiece.
             </p>
           </div>
@@ -144,13 +179,13 @@ export default function AboutPage() {
             {values.map((value) => (
               <div
                 key={value.title}
-                className="bg-white rounded-2xl p-6 text-center"
+                className="bg-[#1A1A1A] rounded-2xl p-6 text-center"
               >
-                <div className="w-12 h-12 rounded-full bg-warm-100 flex items-center justify-center mx-auto mb-4 text-gray-500">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4 text-white/50">
                   {value.icon}
                 </div>
-                <h3 className="font-heading font-semibold mb-2">{value.title}</h3>
-                <p className="text-sm text-gray-500">{value.description}</p>
+                <h3 className="font-heading font-semibold mb-2 text-white">{value.title}</h3>
+                <p className="text-sm text-white/50">{value.description}</p>
               </div>
             ))}
           </div>
@@ -160,10 +195,10 @@ export default function AboutPage() {
       {/* Service Areas */}
       <section className="section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-3xl font-bold md:text-4xl">
+          <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
             Where We Work
           </h2>
-          <p className="mt-4 text-lg text-gray-500">
+          <p className="mt-4 text-lg text-white/50">
             MEK Homes proudly services homeowners right across the greater Melbourne metropolitan area and surrounding regions.
           </p>
 
@@ -171,9 +206,9 @@ export default function AboutPage() {
             {serviceAreas.map((area) => (
               <div
                 key={area}
-                className="bg-warm-100 rounded-xl px-4 py-3 text-sm font-medium flex items-center gap-2"
+                className="bg-white/10 rounded-xl px-4 py-3 text-sm font-medium flex items-center gap-2 text-white"
               >
-                <MapPin className="h-4 w-4 shrink-0 text-gray-500" />
+                <MapPin className="h-4 w-4 shrink-0 text-white/50" />
                 <span>{area}</span>
               </div>
             ))}
@@ -181,25 +216,65 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Explore Our Work */}
+      <section className="section-padding bg-[#111111]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Link href="/services" className="group relative rounded-2xl overflow-hidden aspect-[16/9] block">
+              <Image
+                src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80"
+                alt="Our Services"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="font-heading font-bold text-2xl text-white">Our Services</h3>
+                <p className="mt-1 text-white/70 text-sm">Explore our full range of carpentry and renovation services</p>
+                <span className="mt-3 inline-block text-sm font-medium text-white/80 group-hover:text-white transition-colors">
+                  View Services →
+                </span>
+              </div>
+            </Link>
+            <Link href="/projects" className="group relative rounded-2xl overflow-hidden aspect-[16/9] block">
+              <Image
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+                alt="Our Projects"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="font-heading font-bold text-2xl text-white">Our Portfolio</h3>
+                <p className="mt-1 text-white/70 text-sm">See completed projects across Melbourne suburbs</p>
+                <span className="mt-3 inline-block text-sm font-medium text-white/80 group-hover:text-white transition-colors">
+                  View Projects →
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="bg-[#1F2937] section-padding text-white text-center">
+      <section className="bg-white section-padding text-black text-center">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
+          <h2 className="font-heading text-3xl font-bold md:text-4xl text-black">
             Let&apos;s Build Something Great
           </h2>
-          <p className="mt-4 text-lg text-warm-200">
+          <p className="mt-4 text-lg text-black/70">
             Ready to start your renovation or carpentry project? Get in touch with our expert team for a free consultation.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="bg-white text-[#1F2937] px-6 py-3 rounded-xl font-medium hover:bg-warm-100 transition-colors"
+              className="bg-black text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors"
             >
               Contact Us Today
             </Link>
             <a
               href="tel:0400000000"
-              className="border-2 border-white text-white px-6 py-3 rounded-xl font-medium hover:bg-white hover:text-[#1F2937] transition-colors flex items-center gap-2"
+              className="border-2 border-black text-black px-6 py-3 rounded-xl font-medium hover:bg-black hover:text-white transition-colors flex items-center gap-2"
             >
               <Phone className="h-4 w-4" />
               0400 000 000

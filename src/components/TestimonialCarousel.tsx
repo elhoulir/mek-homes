@@ -36,13 +36,13 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
       {/* Desktop: show 3 cards */}
       <div className="hidden lg:grid lg:grid-cols-3 lg:gap-6">
         {testimonials.slice(0, 3).map((t, i) => (
-          <div key={i} className="rounded-2xl bg-white p-8 shadow-sm border border-warm-200/50">
-            <Quote className="h-8 w-8 text-warm-200 mb-4" />
-            <p className="text-gray-800 leading-relaxed mb-6">{t.quote}</p>
+          <div key={i} className="rounded-2xl bg-[#141414] p-8 shadow-sm border border-white/10">
+            <Quote className="h-8 w-8 text-white/20 mb-4" />
+            <p className="text-white/70 leading-relaxed mb-6">{t.quote}</p>
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-semibold font-heading">{t.name}</p>
-                <p className="text-sm text-gray-500">{t.suburb}</p>
+                <p className="font-semibold font-heading text-white">{t.name}</p>
+                <p className="text-sm text-white/50">{t.suburb}</p>
               </div>
               <div className="flex gap-0.5">
                 {Array.from({ length: t.rating }).map((_, j) => (
@@ -64,14 +64,14 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.3 }}
-              className="rounded-2xl bg-white p-6 shadow-sm border border-warm-200/50"
+              className="rounded-2xl bg-[#141414] p-6 shadow-sm border border-white/10"
             >
-              <Quote className="h-6 w-6 text-warm-200 mb-3" />
-              <p className="text-gray-800 leading-relaxed mb-4">{testimonials[current].quote}</p>
+              <Quote className="h-6 w-6 text-white/20 mb-3" />
+              <p className="text-white/70 leading-relaxed mb-4">{testimonials[current].quote}</p>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-semibold font-heading">{testimonials[current].name}</p>
-                  <p className="text-sm text-gray-500">{testimonials[current].suburb}</p>
+                  <p className="font-semibold font-heading text-white">{testimonials[current].name}</p>
+                  <p className="text-sm text-white/50">{testimonials[current].suburb}</p>
                 </div>
                 <div className="flex gap-0.5">
                   {Array.from({ length: testimonials[current].rating }).map((_, j) => (
@@ -83,21 +83,21 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
           </AnimatePresence>
         </div>
         <div className="mt-6 flex items-center justify-center gap-4">
-          <button onClick={prev} className="rounded-full p-2 hover:bg-warm-100 transition-colors" aria-label="Previous testimonial">
-            <ChevronLeft className="h-5 w-5" />
+          <button onClick={prev} className="rounded-full p-2 hover:bg-white/10 transition-colors" aria-label="Previous testimonial">
+            <ChevronLeft className="h-5 w-5 text-white" />
           </button>
           <div className="flex gap-2">
             {testimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-6 bg-black" : "w-2 bg-warm-200"}`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-6 bg-white" : "w-2 bg-white/20"}`}
                 aria-label={`Go to testimonial ${i + 1}`}
               />
             ))}
           </div>
-          <button onClick={next} className="rounded-full p-2 hover:bg-warm-100 transition-colors" aria-label="Next testimonial">
-            <ChevronRight className="h-5 w-5" />
+          <button onClick={next} className="rounded-full p-2 hover:bg-white/10 transition-colors" aria-label="Next testimonial">
+            <ChevronRight className="h-5 w-5 text-white" />
           </button>
         </div>
       </div>

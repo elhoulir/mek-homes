@@ -31,15 +31,15 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
           transition={{ delay: i * 0.1 }}
           className={`rounded-2xl border transition-colors duration-300 ${
             openIndex === i
-              ? "bg-warm-100 border-warm-200"
-              : "bg-white border-warm-200/50"
+              ? "bg-[#1A1A1A] border-white/10"
+              : "bg-[#141414] border-white/10"
           }`}
         >
           <button
             onClick={() => toggle(i)}
             className="flex w-full items-center justify-between p-6 text-left"
           >
-            <span className="font-heading font-medium text-lg text-black">
+            <span className="font-heading font-medium text-lg text-white">
               {faq.question}
             </span>
             <motion.div
@@ -47,7 +47,7 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
             >
-              <ChevronDown className="h-5 w-5 text-gray-500" />
+              <ChevronDown className="h-5 w-5 text-white/50" />
             </motion.div>
           </button>
 
@@ -61,7 +61,7 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
                 className="overflow-hidden"
               >
                 <div className="px-6 pb-6 pt-2">
-                  <p className="text-base leading-relaxed text-gray-500">
+                  <p className="text-base leading-relaxed text-white/50">
                     {faq.answer}
                   </p>
                 </div>
