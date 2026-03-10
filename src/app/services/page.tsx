@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { services } from "@/data/services";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Our Services | MEK Homes - Carpentry & Renovations Melbourne",
@@ -12,16 +13,19 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      {/* Page Header */}
-      <section className="bg-navy-900 py-12 sm:py-24">
+      {/* Hero */}
+      <section className="bg-warm-100 section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-widest text-gold-400">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Our Services" },
+            ]}
+          />
+          <h1 className="mt-4 text-4xl md:text-5xl font-heading font-bold">
             Our Services
-          </p>
-          <h1 className="mt-2 text-4xl font-bold text-white sm:text-5xl">
-            Carpentry & Renovation Services
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-slate-300">
+          <p className="mt-4 max-w-2xl text-lg text-gray-500">
             MEK Homes offers a comprehensive range of carpentry and renovation
             services across Melbourne. Every project is delivered with quality
             craftsmanship and attention to detail.
@@ -29,54 +33,20 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services List */}
-      <section className="bg-white py-12 sm:py-24">
+      {/* Services Grid */}
+      <section className="section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-12 sm:space-y-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, i) => (
-              <div
+              <Link
                 key={service.slug}
-                className="grid items-start gap-6 sm:gap-12 lg:grid-cols-2"
+                href={`/services/${service.slug}`}
+                className="warm-card overflow-hidden block"
               >
-                <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-                  <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-                    {service.title}
-                  </h2>
-                  <p className="mt-4 leading-relaxed text-slate-500">
-                    {service.description}
-                  </p>
-                  <div className="mt-6 flex flex-wrap items-center gap-4">
-                    <Link
-                      href={`/services/${service.slug}`}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-gold-600 transition-colors hover:text-navy-900"
-                    >
-                      Learn more
-                      <svg
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </Link>
-                    <span className="text-slate-300">|</span>
-                    <Link
-                      href={`/services/${service.slug}#contact-form`}
-                      className="text-sm font-medium text-slate-500 transition-colors hover:text-slate-700"
-                    >
-                      Get a quote
-                    </Link>
-                  </div>
-                </div>
+                {/* Image */}
                 <div
-                  className={`relative aspect-[3/2] sm:aspect-[4/3] overflow-hidden rounded-xl ${
-                    i % 2 === 1 ? "lg:order-1" : ""
+                  className={`relative overflow-hidden rounded-t-2xl ${
+                    i % 2 === 0 ? "aspect-[16/9]" : "aspect-[4/3]"
                   }`}
                 >
                   <Image
@@ -84,31 +54,65 @@ export default function ServicesPage() {
                     alt={service.title}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
-              </div>
+
+                {/* Card Body */}
+                <div className="p-6">
+                  <h2 className="text-xl font-heading font-semibold">
+                    {service.title}
+                  </h2>
+                  <p className="mt-2 text-gray-500 line-clamp-2 mb-4">
+                    {service.description}
+                  </p>
+
+                  {/* Feature Pills */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {service.features.slice(0, 3).map((feature) => (
+                      <span
+                        key={feature}
+                        className="rounded-full bg-warm-100 px-3 py-1 text-xs text-gray-500"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+
+                  <span className="text-sm font-medium flex items-center gap-1">
+                    Learn More →
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-navy-900 py-10 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white">
-            Need a Carpenter in Melbourne?
+      {/* Bottom CTA */}
+      <section className="section-padding bg-[#1F2937] text-white text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            Ready to Get Started?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-slate-300">
+          <p className="mt-4 mx-auto max-w-xl text-white/70 text-lg">
             Contact MEK Homes today for a free, no-obligation quote on any of
             our carpentry and renovation services.
           </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center justify-center rounded-lg bg-white px-8 py-3.5 text-base font-semibold text-navy-900 transition-colors hover:bg-slate-100"
-          >
-            Request a Free Quote
-          </Link>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-medium text-[#1F2937] hover:bg-warm-100 hover:scale-[1.02] transition-all duration-200"
+            >
+              Request a Free Quote
+            </Link>
+            <Link
+              href="tel:0400000000"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-white px-6 py-3 font-medium text-white hover:bg-white hover:text-[#1F2937] hover:scale-[1.02] transition-all duration-200"
+            >
+              Call 0400 000 000
+            </Link>
+          </div>
         </div>
       </section>
     </>
