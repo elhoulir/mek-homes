@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 interface FAQ {
   question: string;
@@ -19,40 +21,54 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
   }
 
   return (
-    <div className="divide-y divide-slate-200 border-t border-b border-slate-200">
+    <div className="space-y-4">
       {faqs.map((faq, i) => (
-        <div key={i}>
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.1 }}
+          className={`rounded-2xl border transition-colors duration-300 ${
+            openIndex === i
+              ? "bg-warm-100 border-warm-200"
+              : "bg-white border-warm-200/50"
+          }`}
+        >
           <button
             onClick={() => toggle(i)}
-            className="flex w-full items-center justify-between py-5 text-left"
+            className="flex w-full items-center justify-between p-6 text-left"
           >
-            <span className="pr-4 text-base font-medium text-slate-900">
+            <span className="font-heading font-medium text-lg text-black">
               {faq.question}
             </span>
-            <svg
-              className={`h-5 w-5 shrink-0 text-gold-600 transition-transform duration-200 ${
-                openIndex === i ? "rotate-180" : ""
-              }`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            <motion.div
+              animate={{ rotate: openIndex === i ? 180 : 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+              <ChevronDown className="h-5 w-5 text-gray-500" />
+            </motion.div>
           </button>
-          {openIndex === i && (
-            <div className="pb-5 pr-12">
-              <p className="text-sm leading-relaxed text-slate-500">
-                {faq.answer}
-              </p>
-            </div>
-          )}
-        </div>
+
+          <AnimatePresence initial={false}>
+            {openIndex === i && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <div className="px-6 pb-6 pt-2">
+                  <p className="text-base leading-relaxed text-gray-500">
+                    {faq.answer}
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
       ))}
     </div>
   );
