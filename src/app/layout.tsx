@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageWrapper from "@/components/PageWrapper";
+import FloatingCallButton from "@/components/FloatingCallButton";
 import "./globals.css";
 
 const inter = Inter({
@@ -36,6 +37,7 @@ export default function RootLayout({
           <PageWrapper>{children}</PageWrapper>
         </main>
         <Footer />
+        <FloatingCallButton />
       </body>
     </html>
   );
