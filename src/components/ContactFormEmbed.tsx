@@ -19,7 +19,7 @@ export default function ContactFormEmbed({
 
   if (submitted) {
     return (
-      <div className="rounded-xl border border-green-200 bg-green-50 p-8 text-center">
+      <div className="rounded-xl border border-green-200 bg-warm-50 p-8 text-center">
         <svg
           className="mx-auto h-12 w-12 text-green-500"
           fill="none"
@@ -44,14 +44,16 @@ export default function ContactFormEmbed({
     );
   }
 
+  const inputClasses =
+    "mt-1 block w-full rounded-xl border border-warm-200 bg-white px-4 py-3 text-black placeholder:text-gray-500 focus:border-black focus:outline-none transition-colors";
+
+  const labelClasses = "block text-sm font-medium text-gray-800";
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label
-            htmlFor="firstName"
-            className="block text-sm font-medium text-slate-700"
-          >
+          <label htmlFor="firstName" className={labelClasses}>
             First Name *
           </label>
           <input
@@ -59,15 +61,12 @@ export default function ContactFormEmbed({
             id="firstName"
             name="firstName"
             required
-            className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
+            className={inputClasses}
             placeholder="John"
           />
         </div>
         <div>
-          <label
-            htmlFor="lastName"
-            className="block text-sm font-medium text-slate-700"
-          >
+          <label htmlFor="lastName" className={labelClasses}>
             Last Name *
           </label>
           <input
@@ -75,7 +74,7 @@ export default function ContactFormEmbed({
             id="lastName"
             name="lastName"
             required
-            className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
+            className={inputClasses}
             placeholder="Smith"
           />
         </div>
@@ -83,10 +82,7 @@ export default function ContactFormEmbed({
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-slate-700"
-          >
+          <label htmlFor="email" className={labelClasses}>
             Email *
           </label>
           <input
@@ -94,15 +90,12 @@ export default function ContactFormEmbed({
             id="email"
             name="email"
             required
-            className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
+            className={inputClasses}
             placeholder="john@example.com"
           />
         </div>
         <div>
-          <label
-            htmlFor="phone"
-            className="block text-sm font-medium text-slate-700"
-          >
+          <label htmlFor="phone" className={labelClasses}>
             Phone *
           </label>
           <input
@@ -110,59 +103,50 @@ export default function ContactFormEmbed({
             id="phone"
             name="phone"
             required
-            className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
+            className={inputClasses}
             placeholder="0400 000 000"
           />
         </div>
       </div>
 
       <div>
-        <label
-          htmlFor="service"
-          className="block text-sm font-medium text-slate-700"
-        >
+        <label htmlFor="service" className={labelClasses}>
           Service Required
         </label>
         <select
           id="service"
           name="service"
           defaultValue={preselectedService || ""}
-          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
+          className={inputClasses}
         >
           <option value="">Select a service</option>
           <option value="renovation">Home Renovations</option>
           <option value="carpentry">Custom Carpentry</option>
-          <option value="decking">Decking & Pergolas</option>
+          <option value="decking">Decking &amp; Pergolas</option>
           <option value="kitchen">Kitchen Renovations</option>
           <option value="bathroom">Bathroom Renovations</option>
           <option value="structural">Structural Carpentry</option>
-          <option value="doors-windows">Doors & Windows</option>
-          <option value="fencing">Fencing & Gates</option>
+          <option value="doors-windows">Doors &amp; Windows</option>
+          <option value="fencing">Fencing &amp; Gates</option>
           <option value="other">Other</option>
         </select>
       </div>
 
       <div>
-        <label
-          htmlFor="suburb"
-          className="block text-sm font-medium text-slate-700"
-        >
+        <label htmlFor="suburb" className={labelClasses}>
           Suburb
         </label>
         <input
           type="text"
           id="suburb"
           name="suburb"
-          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
+          className={inputClasses}
           placeholder="e.g. Richmond, VIC"
         />
       </div>
 
       <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-slate-700"
-        >
+        <label htmlFor="message" className={labelClasses}>
           Project Details *
         </label>
         <textarea
@@ -170,15 +154,12 @@ export default function ContactFormEmbed({
           name="message"
           rows={5}
           required
-          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
+          className={inputClasses}
           placeholder="Tell us about your project — what work do you need done, any specific requirements, and your ideal timeline."
         />
       </div>
 
-      <button
-        type="submit"
-        className="w-full rounded-lg bg-gold-600 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-gold-700 sm:w-auto"
-      >
+      <button type="submit" className="btn-primary w-full">
         Send Enquiry
       </button>
     </form>
