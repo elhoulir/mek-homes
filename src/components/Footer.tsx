@@ -1,171 +1,113 @@
 import Link from "next/link";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-900 text-slate-300">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-4">
-          <div className="md:col-span-1">
+    <footer className="bg-[#0A0A0A] text-warm-300 border-t border-warm-200/20">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <div className="lg:col-span-1">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded bg-gold-600 text-lg font-bold text-white">
-                M
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-warm-300 shadow-black/10">
+                <span className="font-heading text-xl font-bold text-black">M</span>
               </div>
-              <span className="text-xl font-bold text-white">MEK Homes</span>
+              <span className="font-heading text-2xl font-bold tracking-wide text-white">
+                MEK HOMES
+              </span>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-slate-400">
-              Quality carpentry and renovation services across Melbourne,
-              Victoria. Licensed, insured, and committed to excellence.
+            <p className="mt-6 text-sm leading-relaxed text-warm-300">
+              Transforming Melbourne homes with award-winning craftsmanship,
+              bespoke carpentry, and unparalleled dedication to quality.
             </p>
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
-              Services
+            <h3 className="mb-6 font-heading text-lg font-semibold uppercase tracking-widest text-white">
+              Expertise
             </h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link
-                  href="/services/home-renovations"
-                  className="transition-colors hover:text-gold-400"
-                >
-                  Home Renovations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/custom-carpentry"
-                  className="transition-colors hover:text-gold-400"
-                >
-                  Custom Carpentry
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/decking-pergolas"
-                  className="transition-colors hover:text-gold-400"
-                >
-                  Decking & Pergolas
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/kitchen-renovations"
-                  className="transition-colors hover:text-gold-400"
-                >
-                  Kitchen Renovations
-                </Link>
-              </li>
+            <ul className="space-y-4 text-sm font-medium">
+              {[
+                { name: "Home Renovations", href: "/services/home-renovations" },
+                { name: "Custom Carpentry", href: "/services/custom-carpentry" },
+                { name: "Decking & Pergolas", href: "/services/decking-pergolas" },
+                { name: "Kitchens & Bathrooms", href: "/services/kitchen-renovations" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="group flex items-center gap-2 transition-colors hover:text-white"
+                  >
+                    <ArrowRight className="h-4 w-4 text-warm-300 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                    <span className="transition-transform group-hover:translate-x-1">{link.name}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
+            <h3 className="mb-6 font-heading text-lg font-semibold uppercase tracking-widest text-white">
               Company
             </h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link
-                  href="/about"
-                  className="transition-colors hover:text-gold-400"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="transition-colors hover:text-gold-400"
-                >
-                  Our Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects"
-                  className="transition-colors hover:text-gold-400"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="transition-colors hover:text-gold-400"
-                >
-                  Contact
-                </Link>
-              </li>
+            <ul className="space-y-4 text-sm font-medium">
+              {[
+                { name: "About Us", href: "/about" },
+                { name: "Our Services", href: "/services" },
+                { name: "Projects Portfolio", href: "/projects" },
+                { name: "Contact Team", href: "/contact" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="transition-colors hover:text-white"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
-              Contact Us
+            <h3 className="mb-6 font-heading text-lg font-semibold uppercase tracking-widest text-white">
+              Get in Touch
             </h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <svg
-                  className="mt-0.5 h-4 w-4 shrink-0 text-gold-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                Melbourne, Victoria
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-start gap-4">
+                <div className="rounded-full bg-warm-200/10 p-2 text-warm-300">
+                  <MapPin className="h-4 w-4" />
+                </div>
+                <span className="mt-1">Melbourne, Victoria</span>
               </li>
-              <li className="flex items-start gap-2">
-                <svg
-                  className="mt-0.5 h-4 w-4 shrink-0 text-gold-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                info@mekhomes.com.au
+              <li className="flex items-start gap-4">
+                <div className="rounded-full bg-warm-200/10 p-2 text-warm-300">
+                  <Mail className="h-4 w-4" />
+                </div>
+                <a href="mailto:info@mekhomes.com.au" className="mt-1 transition-colors hover:text-white">
+                  info@mekhomes.com.au
+                </a>
               </li>
-              <li className="flex items-start gap-2">
-                <svg
-                  className="mt-0.5 h-4 w-4 shrink-0 text-gold-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-                0400 000 000
+              <li className="flex items-start gap-4">
+                <div className="rounded-full bg-warm-200/10 p-2 text-warm-300">
+                  <Phone className="h-4 w-4" />
+                </div>
+                <a href="tel:0400000000" className="mt-1 transition-colors hover:text-white">
+                  0400 000 000
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-navy-800 pt-8 text-center text-sm text-slate-500">
+        <div className="mt-20 border-t border-warm-200/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-warm-300/60">
           <p>&copy; {new Date().getFullYear()} MEK Homes. All rights reserved.</p>
-          <p className="mt-1">
-            Licensed Carpenters &bull; Fully Insured &bull; Melbourne, VIC
-          </p>
+          <div className="flex gap-4">
+            <span>Licensed Carpenters</span>
+            <span>&bull;</span>
+            <span>Fully Insured</span>
+            <span>&bull;</span>
+            <span>Melbourne, VIC</span>
+          </div>
         </div>
       </div>
     </footer>
