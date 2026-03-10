@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { MapPin, Clock, Wrench, CalendarCheck } from "lucide-react";
 import {
   projects,
   getProjectBySlug,
@@ -10,6 +11,7 @@ import {
 import { getServiceBySlug } from "@/data/services";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ProjectCard from "@/components/ProjectCard";
+import GallerySection from "@/components/GallerySection";
 
 export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({ slug }));
@@ -39,262 +41,195 @@ export default async function ProjectPage({
   if (!project) notFound();
 
   const service = getServiceBySlug(project.serviceType);
-  const otherProjects = projects
-    .filter((p) => p.slug !== slug)
-    .slice(0, 3);
+  const otherProjects = projects.filter((p) => p.slug !== slug).slice(0, 3);
 
   return (
     <>
-      {/* Page Header */}
-      <section className="bg-navy-900 py-12 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Projects", href: "/projects" },
-              { label: project.title },
-            ]}
-          />
-          <h1 className="mt-2 text-4xl font-bold text-white sm:text-5xl">
-            {project.title}
-          </h1>
-          <div className="mt-4 flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-sm text-slate-200">
-              <svg
-                className="h-4 w-4 text-gold-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-              {project.location}
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-sm text-slate-200">
-              <svg
-                className="h-4 w-4 text-gold-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              {project.duration}
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-gold-600/20 px-3 py-1.5 text-sm text-gold-300">
-              {service?.title}
-            </span>
+      {/* Hero: full-width image with dark gradient overlay */}
+      <section className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className="object-cover"
+          priority
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+
+        {/* Content positioned at bottom-left */}
+        <div className="absolute inset-0 flex items-end">
+          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 pb-10">
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Projects", href: "/projects" },
+                { label: project.title },
+              ]}
+            />
+            <h1 className="mt-4 text-3xl md:text-5xl font-heading font-bold text-white">
+              {project.title}
+            </h1>
+            {/* Badges row */}
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm text-white rounded-full px-4 py-1.5 text-sm">
+                <MapPin className="h-3.5 w-3.5" />
+                {project.location}
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm text-white rounded-full px-4 py-1.5 text-sm">
+                <Clock className="h-3.5 w-3.5" />
+                {project.duration}
+              </span>
+              {service && (
+                <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm text-white rounded-full px-4 py-1.5 text-sm">
+                  <Wrench className="h-3.5 w-3.5" />
+                  {service.title}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Project Details */}
-      <section className="bg-white py-12 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-start gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-                Project Overview
-              </h2>
-              <p className="mt-4 leading-relaxed text-slate-500">
+      {/* Main content */}
+      <section className="section-padding">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Left: description + gallery */}
+            <div className="lg:w-2/3">
+              <p className="text-gray-500 leading-relaxed text-lg">
                 {project.longDescription}
               </p>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-lg bg-slate-50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                    Location
-                  </p>
-                  <p className="mt-1 font-medium text-slate-900">
-                    {project.location}
-                  </p>
-                </div>
-                <div className="rounded-lg bg-slate-50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                    Duration
-                  </p>
-                  <p className="mt-1 font-medium text-slate-900">
-                    {project.duration}
-                  </p>
-                </div>
-                <div className="rounded-lg bg-slate-50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                    Service
-                  </p>
-                  <p className="mt-1 font-medium text-slate-900">
-                    {service?.title}
-                  </p>
-                </div>
-                <div className="rounded-lg bg-slate-50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                    Completed
-                  </p>
-                  <p className="mt-1 font-medium text-slate-900">
-                    {project.completedDate}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="relative aspect-square overflow-hidden rounded-2xl">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Image Gallery */}
-      <section className="bg-slate-50 py-12 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-            Project Gallery
-          </h2>
-          <p className="mt-2 text-slate-500">
-            Photos from this {service?.title?.toLowerCase()} project.
-          </p>
-          <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {project.galleryImages.map((img, i) => (
-              <div
-                key={i}
-                className={`relative aspect-[4/3] overflow-hidden rounded-xl${i >= 2 ? " hidden sm:block" : ""}`}
-              >
-                <Image
-                  src={img}
-                  alt={`${project.title} photo ${i + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              {/* Gallery */}
+              <div className="mt-12">
+                <h2 className="text-2xl font-heading font-bold mb-6">
+                  Project Gallery
+                </h2>
+                <GallerySection
+                  images={project.galleryImages}
+                  title={project.title}
                 />
               </div>
-            ))}
+            </div>
+
+            {/* Right: sticky sidebar */}
+            <div className="lg:w-1/3">
+              <div className="lg:sticky lg:top-24">
+                <div className="bg-warm-100 rounded-2xl p-6">
+                  <h3 className="font-heading font-semibold text-lg mb-4">
+                    Project Details
+                  </h3>
+
+                  <ul className="space-y-4">
+                    <li className="flex items-center gap-3">
+                      <MapPin className="h-4 w-4 text-gray-500 shrink-0" />
+                      <div>
+                        <p className="text-sm text-gray-500">Location</p>
+                        <p className="font-medium">{project.location}</p>
+                      </div>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <Clock className="h-4 w-4 text-gray-500 shrink-0" />
+                      <div>
+                        <p className="text-sm text-gray-500">Duration</p>
+                        <p className="font-medium">{project.duration}</p>
+                      </div>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <Wrench className="h-4 w-4 text-gray-500 shrink-0" />
+                      <div>
+                        <p className="text-sm text-gray-500">Service</p>
+                        <p className="font-medium">
+                          {service ? (
+                            <Link
+                              href={`/services/${service.slug}`}
+                              className="hover:underline"
+                            >
+                              {service.title}
+                            </Link>
+                          ) : (
+                            project.serviceType
+                          )}
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CalendarCheck className="h-4 w-4 text-gray-500 shrink-0" />
+                      <div>
+                        <p className="text-sm text-gray-500">Completed</p>
+                        <p className="font-medium">{project.completedDate}</p>
+                      </div>
+                    </li>
+                  </ul>
+
+                  <div className="border-t border-warm-200 my-4" />
+
+                  <div className="flex flex-col gap-3">
+                    <Link href="/contact" className="btn-primary text-center">
+                      Start Your Project
+                    </Link>
+                    <a
+                      href="tel:0400000000"
+                      className="btn-outline text-center"
+                    >
+                      Call 0400 000 000
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Related Service */}
+      {/* Related service section */}
       {service && (
-        <section className="bg-white py-12 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-8 sm:p-12">
-              <h2 className="text-2xl font-bold text-slate-900">
-                Learn More About Our {service.title} Services
-              </h2>
-              <p className="mt-3 max-w-2xl leading-relaxed text-slate-500">
-                {service.description.split(".").slice(0, 2).join(".")}.
-              </p>
+        <section className="bg-warm-100 section-padding">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <h2 className="text-2xl md:text-3xl font-heading font-bold">
+                  Looking for {service.title}?
+                </h2>
+                <p className="mt-2 text-gray-500 max-w-xl">
+                  {service.description.split(".").slice(0, 2).join(".")}.
+                </p>
+              </div>
               <Link
                 href={`/services/${service.slug}`}
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gold-600 transition-colors hover:text-navy-900"
+                className="btn-primary whitespace-nowrap"
               >
-                View {service.title} Service
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+                Explore {service.title}
               </Link>
             </div>
           </div>
         </section>
       )}
 
-      {/* More Projects */}
+      {/* Related projects */}
       {otherProjects.length > 0 && (
-        <section className="bg-slate-50 py-12 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+        <section className="section-padding">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8">
               More Projects
             </h2>
-            <p className="mt-2 text-slate-500">
-              Explore more of our completed work across Melbourne.
-            </p>
-            <div className="mt-6 sm:mt-8 grid gap-3 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {otherProjects.map((p, i) => (
-                <div key={p.slug} className={i >= 2 ? "hidden sm:block" : ""}>
-                  <ProjectCard
-                    slug={p.slug}
-                    title={p.title}
-                    description={p.description}
-                    location={p.location}
-                    serviceType={p.serviceType}
-                    image={p.image}
-                  />
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {otherProjects.map((p) => (
+                <ProjectCard
+                  key={p.slug}
+                  slug={p.slug}
+                  title={p.title}
+                  description={p.description}
+                  location={p.location}
+                  serviceType={p.serviceType}
+                  image={p.image}
+                />
               ))}
-            </div>
-            <div className="mt-8 text-center">
-              <Link
-                href="/projects"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-gold-600 transition-colors hover:text-navy-900"
-              >
-                View All Projects
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
             </div>
           </div>
         </section>
       )}
-
-      {/* CTA */}
-      <section className="bg-navy-900 py-10 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white">
-            Want Results Like These?
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-slate-300">
-            Contact MEK Homes today for a free quote on your next carpentry or
-            renovation project.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center justify-center rounded-lg bg-white px-8 py-3.5 text-base font-semibold text-navy-900 transition-colors hover:bg-slate-100"
-          >
-            Get a Free Quote
-          </Link>
-        </div>
-      </section>
     </>
   );
 }
