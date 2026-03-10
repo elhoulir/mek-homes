@@ -17,7 +17,6 @@ interface ProjectCardProps {
 export default function ProjectCard({
   slug,
   title,
-  description,
   location,
   serviceType,
   image,
