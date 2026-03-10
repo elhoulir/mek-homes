@@ -1,69 +1,97 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { projects } from "@/data/projects";
-import ProjectCard from "@/components/ProjectCard";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Our Projects | MEK Homes - Carpentry & Renovations Melbourne",
-  description:
-    "Browse our portfolio of completed carpentry and renovation projects across Melbourne. Kitchens, bathrooms, decking, custom carpentry, and more.",
-};
+import { useState } from "react";
+import { motion, LayoutGroup } from "framer-motion";
+import Link from "next/link";
+import ProjectCard from "@/components/ProjectCard";
+import ProjectFilter from "@/components/ProjectFilter";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { projects } from "@/data/projects";
+import { services } from "@/data/services";
 
 export default function ProjectsPage() {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const categories = [
+    { slug: "all", label: "All" },
+    ...services.map((s) => ({ slug: s.slug, label: s.title })),
+  ];
+
+  const filtered =
+    activeFilter === "all"
+      ? projects
+      : projects.filter((p) => p.serviceType === activeFilter);
+
   return (
     <>
-      {/* Page Header */}
-      <section className="bg-navy-900 py-12 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-widest text-gold-400">
-            Our Work
-          </p>
-          <h1 className="mt-2 text-4xl font-bold text-white sm:text-5xl">
-            Featured Projects
+      {/* Hero */}
+      <section className="section-padding bg-warm-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <Breadcrumbs
+            items={[{ label: "Home", href: "/" }, { label: "Projects" }]}
+          />
+          <h1 className="mt-6 text-4xl md:text-5xl font-heading font-bold">
+            Our Projects
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-slate-300">
-            Browse our portfolio of completed carpentry and renovation projects
-            across Melbourne. Every project showcases our commitment to quality
-            craftsmanship and attention to detail.
+          <p className="mt-4 text-lg text-gray-500">
+            Explore our portfolio of completed renovations across Melbourne
           </p>
         </div>
       </section>
+
+      {/* Filter Bar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8">
+        <ProjectFilter
+          categories={categories}
+          active={activeFilter}
+          onChange={setActiveFilter}
+        />
+      </div>
 
       {/* Projects Grid */}
-      <section className="bg-white py-12 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-3 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.slug}
-                slug={project.slug}
-                title={project.title}
-                description={project.description}
-                location={project.location}
-                serviceType={project.serviceType}
-                image={project.image}
-              />
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 section-padding">
+        <LayoutGroup>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {filtered.map((project) => (
+              <motion.div key={project.slug} layout>
+                <ProjectCard
+                  slug={project.slug}
+                  title={project.title}
+                  description={project.description}
+                  location={project.location}
+                  serviceType={project.serviceType}
+                  image={project.image}
+                />
+              </motion.div>
             ))}
           </div>
-        </div>
+        </LayoutGroup>
       </section>
 
-      {/* CTA */}
-      <section className="bg-navy-900 py-10 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white">
-            Want Results Like These?
+      {/* Bottom CTA */}
+      <section className="bg-[#1F2937] section-padding text-white text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            Have a Project in Mind?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-slate-300">
-            Get in touch with MEK Homes today. We&apos;ll discuss your project
-            and provide a free, no-obligation quote.
+          <p className="mt-4 text-lg text-warm-200">
+            Let&apos;s bring your vision to life with expert craftsmanship and
+            attention to detail.
           </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center justify-center rounded-lg bg-white px-8 py-3.5 text-base font-semibold text-navy-900 transition-colors hover:bg-slate-100"
-          >
-            Request a Free Quote
-          </Link>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-xl bg-white text-black px-6 py-3 font-medium hover:bg-warm-100 transition-colors w-full sm:w-auto"
+            >
+              Get a Free Quote
+            </Link>
+            <a
+              href="tel:0400000000"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-white text-white px-6 py-3 font-medium hover:bg-white hover:text-black transition-colors w-full sm:w-auto"
+            >
+              Call 0400 000 000
+            </a>
+          </div>
         </div>
       </section>
     </>
