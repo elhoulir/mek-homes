@@ -1,147 +1,135 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Menu, Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
+import BottomSheetNav from "./BottomSheetNav";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Projects", href: "/projects" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+  ];
+
+  const isScrolledOrNotHome = scrolled || pathname !== "/";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded bg-gold-600 text-lg font-bold text-white">
-              M
-            </div>
-            <div>
-              <span className="text-xl font-bold text-slate-900">
-                MEK Homes
-              </span>
-              <span className="block text-xs text-slate-500">
-                Carpentry & Renovations
-              </span>
-            </div>
-          </Link>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolledOrNotHome
+            ? "bg-white/95 backdrop-blur-sm border-b border-warm-200 py-3"
+            : "bg-transparent py-5"
+        }`}
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="group flex items-center gap-3">
+              <div
+                className={`flex h-11 w-11 items-center justify-center rounded-lg shadow-black/10 transition-all duration-300 group-hover:scale-105 ${
+                  isScrolledOrNotHome ? "bg-zinc-950" : "bg-white/20 backdrop-blur-sm"
+                }`}
+              >
+                <span
+                  className={`font-heading text-2xl font-bold transition-colors duration-300 ${
+                    isScrolledOrNotHome ? "text-white" : "text-white"
+                  }`}
+                >
+                  M
+                </span>
+              </div>
+              <div className="flex flex-col">
+                <span
+                  className={`font-heading text-xl font-bold tracking-wide transition-colors duration-300 ${
+                    isScrolledOrNotHome ? "text-zinc-950" : "text-white"
+                  }`}
+                >
+                  MEK HOMES
+                </span>
+                <span
+                  className={`text-[10px] uppercase tracking-widest transition-colors duration-300 ${
+                    isScrolledOrNotHome ? "text-zinc-500" : "text-white/80"
+                  }`}
+                >
+                  Premium Carpentry
+                </span>
+              </div>
+            </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
-            <Link
-              href="/"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-gold-600"
-            >
-              Home
-            </Link>
-            <Link
-              href="/services"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-gold-600"
-            >
-              Services
-            </Link>
-            <Link
-              href="/projects"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-gold-600"
-            >
-              Projects
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-gold-600"
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-gold-600"
-            >
-              Contact
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-lg bg-gold-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-gold-700"
-            >
-              Get a Quote
-            </Link>
-          </nav>
+            <nav className="hidden items-center gap-8 lg:flex">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`relative text-sm font-medium transition-colors duration-300
+                    after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform hover:after:scale-x-100
+                    ${
+                      pathname === link.href
+                        ? isScrolledOrNotHome
+                          ? "text-zinc-950"
+                          : "text-white"
+                        : isScrolledOrNotHome
+                        ? "text-zinc-600 hover:text-zinc-950"
+                        : "text-white/80 hover:text-white"
+                    }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
 
-          <button
-            className="md:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="h-6 w-6 text-slate-700"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {mobileOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-        </div>
-      </div>
+              <div className="flex items-center gap-4">
+                <a
+                  href="tel:0400000000"
+                  className={`flex items-center gap-1.5 text-sm transition-colors duration-300 ${
+                    isScrolledOrNotHome
+                      ? "text-zinc-500 hover:text-zinc-950"
+                      : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  <Phone className="h-3.5 w-3.5" />
+                  <span>0400 000 000</span>
+                </a>
+                <Link href="/contact" className="btn-primary">
+                  Get a Quote
+                </Link>
+              </div>
+            </nav>
 
-      {mobileOpen && (
-        <div className="border-t border-slate-100 bg-white md:hidden">
-          <div className="space-y-1 px-4 py-4">
-            <Link
-              href="/"
-              onClick={() => setMobileOpen(false)}
-              className="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50"
+            <button
+              className={`lg:hidden transition-colors duration-300 ${
+                isScrolledOrNotHome ? "text-zinc-950" : "text-white"
+              }`}
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
             >
-              Home
-            </Link>
-            <Link
-              href="/services"
-              onClick={() => setMobileOpen(false)}
-              className="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50"
-            >
-              Services
-            </Link>
-            <Link
-              href="/projects"
-              onClick={() => setMobileOpen(false)}
-              className="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50"
-            >
-              Projects
-            </Link>
-            <Link
-              href="/about"
-              onClick={() => setMobileOpen(false)}
-              className="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50"
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50"
-            >
-              Contact
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 block rounded-lg bg-gold-600 px-3 py-2.5 text-center text-base font-semibold text-white"
-            >
-              Get a Quote
-            </Link>
+              <Menu className="h-7 w-7" />
+            </button>
           </div>
         </div>
-      )}
-    </header>
+      </header>
+
+      <BottomSheetNav isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
+    </>
   );
 }
