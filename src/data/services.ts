@@ -24,8 +24,8 @@ export const services: Service[] = [
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
     galleryImages: [
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80",
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80",
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80",
     ],
     description:
       "Build your dream home from the ground up. MEK Homes delivers complete new home builds with quality craftsmanship, transparent pricing, and full project management from foundations to handover.",
@@ -72,8 +72,8 @@ export const services: Service[] = [
     image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80",
     galleryImages: [
       "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80",
+      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80",
+      "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?w=600&q=80",
     ],
     description:
       "Transform your existing home with a full renovation. From kitchen and bathroom upgrades to complete interior overhauls, MEK Homes manages every aspect of the project with quality craftsmanship and attention to detail.",
@@ -117,11 +117,11 @@ export const services: Service[] = [
   {
     slug: "extensions",
     title: "Extensions",
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1704742950992-9815a104820c?w=800&q=80",
     galleryImages: [
-      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80",
-      "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80",
-      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=600&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80",
     ],
     description:
       "Add more space to your home with a professionally built extension. Whether it's an extra bedroom, expanded living area, or a second storey, MEK Homes delivers seamless extensions that blend with your existing home.",
@@ -165,11 +165,11 @@ export const services: Service[] = [
   {
     slug: "renovations-and-extensions",
     title: "Renovations & Extensions",
-    image: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&q=80",
     galleryImages: [
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80",
+      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=600&q=80",
+      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80",
     ],
     description:
       "Combine a renovation and extension into one streamlined project. MEK Homes manages the entire scope — renovating your existing spaces while adding new ones — saving you time, money, and the hassle of dealing with multiple builders.",
@@ -213,11 +213,11 @@ export const services: Service[] = [
   {
     slug: "pergolas",
     title: "Pergolas",
-    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1696846912973-3233cc80bf86?w=800&q=80",
     galleryImages: [
-      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80",
-      "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80",
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80",
+      "https://images.unsplash.com/photo-1624409990662-03f19cc0e0cc?w=600&q=80",
+      "https://images.unsplash.com/photo-1694885090746-d90472e11c0e?w=600&q=80",
+      "https://images.unsplash.com/photo-1596481768453-8befafc2d7ae?w=600&q=80",
     ],
     description:
       "Create a stunning outdoor entertaining area with a custom-built pergola. MEK Homes designs and constructs pergolas using premium timber and materials, built to withstand Melbourne's climate while enhancing your outdoor living.",
@@ -261,11 +261,11 @@ export const services: Service[] = [
   {
     slug: "decking",
     title: "Decking",
-    image: "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1617850687395-620757feb1f3?w=800&q=80",
     galleryImages: [
-      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80",
-      "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80",
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80",
+      "https://images.unsplash.com/photo-1656646549569-e3ad3ff8f9f9?w=600&q=80",
+      "https://images.unsplash.com/photo-1605117882932-f9e32b03fea9?w=600&q=80",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&q=80",
     ],
     description:
       "Enhance your outdoor living with beautifully crafted timber or composite decking. MEK Homes builds decks that are stunning, durable, and designed to complement your home and lifestyle.",
