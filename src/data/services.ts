@@ -19,8 +19,56 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    slug: "home-renovations",
-    title: "Home Renovations",
+    slug: "new-homes",
+    title: "New Homes",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80",
+    ],
+    description:
+      "Build your dream home from the ground up. MEK Homes delivers complete new home builds with quality craftsmanship, transparent pricing, and full project management from foundations to handover.",
+    longDescription:
+      "MEK Homes brings your vision to life with complete new home construction across Melbourne. From initial site assessment and planning through to final handover, our experienced team manages every stage of your build. We work closely with you and your architect or designer to ensure every detail is executed to the highest standard. Our hands-on approach means you always know where your project stands, and our commitment to quality means you'll love the finished result for decades to come.",
+    features: [
+      "Complete new home builds",
+      "Custom home construction",
+      "Site preparation & foundations",
+      "Framing & structural work",
+      "Full project management",
+      "Quality finishes throughout",
+    ],
+    faqs: [
+      {
+        question: "How long does it take to build a new home?",
+        answer:
+          "A typical new home build takes between 6 to 12 months depending on the size and complexity of the design. We provide a detailed construction timeline during the planning phase so you know exactly what to expect at every stage.",
+      },
+      {
+        question: "Do you handle council permits and approvals?",
+        answer:
+          "Yes, we manage all required building permits and council approvals as part of our project management service. We'll guide you through the process and ensure all documentation is in order before construction begins.",
+      },
+      {
+        question: "Can you work with my architect's plans?",
+        answer:
+          "Absolutely. We regularly work with architects and designers to bring their plans to life. We can also recommend trusted architects if you need one, or assist with design refinements to optimise buildability and cost.",
+      },
+      {
+        question: "What areas of Melbourne do you build in?",
+        answer:
+          "We build new homes across the greater Melbourne metropolitan area and surrounding regions, from the CBD to outer suburbs including the Mornington Peninsula, Yarra Ranges, and Geelong region.",
+      },
+    ],
+    contactFormValue: "new-homes",
+    metaTitle: "New Home Builds Melbourne | MEK Homes",
+    metaDescription:
+      "Quality new home construction across Melbourne. Complete builds from foundations to handover with full project management. Get a free quote from MEK Homes.",
+  },
+  {
+    slug: "renovations",
+    title: "Renovations",
     image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80",
     galleryImages: [
       "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80",
@@ -28,27 +76,22 @@ export const services: Service[] = [
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80",
     ],
     description:
-      "Transform your home with a full renovation. We manage every aspect of the project — from initial design consultation through to the final finishing touches. Whether you're updating a single room or undertaking a whole-house renovation, MEK Homes has the experience and expertise to deliver outstanding results.",
+      "Transform your existing home with a full renovation. From kitchen and bathroom upgrades to complete interior overhauls, MEK Homes manages every aspect of the project with quality craftsmanship and attention to detail.",
     longDescription:
-      "At MEK Homes, we specialise in complete home renovations across Melbourne. Whether you're looking to modernise an outdated property, add more living space, or completely reimagine your home's layout, our experienced team manages every detail from start to finish. We work closely with you to understand your vision, provide expert guidance on design and materials, and deliver a finished result that exceeds expectations. Our renovation projects range from single-room updates to full-scale transformations including extensions, open-plan conversions, and heritage restorations.",
+      "At MEK Homes, we specialise in home renovations across Melbourne. Whether you're modernising an outdated property, reconfiguring your layout for better flow, or giving your home a complete refresh, our experienced team manages every detail from start to finish. We coordinate all trades, handle permits, and keep you informed throughout the process. Our renovation projects range from single-room updates to full-scale transformations including kitchens, bathrooms, living areas, and more.",
     features: [
       "Full home renovations",
-      "Single room makeovers",
-      "Extensions and additions",
-      "Heritage home restorations",
+      "Kitchen & bathroom renovations",
       "Open plan conversions",
+      "Heritage home restorations",
+      "Interior fit-outs",
       "Project management included",
     ],
     faqs: [
       {
-        question: "How long does a typical home renovation take?",
+        question: "How long does a typical renovation take?",
         answer:
-          "A typical home renovation takes between 4 to 12 weeks depending on the scope of the project. A single room update might take 2-4 weeks, while a full home renovation can take 8-16 weeks. We provide a detailed timeline during the quoting process so you know exactly what to expect.",
-      },
-      {
-        question: "Do you handle council permits and approvals?",
-        answer:
-          "Yes, we manage all required building permits and council approvals as part of our project management service. We'll guide you through the process and ensure all documentation is in order before work begins.",
+          "A typical renovation takes between 4 to 16 weeks depending on the scope of the project. A single room update might take 2-4 weeks, while a full home renovation can take 8-16 weeks. We provide a detailed timeline during the quoting process.",
       },
       {
         question: "Can I live in my home during the renovation?",
@@ -61,67 +104,163 @@ export const services: Service[] = [
           "Absolutely. We provide a detailed written quote that breaks down all costs including materials, labour, and any associated fees. There are no hidden charges — what we quote is what you pay.",
       },
       {
-        question: "What areas of Melbourne do you service?",
+        question: "Do you handle council permits and approvals?",
         answer:
-          "We service all suburbs across greater Melbourne and the surrounding metropolitan area, from the CBD to outer suburbs including the Mornington Peninsula, Yarra Ranges, and Geelong region.",
+          "Yes, we manage all required building permits and council approvals as part of our service. We'll guide you through the process and ensure everything is in order before work begins.",
       },
     ],
-    contactFormValue: "renovation",
+    contactFormValue: "renovations",
     metaTitle: "Home Renovations Melbourne | MEK Homes",
     metaDescription:
       "Expert home renovations across Melbourne. Full project management, quality craftsmanship, and transparent pricing. Get a free quote from MEK Homes today.",
   },
   {
-    slug: "custom-carpentry",
-    title: "Custom Carpentry",
-    image: "https://images.unsplash.com/photo-1622372738946-62e02505feb3?w=800&q=80",
+    slug: "extensions",
+    title: "Extensions",
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80",
     galleryImages: [
-      "https://images.unsplash.com/photo-1622372738946-62e02505feb3?w=600&q=80",
-      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=80",
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&q=80",
+      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80",
+      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=600&q=80",
     ],
     description:
-      "Our skilled carpenters create bespoke timber work tailored to your home. From custom cabinetry and built-in wardrobes to floating shelves and entertainment units, we craft each piece with precision and care using quality materials.",
+      "Add more space to your home with a professionally built extension. Whether it's an extra bedroom, expanded living area, or a second storey, MEK Homes delivers seamless extensions that blend with your existing home.",
     longDescription:
-      "MEK Homes offers bespoke carpentry services for homeowners who want something truly unique. Our skilled carpenters handcraft custom pieces tailored to your exact specifications and space. Whether it's a built-in wardrobe that maximises storage, a stunning entertainment unit, or custom shelving that transforms a room, we use quality timbers and materials to create pieces that are both beautiful and functional. Every project starts with a consultation to understand your needs, followed by precise measurements and expert craftsmanship.",
+      "Need more room? MEK Homes designs and builds home extensions that seamlessly integrate with your existing property. Whether you're adding a ground floor extension for more living space, building up with a second storey, or extending out the back for a larger kitchen and family area, our team ensures the new build matches and enhances your existing home. We handle everything from architectural coordination and engineering through to construction and finishing, delivering extra space that feels like it was always part of the home.",
     features: [
-      "Built-in wardrobes & storage",
-      "Custom cabinetry",
-      "Bookshelves & display units",
-      "Entertainment units",
-      "Timber feature walls",
-      "Custom furniture pieces",
+      "Ground floor extensions",
+      "Second storey additions",
+      "Rear extensions",
+      "Side extensions",
+      "Seamless integration with existing home",
+      "Full structural engineering",
     ],
     faqs: [
       {
-        question: "What types of timber do you work with?",
+        question: "How long does a home extension take?",
         answer:
-          "We work with a wide range of timbers including Victorian Ash, Tasmanian Oak, Spotted Gum, Blackbutt, and various imported hardwoods. We also work with engineered timbers and MDF for painted finishes. We'll recommend the best material for your project based on aesthetics, durability, and budget.",
+          "Most home extensions take between 8 to 20 weeks depending on size and complexity. A single room extension may take 8-12 weeks, while a second storey addition can take 16-20 weeks. We provide a clear timeline before work begins.",
       },
       {
-        question: "Can you match existing joinery in my home?",
+        question: "Will the extension match my existing home?",
         answer:
-          "Yes, we can match existing timber profiles, stains, and finishes to ensure new work blends seamlessly with your home's existing features. We take samples and carefully colour-match to achieve the best result.",
+          "Absolutely. We take great care to match materials, rooflines, and finishes so the extension blends seamlessly with your existing home. The goal is for it to look like it was always part of the original build.",
       },
       {
-        question: "How long does a custom carpentry project take?",
+        question: "Do I need a permit for a home extension?",
         answer:
-          "Timelines vary based on the complexity of the project. A simple built-in bookshelf might take 2-3 days, while a full set of custom wardrobes could take 1-2 weeks. We provide a clear timeline with every quote.",
+          "Yes, home extensions require a building permit in Victoria. We manage the full permit application process and work with building surveyors to ensure compliance with all regulations.",
       },
       {
-        question: "Do you provide design assistance?",
+        question: "Can I stay in my home during the extension?",
         answer:
-          "Absolutely. We work with you to design pieces that suit your space, style, and storage needs. We can suggest design options, materials, and finishes based on our experience and your preferences.",
+          "In most cases, yes. We plan construction to minimise disruption and maintain safe access to your home throughout the build. We'll discuss the best approach during the planning stage.",
       },
     ],
-    contactFormValue: "carpentry",
-    metaTitle: "Custom Carpentry Melbourne | MEK Homes",
+    contactFormValue: "extensions",
+    metaTitle: "Home Extensions Melbourne | MEK Homes",
     metaDescription:
-      "Bespoke custom carpentry in Melbourne. Built-in wardrobes, cabinetry, shelving, and timber feature work crafted to your specifications by MEK Homes.",
+      "Quality home extensions across Melbourne. Ground floor, second storey, and rear extensions that seamlessly integrate with your existing home. MEK Homes.",
   },
   {
-    slug: "decking-pergolas",
-    title: "Decking & Pergolas",
+    slug: "renovations-and-extensions",
+    title: "Renovations & Extensions",
+    image: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80",
+    ],
+    description:
+      "Combine a renovation and extension into one streamlined project. MEK Homes manages the entire scope — renovating your existing spaces while adding new ones — saving you time, money, and the hassle of dealing with multiple builders.",
+    longDescription:
+      "Why renovate and extend separately when you can do both at once? MEK Homes specialises in combined renovation and extension projects that transform your entire home in a single build. By managing both scopes together, we deliver a cohesive result where new and old spaces flow together perfectly. This approach also saves time and reduces costs compared to running two separate projects. From updating your kitchen and bathrooms to adding new bedrooms or living areas, we handle every detail under one roof.",
+    features: [
+      "Combined renovation & extension projects",
+      "Single project management",
+      "Cohesive design across old & new",
+      "Cost savings vs. separate projects",
+      "Full trade coordination",
+      "Minimal disruption approach",
+    ],
+    faqs: [
+      {
+        question: "Is it cheaper to renovate and extend at the same time?",
+        answer:
+          "Yes, combining a renovation and extension into one project is typically more cost-effective than doing them separately. You save on setup costs, project management, and the efficiency of having one team handle everything.",
+      },
+      {
+        question: "How do you ensure the new extension matches the renovated areas?",
+        answer:
+          "We plan the entire project as a unified design, selecting materials and finishes that work across both the renovated and new sections. This ensures a seamless, cohesive result throughout your home.",
+      },
+      {
+        question: "How long does a combined renovation and extension take?",
+        answer:
+          "A combined project typically takes 12 to 24 weeks depending on the scope. While longer than a standalone renovation, it's significantly faster than doing both projects separately.",
+      },
+      {
+        question: "Can you handle the full scope or do I need separate tradespeople?",
+        answer:
+          "We manage everything. MEK Homes coordinates all trades — carpentry, plumbing, electrical, plastering, tiling, and painting — so you have a single point of contact throughout the entire project.",
+      },
+    ],
+    contactFormValue: "renovations-extensions",
+    metaTitle: "Renovations & Extensions Melbourne | MEK Homes",
+    metaDescription:
+      "Combined home renovations and extensions in Melbourne. One team, one project, seamless results. Get a free quote from MEK Homes.",
+  },
+  {
+    slug: "pergolas",
+    title: "Pergolas",
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80",
+    ],
+    description:
+      "Create a stunning outdoor entertaining area with a custom-built pergola. MEK Homes designs and constructs pergolas using premium timber and materials, built to withstand Melbourne's climate while enhancing your outdoor living.",
+    longDescription:
+      "Extend your living space outdoors with a beautifully crafted pergola by MEK Homes. Whether you want a shaded entertaining area, a covered alfresco dining space, or a sheltered outdoor room, our team designs and builds pergolas that suit your home and lifestyle. We work with premium hardwoods, treated timber, and steel to create structures that look great and stand up to Melbourne's weather year after year. Every pergola is custom designed to complement your home's architecture and maximise your outdoor enjoyment.",
+    features: [
+      "Custom pergola design",
+      "Timber & steel construction",
+      "Attached & freestanding options",
+      "Insulated roofing options",
+      "Outdoor entertaining areas",
+      "Permit management included",
+    ],
+    faqs: [
+      {
+        question: "Do I need a permit to build a pergola?",
+        answer:
+          "Most pergolas in Victoria require a building permit. We handle all permit applications and ensure your pergola complies with local building regulations and Australian standards.",
+      },
+      {
+        question: "What materials do you use for pergolas?",
+        answer:
+          "We build pergolas using a range of materials including Merbau, treated pine, Victorian Ash, and steel. We'll recommend the best option based on your design preference, budget, and the structural requirements of the project.",
+      },
+      {
+        question: "How long does it take to build a pergola?",
+        answer:
+          "A standard pergola takes 1 to 3 weeks to build depending on size and complexity. More elaborate designs with insulated roofing or integrated lighting may take slightly longer.",
+      },
+      {
+        question: "Can you add a pergola to an existing deck?",
+        answer:
+          "Yes, we regularly add pergolas to existing decks and patios. We'll assess the existing structure to ensure it can support the pergola and make any necessary reinforcements.",
+      },
+    ],
+    contactFormValue: "pergolas",
+    metaTitle: "Pergolas Melbourne | MEK Homes",
+    metaDescription:
+      "Custom pergola design and construction in Melbourne. Premium timber and steel pergolas for outdoor entertaining. Get a free quote from MEK Homes.",
+  },
+  {
+    slug: "decking",
+    title: "Decking",
     image: "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800&q=80",
     galleryImages: [
       "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80",
@@ -129,27 +268,27 @@ export const services: Service[] = [
       "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80",
     ],
     description:
-      "Enhance your outdoor living with beautifully crafted decking and pergolas. We work with premium hardwoods and composite materials to build outdoor spaces that are both stunning and durable, designed for Melbourne's climate.",
+      "Enhance your outdoor living with beautifully crafted timber or composite decking. MEK Homes builds decks that are stunning, durable, and designed to complement your home and lifestyle.",
     longDescription:
-      "Create the perfect outdoor living space with MEK Homes. We design and build timber decking, pergolas, and outdoor entertaining areas that are made to withstand Melbourne's weather while looking beautiful year-round. Whether you want a spacious deck for summer entertaining, a shaded pergola for all-season comfort, or a complete outdoor room, our team delivers quality construction using premium hardwoods and composite materials. Every deck and pergola we build is designed to complement your home and enhance your lifestyle.",
+      "Create the perfect outdoor space with quality decking by MEK Homes. We design and build timber and composite decks that enhance your home's indoor-outdoor connection and provide the perfect space for entertaining, relaxing, or simply enjoying Melbourne's outdoors. Whether you want a spacious ground-level deck, an elevated platform, or a multi-level design, our team delivers quality construction using premium materials built to last.",
     features: [
       "Timber & composite decking",
-      "Pergolas & gazebos",
-      "Outdoor entertaining areas",
-      "Screening & privacy walls",
+      "Ground-level & elevated decks",
+      "Multi-level deck designs",
+      "Steps & balustrades",
       "Deck restoration & repairs",
-      "Carports & covered areas",
+      "Built-in seating & planters",
     ],
     faqs: [
       {
         question: "What's the difference between timber and composite decking?",
         answer:
-          "Timber decking (such as Merbau or Spotted Gum) offers a natural look and feel but requires regular oiling and maintenance. Composite decking is a manufactured product that's low-maintenance and comes in a range of colours, but has a higher upfront cost. We can help you choose the best option for your needs and budget.",
+          "Timber decking (such as Merbau or Spotted Gum) offers a natural look and feel but requires regular oiling and maintenance. Composite decking is a manufactured product that's low-maintenance and comes in a range of colours, but has a higher upfront cost. We can help you choose the best option.",
       },
       {
-        question: "Do I need a permit for a deck or pergola?",
+        question: "Do I need a permit for a deck?",
         answer:
-          "In many cases, yes. Most decks and pergolas in Victoria require a building permit. We handle all permit applications and ensure your structure complies with local building regulations and Australian standards.",
+          "Most decks in Victoria require a building permit. We handle all permit applications and ensure your deck complies with local building regulations and Australian standards.",
       },
       {
         question: "How long will a timber deck last?",
@@ -163,109 +302,13 @@ export const services: Service[] = [
       },
     ],
     contactFormValue: "decking",
-    metaTitle: "Decking & Pergolas Melbourne | MEK Homes",
+    metaTitle: "Decking Melbourne | MEK Homes",
     metaDescription:
-      "Quality timber decking and pergola construction in Melbourne. Premium hardwoods, composite options, and expert craftsmanship by MEK Homes.",
+      "Quality timber and composite decking in Melbourne. Custom deck design and construction by MEK Homes. Get a free quote today.",
   },
   {
-    slug: "kitchen-renovations",
-    title: "Kitchen Renovations",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=80",
-      "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?w=600&q=80",
-      "https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=600&q=80",
-    ],
-    description:
-      "The kitchen is the heart of the home, and we ensure yours is both functional and beautiful. MEK Homes handles complete kitchen renovations including cabinetry, benchtops, splashbacks, and all associated carpentry work.",
-    longDescription:
-      "A well-designed kitchen can transform your daily life. MEK Homes delivers complete kitchen renovations that combine smart functionality with beautiful design. We handle everything from custom cabinetry and benchtop installation to layout redesign and full kitchen fitouts. Our team coordinates all trades involved in your kitchen renovation, managing the project from demolition through to the final finish. Whether you're after a modern minimalist kitchen or a warm traditional space, we bring your vision to life.",
-    features: [
-      "Complete kitchen fitouts",
-      "Custom kitchen cabinetry",
-      "Island bench installations",
-      "Pantry & storage solutions",
-      "Benchtop installation",
-      "Kitchen layout redesign",
-    ],
-    faqs: [
-      {
-        question: "How long does a kitchen renovation take?",
-        answer:
-          "A typical kitchen renovation takes 4-8 weeks from demolition to completion. The timeline depends on the scope of work, material lead times, and any structural changes. We provide a detailed schedule so you can plan accordingly.",
-      },
-      {
-        question: "Can you work with my existing layout or do I need a redesign?",
-        answer:
-          "We can do both. If your current layout works well, we can refresh the kitchen with new cabinetry, benchtops, and finishes. If you want to change the layout, we can redesign the space to improve functionality and flow.",
-      },
-      {
-        question: "What benchtop materials do you work with?",
-        answer:
-          "We install a range of benchtop materials including stone (Caesarstone, granite, marble), timber, laminate, and solid surface options. We'll help you choose the best material based on your style preferences, usage, and budget.",
-      },
-      {
-        question: "Do you handle plumbing and electrical work?",
-        answer:
-          "Yes, we coordinate all trades including licensed plumbers and electricians. As your project manager, we ensure all work is carried out to Australian standards and properly certified.",
-      },
-    ],
-    contactFormValue: "kitchen",
-    metaTitle: "Kitchen Renovations Melbourne | MEK Homes",
-    metaDescription:
-      "Complete kitchen renovations in Melbourne. Custom cabinetry, benchtops, layout redesign, and full project management by MEK Homes.",
-  },
-  {
-    slug: "bathroom-renovations",
-    title: "Bathroom Renovations",
-    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80",
-      "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&q=80",
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80",
-    ],
-    description:
-      "From a simple refresh to a complete bathroom remodel, our team delivers beautiful bathroom renovations. We coordinate all trades and handle the carpentry, framing, and finishing work to create your ideal bathroom.",
-    longDescription:
-      "MEK Homes delivers stunning bathroom renovations that combine style with practicality. Whether you're updating a tired ensuite or completely rebuilding your main bathroom, we manage every aspect of the project. Our team handles all carpentry, framing, vanity installation, and finishing work, while coordinating licensed plumbers, tilers, and electricians. We ensure proper waterproofing, ventilation, and compliance with all building regulations, delivering a bathroom you'll love for years to come.",
-    features: [
-      "Full bathroom renovations",
-      "Vanity installation",
-      "Shower screen framing",
-      "Bathroom cabinetry",
-      "Laundry renovations",
-      "Waterproofing coordination",
-    ],
-    faqs: [
-      {
-        question: "How long does a bathroom renovation take?",
-        answer:
-          "A standard bathroom renovation takes 2-4 weeks. More complex projects involving structural changes or custom tiling may take 4-6 weeks. We provide a clear timeline during the quoting process.",
-      },
-      {
-        question: "Do you handle waterproofing?",
-        answer:
-          "Yes, we coordinate all waterproofing work with licensed waterproofers. Proper waterproofing is essential in any bathroom renovation and we ensure it's done correctly and certified before tiling begins.",
-      },
-      {
-        question: "Can you renovate my bathroom on a budget?",
-        answer:
-          "Absolutely. We work with a range of budgets and can suggest cost-effective options that still deliver a great result. Simple updates like new vanity, tapware, and paint can make a big difference without a full remodel.",
-      },
-      {
-        question: "Will I have access to another bathroom during the renovation?",
-        answer:
-          "We recommend having access to an alternative bathroom during the renovation. We plan the work to minimise disruption and complete the project as efficiently as possible.",
-      },
-    ],
-    contactFormValue: "bathroom",
-    metaTitle: "Bathroom Renovations Melbourne | MEK Homes",
-    metaDescription:
-      "Professional bathroom renovations in Melbourne. From simple refreshes to complete remodels, MEK Homes delivers quality results on time and on budget.",
-  },
-  {
-    slug: "structural-carpentry",
-    title: "Structural Carpentry",
+    slug: "lockup",
+    title: "Lockup",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
     galleryImages: [
       "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
@@ -273,139 +316,91 @@ export const services: Service[] = [
       "https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=600&q=80",
     ],
     description:
-      "Our team handles all structural carpentry work including wall framing, roof construction, load-bearing wall modifications, and structural repairs. All work is carried out to Australian building standards with proper engineering oversight.",
+      "Get your build to lockup stage with MEK Homes. We handle all structural carpentry, framing, roofing, and external cladding to get your project weathertight and secure, ready for internal fit-out.",
     longDescription:
-      "MEK Homes provides expert structural carpentry services for residential properties across Melbourne. Our experienced carpenters handle complex structural work including wall framing, roof construction and repairs, load-bearing wall removal, beam installation, and subfloor repairs. All structural work is carried out in accordance with Australian building standards and supported by proper engineering specifications where required. Whether it's part of a larger renovation or a standalone structural project, you can trust MEK Homes to get it right.",
+      "MEK Homes provides expert lockup services for new builds, extensions, and major renovations across Melbourne. Lockup stage means your building is structurally complete, weathertight, and secure — with framing, roofing, external cladding, windows, and external doors all installed. Our experienced team delivers precise framing and structural carpentry to exacting standards, ensuring your build has a solid foundation for the fit-out stages to follow. Whether you're an owner-builder managing your own project or a developer needing reliable lockup services, we deliver on time and to spec.",
     features: [
-      "Wall framing & construction",
-      "Roof framing & repairs",
-      "Load-bearing wall removal",
-      "Structural beam installation",
-      "Subfloor repairs",
-      "Staircase construction",
-    ],
-    faqs: [
-      {
-        question: "Do you provide engineering specifications?",
-        answer:
-          "Yes, for all structural work we engage qualified structural engineers to provide specifications and certifications. This ensures all work meets Australian building standards and is safe and compliant.",
-      },
-      {
-        question: "Can you remove a load-bearing wall?",
-        answer:
-          "Yes, we regularly remove load-bearing walls to create open-plan living spaces. This requires engineering specifications for replacement beams and supports. We manage the entire process including engineering, permits, and construction.",
-      },
-      {
-        question: "Do you do roof repairs?",
-        answer:
-          "Yes, we handle all timber roof framing repairs and replacements. This includes rafter repairs, ridge beam replacement, fascia and barge board work, and re-framing damaged sections.",
-      },
-      {
-        question: "Is a building permit required for structural work?",
-        answer:
-          "Yes, structural work typically requires a building permit. We manage the permit application process and ensure all work is inspected and signed off by a registered building surveyor.",
-      },
-    ],
-    contactFormValue: "structural",
-    metaTitle: "Structural Carpentry Melbourne | MEK Homes",
-    metaDescription:
-      "Expert structural carpentry in Melbourne. Wall framing, roof construction, load-bearing wall removal, and structural repairs by MEK Homes.",
-  },
-  {
-    slug: "doors-windows",
-    title: "Doors & Windows",
-    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
-      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=600&q=80",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80",
-    ],
-    description:
-      "Professional installation of interior and exterior doors, windows, and frames. We ensure proper fitting, insulation, and finishing for both new installations and replacements, improving your home's energy efficiency and appearance.",
-    longDescription:
-      "MEK Homes provides professional door and window installation, replacement, and repair services across Melbourne. Whether you're upgrading to energy-efficient windows, installing new bifold doors to connect indoor and outdoor spaces, or replacing worn-out frames, our carpenters ensure precise fitting and quality finishing. We work with all door and window types including timber, aluminium, and uPVC, and ensure proper insulation, weatherproofing, and security for every installation.",
-    features: [
-      "Door installation & replacement",
-      "Window frame repairs",
-      "Bifold & sliding doors",
-      "French doors & double doors",
-      "Architrave & skirting",
+      "Wall & roof framing",
+      "Roof installation",
+      "External cladding",
+      "Window & door installation",
       "Weatherproofing & sealing",
+      "Structural beam installation",
     ],
     faqs: [
       {
-        question: "Can you install bifold doors?",
+        question: "What does lockup stage include?",
         answer:
-          "Yes, we install all types of bifold doors including timber and aluminium. Bifold doors are a great way to open up your living space to the outdoors and we ensure they're properly framed, sealed, and operating smoothly.",
+          "Lockup stage means the building is weathertight and secure. This includes completed framing, roof covering, external cladding or brickwork, and installation of external windows and doors. The building can be locked and is protected from weather.",
       },
       {
-        question: "Do you replace window frames?",
+        question: "Can you do lockup only, without internal fit-out?",
         answer:
-          "Yes, we repair and replace timber window frames. We can match existing profiles and finishes to maintain your home's character while improving the function and weatherproofing of your windows.",
+          "Yes, we offer lockup as a standalone service. This is ideal for owner-builders who want professional structural work and plan to manage the internal fit-out themselves or with other trades.",
       },
       {
-        question: "Will new doors and windows improve energy efficiency?",
+        question: "Do you provide engineering and structural specifications?",
         answer:
-          "Absolutely. Properly fitted doors and windows with good seals and weatherstripping significantly reduce drafts and heat loss, improving your home's energy efficiency and comfort.",
+          "Yes, for all structural work we engage qualified structural engineers to provide specifications and certifications. All work meets Australian building standards and is inspected by a registered building surveyor.",
       },
       {
-        question: "Can you install a door where there isn't one currently?",
+        question: "How long does it take to reach lockup stage?",
         answer:
-          "Yes, we can create new door openings in both internal and external walls. If the wall is load-bearing, we'll arrange engineering specifications and install appropriate structural support.",
+          "Depending on the size and complexity of the build, reaching lockup stage typically takes 6 to 12 weeks from slab or foundations. We provide a clear timeline during the quoting process.",
       },
     ],
-    contactFormValue: "doors-windows",
-    metaTitle: "Door & Window Installation Melbourne | MEK Homes",
+    contactFormValue: "lockup",
+    metaTitle: "Lockup Stage Building Melbourne | MEK Homes",
     metaDescription:
-      "Professional door and window installation and replacement in Melbourne. Bifold doors, French doors, window frames, and weatherproofing by MEK Homes.",
+      "Professional lockup stage building in Melbourne. Framing, roofing, cladding, and weatherproofing by MEK Homes. Get your build to lockup on time.",
   },
   {
-    slug: "fencing-gates",
-    title: "Fencing & Gates",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80",
+    slug: "fix",
+    title: "Fix",
+    image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80",
     galleryImages: [
-      "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=600&q=80",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+      "https://images.unsplash.com/photo-1622372738946-62e02505feb3?w=600&q=80",
+      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=80",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&q=80",
     ],
     description:
-      "Secure your property with quality timber fencing and gates. We build a range of fence styles from traditional paling fences to modern horizontal slat designs, all built strong and finished to a high standard.",
+      "MEK Homes handles all internal fix carpentry — skirting boards, architraves, door hanging, shelving, cabinetry installation, and all the finishing carpentry that brings your home together.",
     longDescription:
-      "MEK Homes builds quality timber fences and gates that provide security, privacy, and street appeal for your Melbourne property. We construct a full range of fence styles from classic paling fences to contemporary horizontal slat designs using premium hardwoods like Merbau and treated pine. Every fence we build is constructed to last, with proper footings, quality hardware, and a clean finish. We also build custom garden gates, side gates, and driveway gates to complete your property's boundary.",
+      "The fix stage is where your home truly comes together. MEK Homes provides expert fix carpentry services covering all the internal finishing work that transforms a shell into a home. This includes hanging internal doors, installing skirting boards and architraves, fitting shelving and cabinetry, building stairs, and completing all interior timber detailing. Our carpenters take pride in precision and clean finishes, ensuring every joint is tight, every line is straight, and every detail is perfect. Whether it's part of a larger build or a standalone fit-out, our fix carpentry sets the standard.",
     features: [
-      "Timber paling fences",
-      "Horizontal slat fencing",
-      "Merbau & hardwood fences",
-      "Garden gates & side gates",
-      "Driveway gates",
-      "Fence repairs & replacement",
+      "Door hanging & installation",
+      "Skirting boards & architraves",
+      "Built-in shelving & cabinetry",
+      "Staircase installation",
+      "Wardrobe fit-outs",
+      "Timber detailing & finishing",
     ],
     faqs: [
       {
-        question: "What timber is best for fencing in Melbourne?",
+        question: "What is fix carpentry?",
         answer:
-          "Treated pine is the most cost-effective option and performs well in Melbourne's climate. For a premium look and greater durability, Merbau hardwood is an excellent choice. We'll recommend the best option based on your budget and style preference.",
+          "Fix carpentry (also called second fix or finishing carpentry) covers all the internal timber work that happens after the building is at lockup stage. This includes door hanging, skirting, architraves, shelving, cabinetry installation, and all interior finishing work.",
       },
       {
-        question: "How long does a fence last?",
+        question: "Can you match existing skirting and architrave profiles?",
         answer:
-          "A well-built treated pine fence typically lasts 15-20 years, while a Merbau hardwood fence can last 25+ years. Longevity depends on quality of construction, timber treatment, and ongoing maintenance.",
+          "Yes, we can match existing timber profiles to ensure new work blends seamlessly with your home's existing features. We source matching profiles or have custom profiles milled when needed.",
       },
       {
-        question: "Do I need a permit to build a fence?",
+        question: "Do you install kitchens and wardrobes?",
         answer:
-          "Standard residential fences under 2 metres in height generally don't require a permit in Victoria. However, fences over 2 metres or in heritage overlay areas may need approval. We'll advise you on any requirements.",
+          "Yes, we install flat-pack and custom-built kitchens, wardrobes, and cabinetry. We ensure precise fitting, level installation, and quality finishing on all cabinetry work.",
       },
       {
-        question: "Can you replace just part of my existing fence?",
+        question: "How long does fix carpentry take?",
         answer:
-          "Yes, we can repair or replace sections of existing fencing. We'll match the style and height of your existing fence as closely as possible for a seamless result.",
+          "The duration depends on the size of the home and scope of work. A standard 3-bedroom home typically takes 1-3 weeks for complete fix carpentry. We provide a detailed timeline with every quote.",
       },
     ],
-    contactFormValue: "fencing",
-    metaTitle: "Timber Fencing & Gates Melbourne | MEK Homes",
+    contactFormValue: "fix",
+    metaTitle: "Fix Carpentry Melbourne | MEK Homes",
     metaDescription:
-      "Quality timber fencing and gate construction in Melbourne. Paling fences, horizontal slat designs, Merbau hardwood, and custom gates by MEK Homes.",
+      "Expert fix carpentry in Melbourne. Door hanging, skirting, architraves, cabinetry installation, and all finishing carpentry by MEK Homes.",
   },
 ];
 

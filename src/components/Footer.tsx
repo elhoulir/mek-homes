@@ -27,10 +27,10 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4 text-sm font-medium">
               {[
-                { name: "Home Renovations", href: "/services/home-renovations" },
-                { name: "Custom Carpentry", href: "/services/custom-carpentry" },
-                { name: "Decking & Pergolas", href: "/services/decking-pergolas" },
-                { name: "Kitchens & Bathrooms", href: "/services/kitchen-renovations" },
+                { name: "New Homes", href: "/services/new-homes" },
+                { name: "Renovations", href: "/services/renovations" },
+                { name: "Extensions", href: "/services/extensions" },
+                { name: "Decking & Pergolas", href: "/services/decking" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
