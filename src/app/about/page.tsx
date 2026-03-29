@@ -8,7 +8,7 @@ import ScrollAnimation from "@/components/ScrollAnimation";
 export const metadata: Metadata = {
   title: "About Us | MEK Homes - Carpentry & Renovations Melbourne",
   description:
-    "Learn about MEK Homes, Melbourne's trusted carpentry and renovation experts. Over 15 years of experience delivering quality craftsmanship across Victoria.",
+    "Learn about MEK Homes, Melbourne's trusted carpentry and renovation experts. Over a decade of experience delivering quality craftsmanship across Victoria.",
 };
 
 const values = [
@@ -69,7 +69,7 @@ export default function AboutPage() {
             About MEK Homes
           </h1>
           <p className="mt-4 text-lg text-white/50">
-            Melbourne&apos;s trusted carpentry and renovation experts, delivering quality craftsmanship for over 15 years.
+            Melbourne&apos;s trusted carpentry and renovation experts, delivering quality craftsmanship for over a decade.
           </p>
         </div>
       </section>
