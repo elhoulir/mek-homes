@@ -77,7 +77,7 @@ export default function Home() {
               </div>
 
               <p className="mt-6 text-lg text-white/70">
-                Melbourne&apos;s trusted carpenters and builders — quality work, transparent pricing, on time.
+                Trusted by 500+ Melbourne homeowners to deliver exceptional results — on time, on budget, every time.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
