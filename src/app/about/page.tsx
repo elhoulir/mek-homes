@@ -207,24 +207,25 @@ export default function AboutPage() {
       </section>
 
       {/* Service Areas */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#141414]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
-            Where We Work
-          </h2>
-          <p className="mt-4 text-lg text-white/50">
-            MEK Homes proudly services homeowners right across the greater Melbourne metropolitan area and surrounding regions.
-          </p>
+          <ScrollAnimation>
+            <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
+              Where We Work
+            </h2>
+            <p className="mt-4 text-lg text-white/50">
+              MEK Homes proudly services homeowners right across the greater Melbourne metropolitan area and surrounding regions.
+            </p>
+          </ScrollAnimation>
 
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {serviceAreas.map((area) => (
-              <div
-                key={area}
-                className="bg-white/10 rounded-xl px-4 py-3 text-sm font-medium flex items-center gap-2 text-white"
-              >
-                <MapPin className="h-4 w-4 shrink-0 text-white/50" />
-                <span>{area}</span>
-              </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {serviceAreas.map((area, i) => (
+              <ScrollAnimation key={area} delay={i * 0.05}>
+                <div className="bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-sm font-medium flex items-center gap-2 text-white hover:bg-white/10 transition-colors">
+                  <MapPin className="h-4 w-4 shrink-0 text-white/40" />
+                  <span>{area}</span>
+                </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>
