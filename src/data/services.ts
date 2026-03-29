@@ -407,6 +407,56 @@ export const services: Service[] = [
     metaDescription:
       "Quality timber fencing and gate construction in Melbourne. Paling fences, horizontal slat designs, Merbau hardwood, and custom gates by MEK Homes.",
   },
+  {
+    slug: "lockup-and-fix",
+    title: "Lockup & Fix",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80",
+      "https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=600&q=80",
+    ],
+    description:
+      "Complete lockup and fix carpentry services covering everything from structural framing and roofing through to internal finishing work including skirting, architraves, door hanging, and cabinetry installation.",
+    longDescription:
+      "MEK Homes provides comprehensive lockup and fix carpentry for new builds, extensions, and renovation projects across Melbourne. Our lockup services cover all structural carpentry required to make your build weatherproof — wall framing, roof framing, external cladding, fascia, and window and door installation. Once the structure is locked up, our fix carpentry team takes over for all internal finishing work — skirting boards, architraves, door hanging, shelving, cabinetry installation, and all final timber detailing. Having one team handle both stages ensures consistency, quality control, and a smoother build timeline.",
+    features: [
+      "Wall & roof framing",
+      "External cladding installation",
+      "Fascia & barge boards",
+      "Window & door installation",
+      "Skirting boards & architraves",
+      "Door hanging & hardware",
+      "Built-in shelving & cabinetry",
+      "Final timber detailing",
+    ],
+    faqs: [
+      {
+        question: "What is the difference between lockup and fix carpentry?",
+        answer:
+          "Lockup carpentry covers all the structural work needed to make a building weatherproof — wall framing, roof framing, external cladding, fascia, and installing windows and doors. Fix carpentry is the internal finishing stage — hanging internal doors, installing skirting boards, architraves, built-in shelving, and cabinetry. Together, they cover the full scope of carpentry in a residential build.",
+      },
+      {
+        question: "Do you handle both stages or just one?",
+        answer:
+          "We handle both lockup and fix stages, which is a significant advantage. Having the same team across both phases means better quality control, consistent workmanship, and fewer coordination issues. Of course, we can also quote on either stage individually if needed.",
+      },
+      {
+        question: "Can you work with my builder or project manager?",
+        answer:
+          "Absolutely. We regularly work as carpentry subcontractors alongside builders, project managers, and other trades. We understand the sequencing of a build and coordinate seamlessly with other teams to keep your project on track.",
+      },
+      {
+        question: "What areas do you cover for new builds?",
+        answer:
+          "We provide lockup and fix carpentry services across all of metropolitan Melbourne and surrounding regions. Whether it's a new home build in the outer suburbs or a renovation in the inner city, we have the team and logistics to service your project.",
+      },
+    ],
+    contactFormValue: "lockup-fix",
+    metaTitle: "Lockup & Fix Carpentry Melbourne | MEK Homes",
+    metaDescription:
+      "Professional lockup and fix carpentry in Melbourne. From structural framing to internal finishing — skirting, architraves, door hanging, and cabinetry by MEK Homes.",
+  },
 ];
 
 export function getServiceBySlug(slug: string): Service | undefined {

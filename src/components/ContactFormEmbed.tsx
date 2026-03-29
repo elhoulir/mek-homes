@@ -128,6 +128,7 @@ export default function ContactFormEmbed({
           <option value="structural">Structural Carpentry</option>
           <option value="doors-windows">Doors &amp; Windows</option>
           <option value="fencing">Fencing &amp; Gates</option>
+          <option value="lockup-fix">Lockup &amp; Fix</option>
           <option value="other">Other</option>
         </select>
       </div>

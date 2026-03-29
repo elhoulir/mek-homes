@@ -9,6 +9,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/services/lockup",
+        destination: "/services/lockup-and-fix",
+        permanent: true,
+      },
+      {
+        source: "/services/fix",
+        destination: "/services/lockup-and-fix",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
