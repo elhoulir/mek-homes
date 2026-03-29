@@ -8,6 +8,7 @@ import { getProjectsByServiceType } from "@/data/projects";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQAccordion from "@/components/FAQAccordion";
 import ContactFormEmbed from "@/components/ContactFormEmbed";
+import ScrollAnimation from "@/components/ScrollAnimation";
 import ProjectCard from "@/components/ProjectCard";
 import GallerySection from "@/components/GallerySection";
 
@@ -79,7 +80,7 @@ export default async function ServicePage({
               </p>
 
               {/* Features */}
-              <div className="mt-12">
+              <ScrollAnimation className="mt-12">
                 <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
                   What&apos;s Included
                 </h2>
@@ -91,10 +92,10 @@ export default async function ServicePage({
                     </li>
                   ))}
                 </ul>
-              </div>
+              </ScrollAnimation>
 
               {/* Gallery */}
-              <div className="mt-12">
+              <ScrollAnimation className="mt-12">
                 <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
                   Our Work
                 </h2>
@@ -102,15 +103,15 @@ export default async function ServicePage({
                   images={service.galleryImages}
                   title={service.title}
                 />
-              </div>
+              </ScrollAnimation>
 
               {/* FAQ */}
-              <div className="mt-12">
+              <ScrollAnimation className="mt-12">
                 <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
                   Frequently Asked Questions
                 </h2>
                 <FAQAccordion faqs={service.faqs} />
-              </div>
+              </ScrollAnimation>
             </div>
 
             {/* Right Sticky Column */}

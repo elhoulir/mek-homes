@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Award, Clock, Users, ShieldCheck, MapPin, Phone } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import ScrollAnimation from "@/components/ScrollAnimation";
 
 export const metadata: Metadata = {
   title: "About Us | MEK Homes - Carpentry & Renovations Melbourne",
@@ -77,7 +78,9 @@ export default function AboutPage() {
       <section className="section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Row 1: Image left, text right */}
+          <ScrollAnimation>
           <div className="grid items-center gap-12 lg:grid-cols-2">
+            <ScrollAnimation variant="fadeIn">
             <div className="rounded-2xl overflow-hidden aspect-[4/3] relative">
               <Image
                 src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1500&auto=format&fit=crop"
@@ -86,6 +89,8 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
+            </ScrollAnimation>
+            <ScrollAnimation delay={0.2}>
             <div>
               <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
                 Redefining the standard of Melbourne renovations
@@ -99,10 +104,14 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+            </ScrollAnimation>
           </div>
+          </ScrollAnimation>
 
           {/* Row 2: Text left, image right */}
+          <ScrollAnimation>
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
+            <ScrollAnimation delay={0.1}>
             <div>
               <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
                 Built on trust, delivered with pride
@@ -116,6 +125,8 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+            </ScrollAnimation>
+            <ScrollAnimation variant="fadeIn" delay={0.2}>
             <div className="rounded-2xl overflow-hidden aspect-[4/3] relative lg:order-2">
               <Image
                 src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop"
@@ -124,21 +135,23 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
+            </ScrollAnimation>
           </div>
+          </ScrollAnimation>
         </div>
       </section>
 
       {/* Our Process */}
       <section className="section-padding bg-[#111111]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <ScrollAnimation className="text-center mb-16">
             <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
               How We Work
             </h2>
             <p className="mt-4 text-lg text-white/50">
               A straightforward process from first call to final walkthrough
             </p>
-          </div>
+          </ScrollAnimation>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -146,8 +159,8 @@ export default function AboutPage() {
               { step: "02", title: "Quote & Plan", description: "You receive a detailed, transparent quote with a clear project timeline and scope of work." },
               { step: "03", title: "Build", description: "Our team gets to work — keeping you informed at every stage with a clean, safe worksite." },
               { step: "04", title: "Handover", description: "We walk you through the finished project, ensuring every detail meets your expectations." },
-            ].map((item) => (
-              <div key={item.step} className="text-center">
+            ].map((item, i) => (
+              <ScrollAnimation key={item.step} delay={i * 0.1} className="text-center">
                 <div className="text-4xl font-heading font-bold text-white/10 mb-4">
                   {item.step}
                 </div>
@@ -157,7 +170,7 @@ export default function AboutPage() {
                 <p className="text-sm text-white/50">
                   {item.description}
                 </p>
-              </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>
@@ -166,19 +179,20 @@ export default function AboutPage() {
       {/* Our Values */}
       <section className="section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <ScrollAnimation className="text-center mb-12">
             <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
               Our Values
             </h2>
             <p className="mt-4 text-lg text-white/50">
               Everything we do at MEK Homes is driven by four core principles that ensure every project is a masterpiece.
             </p>
-          </div>
+          </ScrollAnimation>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value) => (
-              <div
+            {values.map((value, i) => (
+              <ScrollAnimation
                 key={value.title}
+                delay={i * 0.1}
                 className="bg-[#1A1A1A] rounded-2xl p-6 text-center"
               >
                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4 text-white/50">
@@ -186,7 +200,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-heading font-semibold mb-2 text-white">{value.title}</h3>
                 <p className="text-sm text-white/50">{value.description}</p>
-              </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>

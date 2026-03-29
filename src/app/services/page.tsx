@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { services } from "@/data/services";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import ScrollAnimation from "@/components/ScrollAnimation";
 
 export const metadata: Metadata = {
   title: "Our Services | MEK Homes - Carpentry & Renovations Melbourne",
@@ -38,6 +39,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, i) => (
+              <ScrollAnimation key={service.slug} delay={(i % 2) * 0.1}>
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
@@ -84,6 +86,7 @@ export default function ServicesPage() {
                   </span>
                 </div>
               </Link>
+              </ScrollAnimation>
             ))}
           </div>
         </div>
