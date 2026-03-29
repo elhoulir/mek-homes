@@ -7,6 +7,7 @@ interface AnimatedCounterProps {
   suffix?: string;
   prefix?: string;
   duration?: number;
+  decimals?: number;
 }
 
 export default function AnimatedCounter({
@@ -14,10 +15,11 @@ export default function AnimatedCounter({
   suffix = "",
   prefix = "",
   duration = 2000,
+  decimals = 0,
 }: AnimatedCounterProps) {
-  const [count, setCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [display, setDisplay] = useState(decimals > 0 ? "0.0" : "0");
   const ref = useRef<HTMLSpanElement>(null);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
     const element = ref.current;
@@ -25,35 +27,44 @@ export default function AnimatedCounter({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
           const startTime = performance.now();
 
           const animate = (currentTime: number) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * target));
+            const value = eased * target;
+
+            if (decimals > 0) {
+              setDisplay(value.toFixed(decimals));
+            } else {
+              setDisplay(String(Math.floor(value)));
+            }
 
             if (progress < 1) {
               requestAnimationFrame(animate);
+            } else {
+              // Ensure final value is exact
+              setDisplay(decimals > 0 ? target.toFixed(decimals) : String(target));
             }
           };
 
           requestAnimationFrame(animate);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, [target, duration, hasAnimated]);
+  }, [target, duration, decimals]);
 
   return (
     <span ref={ref}>
       {prefix}
-      {count}
+      {display}
       {suffix}
     </span>
   );

@@ -103,9 +103,9 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { target: 500, suffix: "+", label: "Projects Completed" },
-              { target: 15, suffix: "+", label: "Years Experience" },
-              { target: 5, suffix: ".0", label: "Google Rating", icon: true },
+              { target: 150, suffix: "+", label: "Projects Completed" },
+              { target: 10, suffix: "+", label: "Years Experience" },
+              { target: 4.9, suffix: "", label: "Google Rating", icon: true, decimals: 1 },
               { target: 100, suffix: "%", label: "Fully Insured" },
             ].map((stat, i) => (
               <motion.div
@@ -117,7 +117,7 @@ export default function Home() {
                 className="flex flex-col items-center gap-2"
               >
                 <div className="font-heading font-bold text-4xl md:text-5xl text-white flex items-center gap-1">
-                  <AnimatedCounter target={stat.target} suffix={stat.suffix} />
+                  <AnimatedCounter target={stat.target} suffix={stat.suffix} decimals={'decimals' in stat ? stat.decimals as number : 0} />
                   {stat.icon && <Star className="h-6 w-6 fill-amber-400 text-amber-400 inline-block" />}
                 </div>
                 <p className="text-sm font-medium text-white/50 uppercase tracking-wide">
