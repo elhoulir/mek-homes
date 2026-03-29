@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, DM_Serif_Display } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageWrapper from "@/components/PageWrapper";
@@ -12,9 +12,10 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const outfit = Outfit({
+const dmSerif = DM_Serif_Display({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-dm-serif",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${outfit.variable} font-sans bg-[#0A0A0A] text-white`}>
+      <body className={`${inter.variable} ${dmSerif.variable} font-sans bg-[#0A0A0A] text-white`}>
         <Header />
         <main className="pt-20">
           <PageWrapper>{children}</PageWrapper>
