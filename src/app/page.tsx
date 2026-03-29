@@ -6,7 +6,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Star, Shield, Award } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
-import InlineQuoteStrip from "@/components/InlineQuoteStrip";
 import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
@@ -95,10 +94,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 2. Inline Quote Strip ───────────────────────────────────────── */}
-      <InlineQuoteStrip />
-
-      {/* ── 3. Social Proof Stats Bar ───────────────────────────────────── */}
+      {/* ── 2. Social Proof Stats Bar ───────────────────────────────────── */}
       <section className="section-padding py-12 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
