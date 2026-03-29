@@ -161,16 +161,20 @@ export default function AboutPage() {
               { step: "03", title: "Build", description: "Our team gets to work — keeping you informed at every stage with a clean, safe worksite." },
               { step: "04", title: "Handover", description: "We walk you through the finished project, ensuring every detail meets your expectations." },
             ].map((item, i) => (
-              <ScrollAnimation key={item.step} delay={i * 0.1} className="text-center">
-                <div className="text-4xl font-heading font-bold text-white/10 mb-4">
-                  {item.step}
+              <ScrollAnimation key={item.step} delay={i * 0.1} className="text-center md:text-center">
+                <div className="flex items-center gap-4 md:block">
+                  <div className="text-4xl font-heading font-bold text-white/10 mb-0 md:mb-4 shrink-0">
+                    {item.step}
+                  </div>
+                  <div className="text-left md:text-center">
+                    <h3 className="font-heading font-semibold text-lg text-white mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-white/50">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="font-heading font-semibold text-lg text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-white/50">
-                  {item.description}
-                </p>
               </ScrollAnimation>
             ))}
           </div>
@@ -275,13 +279,13 @@ export default function AboutPage() {
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="bg-black text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors"
+              className="w-full sm:w-auto bg-black text-white px-6 py-3 min-h-[44px] rounded-xl font-medium hover:bg-gray-800 transition-colors text-center inline-flex items-center justify-center"
             >
               Contact Us Today
             </Link>
             <a
               href="tel:0400000000"
-              className="border-2 border-black text-black px-6 py-3 rounded-xl font-medium hover:bg-black hover:text-white transition-colors flex items-center gap-2"
+              className="w-full sm:w-auto border-2 border-black text-black px-6 py-3 min-h-[44px] rounded-xl font-medium hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2"
             >
               <Phone className="h-4 w-4" />
               0400 000 000

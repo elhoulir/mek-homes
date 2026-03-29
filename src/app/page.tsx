@@ -77,11 +77,11 @@ export default function Home() {
                 Trusted by 500+ Melbourne homeowners to deliver exceptional results — on time, on budget, every time.
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link href="/contact" className="btn-primary">
+              <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                <Link href="/contact" className="btn-primary text-center w-full sm:w-auto min-h-[44px] flex items-center justify-center">
                   Get a Free Quote
                 </Link>
-                <Link href="/services" className="btn-outline">
+                <Link href="/services" className="btn-outline text-center w-full sm:w-auto min-h-[44px] flex items-center justify-center">
                   View Our Services
                 </Link>
               </div>
@@ -263,10 +263,10 @@ export default function Home() {
             <h2 className="font-heading font-bold text-3xl md:text-5xl text-black">Ready to Start Your Project?</h2>
             <p className="mt-4 text-gray-500 text-lg">Get in touch for a free consultation and quote</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 bg-black text-white font-medium rounded-xl hover:bg-gray-800 transition-colors">
+              <Link href="/contact" className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 min-h-[44px] bg-black text-white font-medium rounded-xl hover:bg-gray-800 transition-colors">
                 Get a Free Quote
               </Link>
-              <a href="tel:0400000000" className="inline-flex items-center justify-center px-8 py-4 border-2 border-black text-black font-medium rounded-xl hover:bg-black hover:text-white transition-colors">
+              <a href="tel:0400000000" className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 min-h-[44px] border-2 border-black text-black font-medium rounded-xl hover:bg-black hover:text-white transition-colors">
                 Call 0400 000 000
               </a>
             </div>

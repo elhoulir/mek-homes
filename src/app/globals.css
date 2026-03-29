@@ -24,6 +24,13 @@
 
   body {
     @apply bg-[#0A0A0A] text-white font-sans;
+    overflow-x: hidden;
+    font-size: 16px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 
   h1,
@@ -75,5 +82,21 @@
 @media (max-width: 1023px) {
   body {
     padding-bottom: 4.5rem;
+  }
+}
+
+/* Prevent iOS zoom on input focus */
+@media (max-width: 767px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Disable hover-scale animations on mobile for performance */
+@media (max-width: 767px) {
+  .warm-card {
+    &:hover {
+      transform: none;
+    }
   }
 }

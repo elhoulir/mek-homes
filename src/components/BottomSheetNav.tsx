@@ -64,12 +64,16 @@ export default function BottomSheetNav({ isOpen, onClose }: BottomSheetNavProps)
               })}
             </nav>
             <div className="mt-6 space-y-3">
-              <Link href="/contact" onClick={onClose} className="btn-primary block w-full text-center">
+              <Link href="/contact" onClick={onClose} className="btn-primary block w-full text-center py-4 min-h-[44px]">
                 Get a Free Quote
               </Link>
-              <a href="tel:0400000000" className="btn-outline block w-full text-center">
+              <a href="tel:0400000000" className="btn-outline block w-full text-center py-4 min-h-[44px]">
                 Call 0400 000 000
               </a>
+            </div>
+            <div className="mt-4 pt-4 border-t border-white/10 space-y-2 text-sm text-white/50">
+              <a href="tel:0400000000" className="block hover:text-white transition-colors">0400 000 000</a>
+              <a href="mailto:info@mekhomes.com.au" className="block hover:text-white transition-colors">info@mekhomes.com.au</a>
             </div>
           </motion.div>
         </>

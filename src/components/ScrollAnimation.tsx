@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 interface ScrollAnimationProps {
@@ -31,6 +31,12 @@ export default function ScrollAnimation({
   delay = 0,
   variant = "fadeUp",
 }: ScrollAnimationProps) {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       {...variants[variant]}

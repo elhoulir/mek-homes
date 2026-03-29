@@ -160,7 +160,7 @@ export default function ContactFormEmbed({
         />
       </div>
 
-      <button type="submit" className="btn-primary w-full">
+      <button type="submit" className="btn-primary w-full min-h-[44px]">
         Send Enquiry
       </button>
     </form>
