@@ -6,7 +6,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Star, Shield, Award } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
-import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { services } from "@/data/services";
@@ -137,21 +136,77 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.slice(0, 6).map((service, index) => (
-              <div key={service.slug} className={index >= 3 ? "hidden md:block" : ""}>
-                <ServiceCard
-                  title={service.title}
-                  description={service.description}
+          {/* Featured large cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services.slice(0, 2).map((service, index) => (
+              <motion.div
+                key={service.slug}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Link
                   href={`/services/${service.slug}`}
-                  index={index}
-                  image={service.image}
-                />
-              </div>
+                  className="group block rounded-2xl bg-[#141414] border border-white/10 overflow-hidden hover:shadow-lg hover:border-white/20 hover:scale-[1.02] transition-all duration-300"
+                >
+                  <div className="relative w-full aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="p-8">
+                    <h3 className="font-heading font-semibold text-2xl text-white">{service.title}</h3>
+                    <p className="mt-3 text-white/50 leading-relaxed line-clamp-3">{service.description}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:translate-x-1 transition-transform">
+                      Learn More →
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
             ))}
           </div>
 
-          <div className="mt-6 text-center md:hidden">
+          {/* Secondary smaller cards */}
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.slice(2, 6).map((service, index) => (
+              <motion.div
+                key={service.slug}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="group block rounded-2xl bg-[#141414] border border-white/10 overflow-hidden h-full hover:shadow-lg hover:border-white/20 hover:scale-[1.02] transition-all duration-300"
+                >
+                  <div className="relative w-full aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-heading font-semibold text-lg text-white">{service.title}</h3>
+                    <p className="mt-2 text-sm text-white/50 line-clamp-2">{service.description}</p>
+                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:translate-x-1 transition-transform">
+                      Learn More →
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
             <Link href="/services" className="text-sm font-medium text-white/70 hover:text-white hover:underline underline-offset-4 transition-colors">
               View All Services →
             </Link>
