@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Star } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import CredentialBadges from "@/components/CredentialBadges";
 import { services } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
 
@@ -237,6 +238,10 @@ export default function Home() {
                 ))}
               </ul>
             </div>
+          </motion.div>
+
+          <motion.div {...fadeInUp} className="mt-16 pt-12 border-t border-white/10">
+            <CredentialBadges />
           </motion.div>
         </div>
       </section>

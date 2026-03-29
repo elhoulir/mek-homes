@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Award, Clock, Users, ShieldCheck, MapPin, Phone } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ScrollAnimation from "@/components/ScrollAnimation";
+import CredentialBadges from "@/components/CredentialBadges";
 
 export const metadata: Metadata = {
   title: "About Us | MEK Homes - Carpentry & Renovations Melbourne",
@@ -228,6 +229,15 @@ export default function AboutPage() {
               </ScrollAnimation>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Credentials */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <ScrollAnimation>
+            <CredentialBadges />
+          </ScrollAnimation>
         </div>
       </section>
 
