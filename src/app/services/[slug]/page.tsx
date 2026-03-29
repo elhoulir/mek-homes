@@ -4,12 +4,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 import { getServiceBySlug, getAllServiceSlugs } from "@/data/services";
-import { getProjectsByServiceType } from "@/data/projects";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQAccordion from "@/components/FAQAccordion";
 import ContactFormEmbed from "@/components/ContactFormEmbed";
 import ScrollAnimation from "@/components/ScrollAnimation";
-import ProjectCard from "@/components/ProjectCard";
 import GallerySection from "@/components/GallerySection";
 
 export function generateStaticParams() {
@@ -38,8 +36,6 @@ export default async function ServicePage({
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) notFound();
-
-  const relatedProjects = getProjectsByServiceType(slug).slice(0, 3);
 
   return (
     <>
@@ -146,30 +142,6 @@ export default async function ServicePage({
           </div>
         </div>
       </section>
-
-      {/* Related Projects */}
-      {relatedProjects.length > 0 && (
-        <section className="section-padding bg-[#0A0A0A]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-white">
-              Related Projects
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {relatedProjects.map((project) => (
-                <ProjectCard
-                  key={project.slug}
-                  slug={project.slug}
-                  title={project.title}
-                  description={project.description}
-                  location={project.location}
-                  serviceType={project.serviceType}
-                  image={project.image}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Contact Form */}
       <section id="contact-form" className="section-padding">

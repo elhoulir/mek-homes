@@ -9,6 +9,51 @@ interface TestimonialCarouselProps {
   testimonials: Testimonial[];
 }
 
+function InitialAvatar({ name }: { name: string }) {
+  const initial = name.charAt(0).toUpperCase();
+  return (
+    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white font-heading font-semibold text-sm shrink-0">
+      {initial}
+    </div>
+  );
+}
+
+function StarRating({ count }: { count: number }) {
+  return (
+    <div className="flex gap-0.5">
+      {Array.from({ length: count }).map((_, j) => (
+        <Star key={j} className="h-4 w-4 fill-white text-white" />
+      ))}
+    </div>
+  );
+}
+
+function GoogleBadge() {
+  return (
+    <span className="text-xs text-white/40 mt-1 block">via Google Reviews</span>
+  );
+}
+
+function TestimonialCard({ t, compact = false }: { t: Testimonial; compact?: boolean }) {
+  return (
+    <div className={`rounded-2xl bg-[#141414] shadow-sm border border-white/10 ${compact ? "p-6" : "p-8"}`}>
+      <StarRating count={t.rating} />
+      <Quote className={`text-white/20 mt-4 ${compact ? "h-6 w-6 mb-3" : "h-8 w-8 mb-4"}`} />
+      <p className="text-white/70 leading-relaxed mb-6">{t.quote}</p>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <InitialAvatar name={t.name} />
+          <div>
+            <p className="font-semibold font-heading text-white">{t.name}</p>
+            <p className="text-sm text-white/50">{t.suburb}</p>
+            <GoogleBadge />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -36,21 +81,7 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
       {/* Desktop: show 3 cards */}
       <div className="hidden lg:grid lg:grid-cols-3 lg:gap-6">
         {testimonials.slice(0, 3).map((t, i) => (
-          <div key={i} className="rounded-2xl bg-[#141414] p-8 shadow-sm border border-white/10">
-            <Quote className="h-8 w-8 text-white/20 mb-4" />
-            <p className="text-white/70 leading-relaxed mb-6">{t.quote}</p>
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="font-semibold font-heading text-white">{t.name}</p>
-                <p className="text-sm text-white/50">{t.suburb}</p>
-              </div>
-              <div className="flex gap-0.5">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-            </div>
-          </div>
+          <TestimonialCard key={i} t={t} />
         ))}
       </div>
 
@@ -64,21 +95,8 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.3 }}
-              className="rounded-2xl bg-[#141414] p-6 shadow-sm border border-white/10"
             >
-              <Quote className="h-6 w-6 text-white/20 mb-3" />
-              <p className="text-white/70 leading-relaxed mb-4">{testimonials[current].quote}</p>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold font-heading text-white">{testimonials[current].name}</p>
-                  <p className="text-sm text-white/50">{testimonials[current].suburb}</p>
-                </div>
-                <div className="flex gap-0.5">
-                  {Array.from({ length: testimonials[current].rating }).map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-              </div>
+              <TestimonialCard t={testimonials[current]} compact />
             </motion.div>
           </AnimatePresence>
         </div>

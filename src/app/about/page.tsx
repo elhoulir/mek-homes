@@ -234,40 +234,22 @@ export default function AboutPage() {
       {/* Explore Our Work */}
       <section className="section-padding bg-[#111111]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link href="/services" className="group relative rounded-2xl overflow-hidden aspect-[16/9] block">
-              <Image
-                src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80"
-                alt="Our Services"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="font-heading font-bold text-2xl text-white">Our Services</h3>
-                <p className="mt-1 text-white/70 text-sm">Explore our full range of carpentry and renovation services</p>
-                <span className="mt-3 inline-block text-sm font-medium text-white/80 group-hover:text-white transition-colors">
-                  View Services →
-                </span>
-              </div>
-            </Link>
-            <Link href="/projects" className="group relative rounded-2xl overflow-hidden aspect-[16/9] block">
-              <Image
-                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
-                alt="Our Projects"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="font-heading font-bold text-2xl text-white">Our Portfolio</h3>
-                <p className="mt-1 text-white/70 text-sm">See completed projects across Melbourne suburbs</p>
-                <span className="mt-3 inline-block text-sm font-medium text-white/80 group-hover:text-white transition-colors">
-                  View Projects →
-                </span>
-              </div>
-            </Link>
-          </div>
+          <Link href="/services" className="group relative rounded-2xl overflow-hidden aspect-[16/9] block max-w-2xl mx-auto">
+            <Image
+              src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80"
+              alt="Our Services"
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <h3 className="font-heading font-bold text-2xl text-white">Our Services</h3>
+              <p className="mt-1 text-white/70 text-sm">Explore our full range of carpentry and renovation services</p>
+              <span className="mt-3 inline-block text-sm font-medium text-white/80 group-hover:text-white transition-colors">
+                View Services →
+              </span>
+            </div>
+          </Link>
         </div>
       </section>
 

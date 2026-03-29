@@ -6,10 +6,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Star } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
-import ProjectCard from "@/components/ProjectCard";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { services } from "@/data/services";
-import { getFeaturedProjects } from "@/data/projects";
 import { testimonials } from "@/data/testimonials";
 
 const rotatingWords = ["Kitchens", "Bathrooms", "Decks", "Living Spaces"];
@@ -23,8 +21,6 @@ const fadeInUp = {
 
 export default function Home() {
   const [wordIndex, setWordIndex] = useState(0);
-  const featuredProjects = getFeaturedProjects();
-
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex((i) => (i + 1) % rotatingWords.length);
@@ -84,8 +80,8 @@ export default function Home() {
                 <Link href="/contact" className="btn-primary">
                   Get a Free Quote
                 </Link>
-                <Link href="/projects" className="btn-outline">
-                  View Our Work
+                <Link href="/services" className="btn-outline">
+                  View Our Services
                 </Link>
               </div>
             </motion.div>
@@ -245,29 +241,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 6. Featured Projects ────────────────────────────────────────── */}
-      <section className="section-padding px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <motion.div {...fadeInUp} className="mb-12 text-center">
-            <h2 className="font-heading font-bold text-3xl md:text-5xl text-white">Recent Projects</h2>
-            <p className="mt-4 text-white/50 text-lg">See what we&apos;ve built for Melbourne homeowners</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.slug} slug={project.slug} title={project.title} description={project.description} location={project.location} serviceType={project.serviceType} image={project.image} />
-            ))}
-          </div>
-
-          <motion.div {...fadeInUp} className="mt-8 text-center">
-            <Link href="/projects" className="inline-flex items-center justify-center text-sm font-medium text-white/70 hover:text-white underline-offset-4 transition-colors md:hover:underline">
-              View All Projects →
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── 7. Testimonials ─────────────────────────────────────────────── */}
+      {/* ── 6. Testimonials ─────────────────────────────────────────────── */}
       <section className="section-padding bg-[#111111] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <motion.div {...fadeInUp} className="mb-12 text-center">
@@ -277,7 +251,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 8. CTA Section ──────────────────────────────────────────────── */}
+      {/* ── 7. CTA Section ──────────────────────────────────────────────── */}
       <section className="py-24 bg-white text-black text-center px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <motion.div {...fadeInUp}>
