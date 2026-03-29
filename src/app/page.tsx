@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, Star, Shield, Award } from "lucide-react";
+import { CheckCircle2, Star } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ProjectCard from "@/components/ProjectCard";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
@@ -216,15 +216,24 @@ export default function Home() {
 
       {/* ── 5. Why Choose MEK ───────────────────────────────────────────── */}
       <section className="section-padding bg-[#111111] px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl space-y-20">
+        <div className="mx-auto max-w-7xl">
           <motion.div {...fadeInUp} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80" alt="Quality carpentry work by MEK Homes" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
             </div>
             <div>
-              <h3 className="font-heading font-bold text-2xl md:text-3xl text-white">Quality You Can Trust</h3>
-              <ul className="mt-6 space-y-4">
-                {["Licensed and registered carpenters", "Fully insured for your peace of mind", "Transparent quoting — no hidden costs"].map((point) => (
+              <h2 className="font-heading font-bold text-3xl md:text-4xl text-white">Why MEK Homes</h2>
+              <p className="mt-4 text-white/60 text-lg leading-relaxed">
+                We bring together experienced tradespeople, transparent processes, and a genuine commitment to quality — so you can renovate with confidence.
+              </p>
+              <ul className="mt-8 space-y-5">
+                {[
+                  "Licensed & registered carpenters",
+                  "Fully insured for your peace of mind",
+                  "Transparent quoting — no hidden costs",
+                  "Free consultation and detailed quote",
+                  "Clean worksite guarantee — every day",
+                ].map((point) => (
                   <li key={point} className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-white shrink-0 mt-0.5" />
                     <span className="text-white/70">{point}</span>
@@ -232,32 +241,6 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-          </motion.div>
-
-          <motion.div {...fadeInUp} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="lg:order-1">
-              <h3 className="font-heading font-bold text-2xl md:text-3xl text-white">From Vision to Reality</h3>
-              <ul className="mt-6 space-y-4">
-                {["Free initial consultation and quote", "Detailed project timeline from day one", "Clean worksite guarantee — every day"].map((point) => (
-                  <li key={point} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-white shrink-0 mt-0.5" />
-                    <span className="text-white/70">{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden lg:order-2">
-              <Image src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="MEK Homes project completion" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-            </div>
-          </motion.div>
-
-          <motion.div {...fadeInUp} className="flex flex-wrap justify-center gap-8">
-            {[{ label: "Licensed", Icon: Shield }, { label: "Insured", Icon: Shield }, { label: "HIA Member", Icon: Award }, { label: "Master Builders", Icon: Award }].map(({ label, Icon }) => (
-              <div key={label} className="flex items-center gap-2 text-white/40">
-                <Icon className="h-5 w-5" />
-                <span className="text-sm font-medium">{label}</span>
-              </div>
-            ))}
           </motion.div>
         </div>
       </section>
