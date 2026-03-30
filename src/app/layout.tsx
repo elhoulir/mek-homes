@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, DM_Serif_Display } from "next/font/google";
+import { Outfit, Space_Grotesk } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageWrapper from "@/components/PageWrapper";
@@ -7,15 +7,16 @@ import FloatingCallButton from "@/components/FloatingCallButton";
 import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "700"],
+  variable: "--font-outfit",
 });
 
-const dmSerif = DM_Serif_Display({
-  weight: "400",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-dm-serif",
+  weight: "700",
+  variable: "--font-space-grotesk",
 });
 
 export const metadata: Metadata = {
@@ -33,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${dmSerif.variable} font-sans bg-[#0A0A0A] text-white`}>
+      <body className={`${outfit.variable} ${spaceGrotesk.variable} font-sans bg-[#0A0A0A] text-white`}>
         <Header />
         <main className="pt-20">
           <PageWrapper>{children}</PageWrapper>
