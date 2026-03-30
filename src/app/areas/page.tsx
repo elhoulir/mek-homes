@@ -59,7 +59,7 @@ export default function AreasPage() {
                       href={`/areas/${suburb.slug}`}
                       className="inline-block rounded-full border border-[#E5E5E5] bg-white px-5 py-2 text-sm font-medium text-[#444444] transition-colors hover:bg-[#111111] hover:text-white"
                     >
-                      {suburb.name}
+                      {suburb.name} <span className="text-[#BBBBBB]">{suburb.postcode}</span>
                     </Link>
                   ))}
                 </div>

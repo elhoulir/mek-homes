@@ -226,7 +226,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 3. Featured Services ────────────────────────────────────────── */}
+      {/* ── 3. Suburb Search Strip ──────────────────────────────────────── */}
+      <section className="py-10 bg-[#F7F7F7] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl">
+          <SuburbSearch suburbs={suburbs} variant="strip" />
+        </div>
+      </section>
+
+      {/* ── 4. Featured Services ────────────────────────────────────────── */}
       <section className="section-padding bg-[#F7F7F7] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <motion.div {...fadeInUp} className="mb-12 text-center">
@@ -423,24 +430,6 @@ export default function Home() {
             <h2 className="font-heading font-bold text-3xl md:text-5xl text-[#111111]">What Our Clients Say</h2>
           </motion.div>
           <TestimonialCarousel testimonials={testimonials} />
-        </div>
-      </section>
-
-      {/* ── 8. Areas We Service ──────────────────────────────────────────── */}
-      <section className="section-padding bg-[#F7F7F7] px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <motion.div {...fadeInUp} className="text-center mb-8">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#111111]">Areas We Service</h2>
-            <p className="mt-3 text-[#444444] text-lg">
-              Proudly serving 30+ suburbs across Melbourne
-            </p>
-          </motion.div>
-          <SuburbSearch suburbs={suburbs} />
-          <div className="mt-8 text-center">
-            <Link href="/areas" className="text-sm font-medium text-[#444444] hover:text-[#111111] hover:underline underline-offset-4 transition-colors">
-              View All Areas →
-            </Link>
-          </div>
         </div>
       </section>
 

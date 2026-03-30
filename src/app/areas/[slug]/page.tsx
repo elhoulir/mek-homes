@@ -64,7 +64,7 @@ export default async function SuburbPage({
             ]}
           />
           <h1 className="mt-4 text-4xl md:text-5xl font-heading font-bold text-white">
-            Carpentry &amp; Renovations in {suburb.name}
+            Carpentry &amp; Renovations in {suburb.name} <span className="text-white/40">{suburb.postcode}</span>
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-white/50">
             {suburb.name} is known for its unique character and distinctive homes.
