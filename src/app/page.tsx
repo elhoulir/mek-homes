@@ -1,8 +1,9 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Star } from "lucide-react";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { services } from "@/data/services";
@@ -15,13 +16,28 @@ const fadeInUp = {
   transition: { duration: 0.6 },
 };
 
-const heroPhotos = [
-  { src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80", label: "Kitchen Renovation" },
-  { src: "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=400&q=80", label: "Decking" },
-  { src: "https://images.unsplash.com/photo-1622372738946-62e02505feb3?w=400&q=80", label: "Custom Carpentry" },
+// Groups of 3 services for rotation
+const heroServiceSets = [
+  [0, 1, 2], // Home Renovations, Custom Carpentry, Decking & Pergolas
+  [3, 4, 5], // Kitchen, Bathroom, Structural
+  [6, 7, 8], // Doors & Windows, Fencing, Lockup & Fix
 ];
 
 export default function Home() {
+  const [heroSetIndex, setHeroSetIndex] = useState(0);
+
+  const nextHeroSet = useCallback(() => {
+    setHeroSetIndex((i) => (i + 1) % heroServiceSets.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(nextHeroSet, 5000);
+    return () => clearInterval(timer);
+  }, [nextHeroSet]);
+
+  const currentSet = heroServiceSets[heroSetIndex];
+  const heroServices = currentSet.map((i) => services[i]);
+
   return (
     <>
       {/* ── 1. Hero Section — Split Layout ────────────────────────────── */}
@@ -64,71 +80,107 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Right: Photo Grid */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="hidden md:flex gap-3 lg:gap-4 h-[420px] lg:h-[480px]"
-            >
-              {/* Large image */}
-              <div className="flex-[1.3] relative rounded-2xl overflow-hidden min-h-0">
-                <Image
-                  src={heroPhotos[0].src}
-                  alt={heroPhotos[0].label}
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 1024px) 50vw, 35vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <span className="absolute bottom-4 left-4 text-sm font-medium text-white">
-                  {heroPhotos[0].label}
-                </span>
-              </div>
-              {/* Two stacked images */}
-              <div className="flex-1 flex flex-col gap-3 lg:gap-4 min-h-0">
-                {heroPhotos.slice(1).map((photo) => (
-                  <div key={photo.label} className="flex-1 relative rounded-2xl overflow-hidden min-h-0">
+            {/* Right: Rotating Photo Grid — Desktop */}
+            <div className="hidden md:block">
+              <div className="flex gap-3 lg:gap-4 h-[420px] lg:h-[480px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`hero-set-${heroSetIndex}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="flex gap-3 lg:gap-4 w-full"
+                >
+                  {/* Large image */}
+                  <Link
+                    href={`/services/${heroServices[0].slug}`}
+                    className="flex-[1.3] relative rounded-2xl overflow-hidden min-h-0 group"
+                  >
                     <Image
-                      src={photo.src}
-                      alt={photo.label}
+                      src={heroServices[0].image}
+                      alt={heroServices[0].title}
                       fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 30vw, 20vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      priority
+                      sizes="(max-width: 1024px) 50vw, 35vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <span className="absolute bottom-3 left-3 text-xs font-medium text-white">
-                      {photo.label}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <span className="absolute bottom-4 left-4 text-sm font-medium text-white bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
+                      {heroServices[0].title}
                     </span>
+                  </Link>
+                  {/* Two stacked images */}
+                  <div className="flex-1 flex flex-col gap-3 lg:gap-4 min-h-0">
+                    {heroServices.slice(1).map((service) => (
+                      <Link
+                        key={service.slug}
+                        href={`/services/${service.slug}`}
+                        className="flex-1 relative rounded-2xl overflow-hidden min-h-0 group"
+                      >
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 1024px) 30vw, 20vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <span className="absolute bottom-3 left-3 text-xs font-medium text-white bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                          {service.title}
+                        </span>
+                      </Link>
+                    ))}
                   </div>
+                </motion.div>
+              </AnimatePresence>
+              </div>
+              {/* Rotation dots */}
+              <div className="flex justify-center gap-2 mt-4">
+                {heroServiceSets.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setHeroSetIndex(i)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${i === heroSetIndex ? "w-6 bg-white" : "w-1.5 bg-white/30"}`}
+                    aria-label={`Show service set ${i + 1}`}
+                  />
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            {/* Mobile: 2-up photo row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="md:hidden grid grid-cols-2 gap-3"
-            >
-              {heroPhotos.slice(0, 2).map((photo) => (
-                <div key={photo.label} className="relative rounded-xl overflow-hidden aspect-square">
-                  <Image
-                    src={photo.src}
-                    alt={photo.label}
-                    fill
-                    className="object-cover"
-                    sizes="50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <span className="absolute bottom-2 left-2 text-xs font-medium text-white">
-                    {photo.label}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
+            {/* Mobile: 2-up photo row — also rotates */}
+            <div className="md:hidden grid grid-cols-2 gap-3">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`hero-mobile-${heroSetIndex}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="col-span-2 grid grid-cols-2 gap-3"
+                >
+                  {heroServices.slice(0, 2).map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={`/services/${service.slug}`}
+                      className="relative rounded-xl overflow-hidden aspect-square group"
+                    >
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                        sizes="50vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <span className="absolute bottom-2 left-2 text-xs font-medium text-white bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded-full">
+                        {service.title}
+                      </span>
+                    </Link>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </section>
