@@ -5,11 +5,13 @@ import type { FormEvent } from "react";
 
 interface ContactFormEmbedProps {
   preselectedService?: string;
+  prefilledSuburb?: string;
   variant?: "light" | "dark";
 }
 
 export default function ContactFormEmbed({
   preselectedService,
+  prefilledSuburb,
   variant = "light",
 }: ContactFormEmbedProps) {
   const [submitted, setSubmitted] = useState(false);
@@ -148,6 +150,7 @@ export default function ContactFormEmbed({
           type="text"
           id="suburb"
           name="suburb"
+          defaultValue={prefilledSuburb || ""}
           className={inputClasses}
           placeholder="e.g. Richmond, VIC"
         />
