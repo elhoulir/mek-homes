@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 import { getServiceBySlug, getAllServiceSlugs } from "@/data/services";
+import { suburbs } from "@/data/suburbs";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQAccordion from "@/components/FAQAccordion";
 import ContactFormEmbed from "@/components/ContactFormEmbed";
@@ -142,6 +143,58 @@ export default async function ServicePage({
           </div>
         </div>
       </section>
+
+      {/* Where We Offer */}
+      {(() => {
+        const featuredRegions = ["Inner East", "Bayside", "Inner South", "Inner North"];
+        const grouped = featuredRegions.reduce<Record<string, { name: string; slug: string }[]>>(
+          (acc, region) => {
+            acc[region] = suburbs
+              .filter((s) => s.region === region)
+              .slice(0, 4)
+              .map((s) => ({ name: s.name, slug: s.slug }));
+            return acc;
+          },
+          {}
+        );
+        return (
+          <section className="section-padding bg-[#F7F7F7]">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-[#111111] mb-8">
+                Where We Offer {service.title}
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {featuredRegions.map((region) => (
+                  <div key={region}>
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-[#999999] mb-3">
+                      {region}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {grouped[region].map((suburb) => (
+                        <Link
+                          key={suburb.slug}
+                          href={`/areas/${suburb.slug}`}
+                          className="inline-block rounded-full border border-[#E5E5E5] bg-white px-4 py-1.5 text-sm text-[#444444] transition-colors hover:border-[#111111] hover:text-[#111111]"
+                        >
+                          {suburb.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8">
+                <Link
+                  href="/areas"
+                  className="inline-flex items-center text-sm font-medium text-[#444444] hover:text-[#111111] transition-colors"
+                >
+                  View all areas &rarr;
+                </Link>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Contact Form */}
       <section id="contact-form" className="section-padding bg-[#0A0A0A]">

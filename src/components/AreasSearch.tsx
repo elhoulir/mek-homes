@@ -59,13 +59,13 @@ export default function AreasSearch({ suburbs }: AreasSearchProps) {
       {query.trim() && filtered.length === 0 && (
         <div className="mt-4 p-4 rounded-xl bg-white border border-[#E5E5E5] max-w-lg">
           <p className="text-[#666666] text-sm">
-            No suburb found — but we likely service your area.
+            Don&apos;t see your suburb?
           </p>
           <Link
-            href="/contact"
+            href={`/areas/${query.trim().toLowerCase().replace(/\s+/g, "-")}`}
             className="text-sm font-medium text-[#111111] hover:underline mt-1 inline-block"
           >
-            Contact us to check →
+            Check if we service {query.trim()} →
           </Link>
         </div>
       )}

@@ -91,9 +91,13 @@ export default function SuburbSearch({ suburbs, variant = "full" }: SuburbSearch
           )}
           {isOpen && query.trim() && filtered.length === 0 && (
             <div className="absolute z-20 mt-2 w-full rounded-xl border border-[#E5E5E5] bg-white shadow-lg p-4 text-center">
-              <p className="text-[#666666] text-sm">No suburb found — but we likely service your area.</p>
-              <Link href="/contact" className="text-sm font-medium text-[#111111] hover:underline mt-1 inline-block">
-                Contact us to check →
+              <p className="text-[#666666] text-sm">Don&apos;t see your suburb?</p>
+              <Link
+                href={`/areas/${query.trim().toLowerCase().replace(/\s+/g, "-")}`}
+                className="text-sm font-medium text-[#111111] hover:underline mt-1 inline-block"
+                onClick={() => setIsOpen(false)}
+              >
+                Check if we service {query.trim()} →
               </Link>
             </div>
           )}
@@ -171,9 +175,13 @@ export default function SuburbSearch({ suburbs, variant = "full" }: SuburbSearch
         )}
         {isOpen && query.trim() && filtered.length === 0 && (
           <div className="absolute z-20 mt-2 w-full rounded-xl border border-[#E5E5E5] bg-white shadow-lg p-4 text-center">
-            <p className="text-[#666666] text-sm">No suburb found — but we likely service your area.</p>
-            <Link href="/contact" className="text-sm font-medium text-[#111111] hover:underline mt-1 inline-block">
-              Contact us to check →
+            <p className="text-[#666666] text-sm">Don&apos;t see your suburb?</p>
+            <Link
+              href={`/areas/${query.trim().toLowerCase().replace(/\s+/g, "-")}`}
+              className="text-sm font-medium text-[#111111] hover:underline mt-1 inline-block"
+              onClick={() => setIsOpen(false)}
+            >
+              Check if we service {query.trim()} →
             </Link>
           </div>
         )}
