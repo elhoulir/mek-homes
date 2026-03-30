@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { CheckCircle2, Star } from "lucide-react";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
-import CredentialBadges from "@/components/CredentialBadges";
 import { services } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
 
@@ -134,7 +133,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 4. Featured Services ────────────────────────────────────────── */}
+      {/* ── 2. Trust Strip ────────────────────────────────────────────── */}
+      <section className="bg-[#F7F7F7] py-8 px-4 sm:px-6 lg:px-8 border-b border-[#E5E5E5]">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+            {[
+              { icon: (
+                <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 3L5 9v9c0 8.28 5.54 16.01 13 17.93C25.46 34.01 31 26.28 31 18V9L18 3z" stroke="currentColor" strokeWidth="2" fill="none" />
+                  <path d="M13 18l3.5 3.5L23 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+              ), label: "Licensed Carpenters" },
+              { icon: (
+                <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="18" cy="18" r="15" stroke="currentColor" strokeWidth="2" fill="none" />
+                  <path d="M12 18l4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+              ), label: "Fully Insured" },
+              { icon: (
+                <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 2L6 8v6c0 9 5.1 17.4 12 20 6.9-2.6 12-11 12-20V8L18 2z" stroke="currentColor" strokeWidth="2" fill="none" />
+                  <text x="18" y="21" textAnchor="middle" fill="currentColor" fontSize="10" fontWeight="700" fontFamily="sans-serif">HIA</text>
+                </svg>
+              ), label: "HIA Member" },
+              { icon: (
+                <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 2L6 8v6c0 9 5.1 17.4 12 20 6.9-2.6 12-11 12-20V8L18 2z" stroke="currentColor" strokeWidth="2" fill="none" />
+                  <text x="18" y="21" textAnchor="middle" fill="currentColor" fontSize="10" fontWeight="700" fontFamily="sans-serif">MB</text>
+                </svg>
+              ), label: "Master Builders" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-2.5 text-[#666666]">
+                {item.icon}
+                <span className="text-sm font-medium">{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. Featured Services ────────────────────────────────────────── */}
       <section className="section-padding bg-[#F7F7F7] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <motion.div {...fadeInUp} className="mb-12 text-center">
@@ -253,9 +291,6 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <motion.div {...fadeInUp} className="mt-16 pt-12 border-t border-white/10">
-            <CredentialBadges />
-          </motion.div>
         </div>
       </section>
 
