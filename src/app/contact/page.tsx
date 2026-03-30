@@ -31,40 +31,40 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content */}
-      <section className="section-padding">
+      <section className="bg-[#F7F7F7] section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-5">
 
             {/* Form */}
             <div className="lg:col-span-3">
-              <h2 className="font-heading text-2xl font-semibold mb-6 text-white">
+              <h2 className="font-heading text-2xl font-semibold mb-6 text-[#111111]">
                 Send Us a Message
               </h2>
               <ContactFormEmbed />
-              <div className="flex items-center gap-2 mt-4 text-sm text-white/50">
-                <Clock className="h-4 w-4 shrink-0" />
+              <div className="flex items-center gap-2 mt-4 text-sm text-[#666666]">
+                <Clock className="h-4 w-4 shrink-0 text-[#666666]" />
                 <span>Average response time: under 2 hours</span>
               </div>
             </div>
 
             {/* Contact Info */}
             <div className="lg:col-span-2">
-              <div className="bg-[#141414] rounded-2xl p-8">
-                <h3 className="font-heading font-semibold mb-6 text-white">
+              <div className="bg-white border border-[#E5E5E5] rounded-2xl p-8">
+                <h3 className="font-heading font-semibold mb-6 text-[#111111]">
                   Contact Details
                 </h3>
 
                 <div className="space-y-6">
                   {/* Phone */}
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-white/50">
+                    <div className="w-10 h-10 rounded-full bg-[#F0F0F0] flex items-center justify-center flex-shrink-0 text-[#666666]">
                       <Phone className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-sm text-white/50">Phone</p>
+                      <p className="text-sm text-[#999999]">Phone</p>
                       <a
                         href="tel:0400000000"
-                        className="font-medium text-white hover:text-white/70 transition-colors"
+                        className="font-medium text-[#111111] hover:text-[#444444] transition-colors"
                       >
                         0400 000 000
                       </a>
@@ -73,14 +73,14 @@ export default function ContactPage() {
 
                   {/* Email */}
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-white/50">
+                    <div className="w-10 h-10 rounded-full bg-[#F0F0F0] flex items-center justify-center flex-shrink-0 text-[#666666]">
                       <Mail className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-sm text-white/50">Email</p>
+                      <p className="text-sm text-[#999999]">Email</p>
                       <a
                         href="mailto:info@mekhomes.com.au"
-                        className="font-medium text-white hover:text-white/70 transition-colors"
+                        className="font-medium text-[#111111] hover:text-[#444444] transition-colors"
                       >
                         info@mekhomes.com.au
                       </a>
@@ -89,40 +89,40 @@ export default function ContactPage() {
 
                   {/* Location */}
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-white/50">
+                    <div className="w-10 h-10 rounded-full bg-[#F0F0F0] flex items-center justify-center flex-shrink-0 text-[#666666]">
                       <MapPin className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-sm text-white/50">Location</p>
-                      <p className="font-medium text-white">Melbourne, Victoria</p>
+                      <p className="text-sm text-[#999999]">Location</p>
+                      <p className="font-medium text-[#111111]">Melbourne, Victoria</p>
                     </div>
                   </div>
 
                   {/* Business Hours */}
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-white/50">
+                    <div className="w-10 h-10 rounded-full bg-[#F0F0F0] flex items-center justify-center flex-shrink-0 text-[#666666]">
                       <Clock className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-sm text-white/50">Business Hours</p>
+                      <p className="text-sm text-[#999999]">Business Hours</p>
                       <div className="mt-1 space-y-0.5 text-sm">
-                        <p className="font-medium text-white">Monday – Friday: 7:00 AM – 5:00 PM</p>
-                        <p className="font-medium text-white">Saturday: 8:00 AM – 2:00 PM</p>
-                        <p className="font-medium text-white/50">Sunday: Closed</p>
+                        <p className="font-medium text-[#111111]">Monday – Friday: 7:00 AM – 5:00 PM</p>
+                        <p className="font-medium text-[#111111]">Saturday: 8:00 AM – 2:00 PM</p>
+                        <p className="font-medium text-[#999999]">Sunday: Closed</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="border-t border-white/10 my-6" />
+                <div className="border-t border-[#E5E5E5] my-6" />
 
                 {/* MEK Guarantee */}
-                <div className="bg-[#1A1A1A] rounded-xl p-4">
+                <div className="bg-[#F7F7F7] border border-[#E5E5E5] rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <ShieldCheck className="h-5 w-5 text-white/50" />
-                    <p className="font-medium font-heading text-white">Licensed &amp; Fully Insured</p>
+                    <ShieldCheck className="h-5 w-5 text-[#666666]" />
+                    <p className="font-medium font-heading text-[#111111]">Licensed &amp; Fully Insured</p>
                   </div>
-                  <p className="text-sm text-white/50">
+                  <p className="text-sm text-[#444444]">
                     All quotes are completely free with zero obligation. We evaluate your project meticulously to provide honest, accurate pricing with a quality guarantee on every job.
                   </p>
                 </div>

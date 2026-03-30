@@ -5,10 +5,12 @@ import type { FormEvent } from "react";
 
 interface ContactFormEmbedProps {
   preselectedService?: string;
+  variant?: "light" | "dark";
 }
 
 export default function ContactFormEmbed({
   preselectedService,
+  variant = "light",
 }: ContactFormEmbedProps) {
   const [submitted, setSubmitted] = useState(false);
 
@@ -17,9 +19,11 @@ export default function ContactFormEmbed({
     setSubmitted(true);
   }
 
+  const isLight = variant === "light";
+
   if (submitted) {
     return (
-      <div className="rounded-xl border border-green-800 bg-[#141414] p-8 text-center">
+      <div className={`rounded-xl border p-8 text-center ${isLight ? "border-green-200 bg-green-50" : "border-green-800 bg-[#141414]"}`}>
         <svg
           className="mx-auto h-12 w-12 text-green-500"
           fill="none"
@@ -33,10 +37,10 @@ export default function ContactFormEmbed({
             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <h3 className="mt-4 text-lg font-semibold text-green-400">
+        <h3 className={`mt-4 text-lg font-semibold ${isLight ? "text-green-700" : "text-green-400"}`}>
           Thank You!
         </h3>
-        <p className="mt-2 text-green-300">
+        <p className={`mt-2 ${isLight ? "text-green-600" : "text-green-300"}`}>
           We&apos;ve received your enquiry and will get back to you within 24
           hours.
         </p>
@@ -44,10 +48,13 @@ export default function ContactFormEmbed({
     );
   }
 
-  const inputClasses =
-    "mt-1 block w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-white/30 focus:outline-none transition-colors";
+  const inputClasses = isLight
+    ? "mt-1 block w-full rounded-xl border border-[#E5E5E5] bg-white px-4 py-3 text-[#111111] placeholder:text-[#999999] focus:border-[#AAAAAA] focus:outline-none transition-colors"
+    : "mt-1 block w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-white/30 focus:outline-none transition-colors";
 
-  const labelClasses = "block text-sm font-medium text-white/70";
+  const labelClasses = isLight
+    ? "block text-sm font-medium text-[#444444]"
+    : "block text-sm font-medium text-white/70";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">

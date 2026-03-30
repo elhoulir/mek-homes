@@ -76,7 +76,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#F7F7F7]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Row 1: Image left, text right */}
           <ScrollAnimation>
@@ -93,10 +93,10 @@ export default function AboutPage() {
             </ScrollAnimation>
             <ScrollAnimation delay={0.2}>
             <div>
-              <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
+              <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#111111]">
                 Redefining the standard of Melbourne renovations
               </h2>
-              <div className="mt-6 space-y-5 text-white/50 leading-relaxed">
+              <div className="mt-6 space-y-5 text-[#444444] leading-relaxed">
                 <p>
                   MEK Homes was founded with a simple mission: to deliver exceptional carpentry and renovation work that Melbourne homeowners can trust. What started as a small local carpentry operation has meticulously grown into a full-service, high-end renovation company serving all suburbs across Melbourne.
                 </p>
@@ -114,10 +114,10 @@ export default function AboutPage() {
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
             <ScrollAnimation delay={0.1}>
             <div>
-              <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
+              <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#111111]">
                 Built on trust, delivered with pride
               </h2>
-              <div className="mt-6 space-y-5 text-white/50 leading-relaxed">
+              <div className="mt-6 space-y-5 text-[#444444] leading-relaxed">
                 <p>
                   Today, MEK Homes stands proud as one of Melbourne&apos;s most trusted building teams. We remain steadfastly committed to the same foundational values that built our business from day one: unparalleled craftsmanship, transparent communication, and treating every home as if it were our own.
                 </p>
@@ -182,13 +182,13 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#F7F7F7]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollAnimation className="text-center mb-12">
-            <h2 className="font-heading text-3xl font-bold md:text-4xl text-white">
+            <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#111111]">
               Our Values
             </h2>
-            <p className="mt-4 text-lg text-white/50">
+            <p className="mt-4 text-lg text-[#444444]">
               Everything we do at MEK Homes is driven by four core principles that ensure every project is a masterpiece.
             </p>
           </ScrollAnimation>
@@ -198,13 +198,13 @@ export default function AboutPage() {
               <ScrollAnimation
                 key={value.title}
                 delay={i * 0.1}
-                className="bg-[#1A1A1A] rounded-2xl p-6 text-center"
+                className="bg-white border border-[#E5E5E5] rounded-2xl p-6 text-center"
               >
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4 text-white/50">
+                <div className="w-12 h-12 rounded-full bg-[#F0F0F0] flex items-center justify-center mx-auto mb-4 text-[#666666]">
                   {value.icon}
                 </div>
-                <h3 className="font-heading font-semibold mb-2 text-white">{value.title}</h3>
-                <p className="text-sm text-white/50">{value.description}</p>
+                <h3 className="font-heading font-semibold mb-2 text-[#111111]">{value.title}</h3>
+                <p className="text-sm text-[#444444]">{value.description}</p>
               </ScrollAnimation>
             ))}
           </div>
@@ -237,7 +237,7 @@ export default function AboutPage() {
       </section>
 
       {/* Credentials */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-[#F7F7F7]">
         <div className="mx-auto max-w-7xl">
           <ScrollAnimation>
             <CredentialBadges />

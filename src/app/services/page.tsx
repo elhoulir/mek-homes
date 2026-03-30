@@ -35,7 +35,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#F7F7F7]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, i) => (
@@ -43,7 +43,7 @@ export default function ServicesPage() {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="warm-card overflow-hidden block"
+                className="bg-white border border-[#E5E5E5] rounded-2xl hover:shadow-lg hover:border-[#CCCCCC] hover:-translate-y-1 transition-all duration-300 overflow-hidden block"
               >
                 {/* Image */}
                 <div
@@ -62,10 +62,10 @@ export default function ServicesPage() {
 
                 {/* Card Body */}
                 <div className="p-6">
-                  <h2 className="text-xl font-heading font-semibold text-white">
+                  <h2 className="text-xl font-heading font-semibold text-[#111111]">
                     {service.title}
                   </h2>
-                  <p className="mt-2 text-white/50 line-clamp-2 mb-4">
+                  <p className="mt-2 text-[#444444] line-clamp-2 mb-4">
                     {service.description}
                   </p>
 
@@ -74,14 +74,14 @@ export default function ServicesPage() {
                     {service.features.slice(0, 3).map((feature) => (
                       <span
                         key={feature}
-                        className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/50"
+                        className="rounded-full bg-[#F0F0F0] px-3 py-1 text-xs text-[#666666]"
                       >
                         {feature}
                       </span>
                     ))}
                   </div>
 
-                  <span className="text-sm font-medium flex items-center gap-1 text-white">
+                  <span className="text-sm font-medium flex items-center gap-1 text-[#111111]">
                     Learn More →
                   </span>
                 </div>

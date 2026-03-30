@@ -64,27 +64,27 @@ export default async function ServicePage({
       </section>
 
       {/* Main Content */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#F7F7F7]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
 
             {/* Left Column */}
             <div className="lg:w-2/3">
               {/* Long Description */}
-              <p className="text-white/50 leading-relaxed text-lg">
+              <p className="text-[#444444] leading-relaxed text-lg">
                 {service.longDescription}
               </p>
 
               {/* Features */}
               <ScrollAnimation className="mt-12">
-                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-[#111111]">
                   What&apos;s Included
                 </h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-white mt-0.5 shrink-0" />
-                      <span className="text-white/50">{feature}</span>
+                      <CheckCircle2 className="h-5 w-5 text-[#111111] mt-0.5 shrink-0" />
+                      <span className="text-[#444444]">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -92,7 +92,7 @@ export default async function ServicePage({
 
               {/* Gallery */}
               <ScrollAnimation className="mt-12">
-                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-[#111111]">
                   Our Work
                 </h2>
                 <GallerySection
@@ -103,7 +103,7 @@ export default async function ServicePage({
 
               {/* FAQ */}
               <ScrollAnimation className="mt-12">
-                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-[#111111]">
                   Frequently Asked Questions
                 </h2>
                 <FAQAccordion faqs={service.faqs} />
@@ -112,7 +112,7 @@ export default async function ServicePage({
 
             {/* Right Sticky Column */}
             <div className="lg:w-1/3">
-              <div className="sticky top-24 bg-[#141414] rounded-2xl p-6">
+              <div className="sticky top-24 bg-white border border-[#E5E5E5] rounded-2xl p-6">
                 {/* Service Image */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl mb-6">
                   <Image
@@ -124,7 +124,7 @@ export default async function ServicePage({
                   />
                 </div>
 
-                <p className="font-heading font-semibold text-lg mb-4 text-white">
+                <p className="font-heading font-semibold text-lg mb-4 text-[#111111]">
                   Ready to transform your space?
                 </p>
 
@@ -144,13 +144,13 @@ export default async function ServicePage({
       </section>
 
       {/* Contact Form */}
-      <section id="contact-form" className="section-padding">
+      <section id="contact-form" className="section-padding bg-[#0A0A0A]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#0A0A0A] rounded-2xl p-8">
+          <div className="bg-[#141414] rounded-2xl p-8">
             <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
               Get a Quote for {service.title}
             </h2>
-            <ContactFormEmbed preselectedService={service.contactFormValue} />
+            <ContactFormEmbed preselectedService={service.contactFormValue} variant="dark" />
           </div>
         </div>
       </section>

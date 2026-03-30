@@ -122,13 +122,13 @@ export default function Home() {
       </section>
 
       {/* ── 4. Featured Services ────────────────────────────────────────── */}
-      <section className="section-padding px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-[#F7F7F7] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <motion.div {...fadeInUp} className="mb-12 text-center">
-            <h2 className="font-heading font-bold text-3xl md:text-5xl text-white">
+            <h2 className="font-heading font-bold text-3xl md:text-5xl text-[#111111]">
               What We Do
             </h2>
-            <p className="mt-4 text-white/50 text-lg">
+            <p className="mt-4 text-[#444444] text-lg">
               Premium carpentry and renovation services across Melbourne
             </p>
           </motion.div>
@@ -145,7 +145,7 @@ export default function Home() {
               >
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group block rounded-2xl bg-[#141414] border border-white/10 overflow-hidden hover:shadow-lg hover:border-white/20 hover:scale-[1.02] transition-all duration-300"
+                  className="group block rounded-2xl bg-white border border-[#E5E5E5] overflow-hidden hover:shadow-lg hover:border-[#CCCCCC] hover:scale-[1.02] transition-all duration-300"
                 >
                   <div className="relative w-full aspect-[16/9] overflow-hidden">
                     <Image
@@ -157,9 +157,9 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-8">
-                    <h3 className="font-heading font-semibold text-2xl text-white">{service.title}</h3>
-                    <p className="mt-3 text-white/50 leading-relaxed line-clamp-3">{service.description}</p>
-                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:translate-x-1 transition-transform">
+                    <h3 className="font-heading font-semibold text-2xl text-[#111111]">{service.title}</h3>
+                    <p className="mt-3 text-[#444444] leading-relaxed line-clamp-3">{service.description}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#111111] group-hover:translate-x-1 transition-transform">
                       Learn More →
                     </span>
                   </div>
@@ -180,7 +180,7 @@ export default function Home() {
               >
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group block rounded-2xl bg-[#141414] border border-white/10 overflow-hidden h-full hover:shadow-lg hover:border-white/20 hover:scale-[1.02] transition-all duration-300"
+                  className="group block rounded-2xl bg-white border border-[#E5E5E5] overflow-hidden h-full hover:shadow-lg hover:border-[#CCCCCC] hover:scale-[1.02] transition-all duration-300"
                 >
                   <div className="relative w-full aspect-[4/3] overflow-hidden">
                     <Image
@@ -192,9 +192,9 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-5">
-                    <h3 className="font-heading font-semibold text-lg text-white">{service.title}</h3>
-                    <p className="mt-2 text-sm text-white/50 line-clamp-2">{service.description}</p>
-                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:translate-x-1 transition-transform">
+                    <h3 className="font-heading font-semibold text-lg text-[#111111]">{service.title}</h3>
+                    <p className="mt-2 text-sm text-[#444444] line-clamp-2">{service.description}</p>
+                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[#111111] group-hover:translate-x-1 transition-transform">
                       Learn More →
                     </span>
                   </div>
@@ -204,7 +204,7 @@ export default function Home() {
           </div>
 
           <div className="mt-8 text-center">
-            <Link href="/services" className="text-sm font-medium text-white/70 hover:text-white hover:underline underline-offset-4 transition-colors">
+            <Link href="/services" className="text-sm font-medium text-[#444444] hover:text-[#111111] hover:underline underline-offset-4 transition-colors">
               View All Services →
             </Link>
           </div>
@@ -247,26 +247,26 @@ export default function Home() {
       </section>
 
       {/* ── 6. Testimonials ─────────────────────────────────────────────── */}
-      <section className="section-padding bg-[#111111] px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-[#F7F7F7] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <motion.div {...fadeInUp} className="mb-12 text-center">
-            <h2 className="font-heading font-bold text-3xl md:text-5xl text-white">What Our Clients Say</h2>
+            <h2 className="font-heading font-bold text-3xl md:text-5xl text-[#111111]">What Our Clients Say</h2>
           </motion.div>
           <TestimonialCarousel testimonials={testimonials} />
         </div>
       </section>
 
       {/* ── 7. CTA Section ──────────────────────────────────────────────── */}
-      <section className="py-24 bg-white text-black text-center px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-[#0A0A0A] text-white text-center px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <motion.div {...fadeInUp}>
-            <h2 className="font-heading font-bold text-3xl md:text-5xl text-black">Ready to Start Your Project?</h2>
-            <p className="mt-4 text-gray-500 text-lg">Get in touch for a free consultation and quote</p>
+            <h2 className="font-heading font-bold text-3xl md:text-5xl text-white">Ready to Start Your Project?</h2>
+            <p className="mt-4 text-white/70 text-lg">Get in touch for a free consultation and quote</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 min-h-[44px] bg-black text-white font-medium rounded-xl hover:bg-gray-800 transition-colors">
+              <Link href="/contact" className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 min-h-[44px] bg-white text-black font-medium rounded-xl hover:bg-gray-200 transition-colors">
                 Get a Free Quote
               </Link>
-              <a href="tel:0400000000" className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 min-h-[44px] border-2 border-black text-black font-medium rounded-xl hover:bg-black hover:text-white transition-colors">
+              <a href="tel:0400000000" className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 min-h-[44px] border-2 border-white text-white font-medium rounded-xl hover:bg-white hover:text-black transition-colors">
                 Call 0400 000 000
               </a>
             </div>
