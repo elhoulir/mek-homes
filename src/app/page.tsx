@@ -4,10 +4,12 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, Star } from "lucide-react";
+import { CheckCircle2, Star, Phone, FileText, Hammer, ThumbsUp, Search, MapPin } from "lucide-react";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import SuburbSearch from "@/components/SuburbSearch";
 import { services } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
+import { suburbs } from "@/data/suburbs";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -348,7 +350,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 5. Why Choose MEK ───────────────────────────────────────────── */}
+      {/* ── 5. How It Works ──────────────────────────────────────────────── */}
+      <section className="py-16 lg:py-20 bg-[#0A0A0A] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <motion.div {...fadeInUp} className="text-center mb-12">
+            <h2 className="font-heading font-bold text-3xl md:text-4xl text-white">How It Works</h2>
+            <p className="mt-3 text-white/50">From first call to finished project — in four simple steps</p>
+          </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            {[
+              { icon: Phone, step: "01", title: "Free Consultation", desc: "Call or fill out our form. We'll discuss your project and arrange a site visit." },
+              { icon: FileText, step: "02", title: "Detailed Quote", desc: "We measure up, plan the work, and provide a transparent, itemised quote." },
+              { icon: Hammer, step: "03", title: "We Build", desc: "Our licensed carpenters get to work — on time, on budget, with daily clean-up." },
+              { icon: ThumbsUp, step: "04", title: "You Enjoy", desc: "Final walkthrough, your sign-off, and a quality guarantee on every job." },
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="text-center"
+              >
+                <div className="mx-auto w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+                  <item.icon className="h-6 w-6 text-white/70" />
+                </div>
+                <span className="text-xs font-medium text-white/30 uppercase tracking-wider">{item.step}</span>
+                <h3 className="font-heading font-semibold text-white mt-1 text-lg">{item.title}</h3>
+                <p className="mt-2 text-sm text-white/50 leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. Why Choose MEK ───────────────────────────────────────────── */}
       <section className="section-padding bg-[#111111] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <motion.div {...fadeInUp} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -390,7 +426,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 7. CTA Section ──────────────────────────────────────────────── */}
+      {/* ── 8. Areas We Service ──────────────────────────────────────────── */}
+      <section className="section-padding bg-[#F7F7F7] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <motion.div {...fadeInUp} className="text-center mb-8">
+            <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#111111]">Areas We Service</h2>
+            <p className="mt-3 text-[#444444] text-lg">
+              Proudly serving 30+ suburbs across Melbourne
+            </p>
+          </motion.div>
+          <SuburbSearch suburbs={suburbs} />
+          <div className="mt-8 text-center">
+            <Link href="/areas" className="text-sm font-medium text-[#444444] hover:text-[#111111] hover:underline underline-offset-4 transition-colors">
+              View All Areas →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 9. CTA Section ──────────────────────────────────────────────── */}
       <section className="py-24 bg-[#0A0A0A] text-white text-center px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <motion.div {...fadeInUp}>
