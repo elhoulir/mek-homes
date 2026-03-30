@@ -53,7 +53,30 @@ export default function Footer() {
               {[
                 { name: "About Us", href: "/about" },
                 { name: "Our Services", href: "/services" },
+                { name: "Service Areas", href: "/areas" },
                 { name: "Contact Team", href: "/contact" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="transition-colors hover:text-white"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h3 className="mt-8 mb-4 font-heading text-lg font-semibold uppercase tracking-widest text-white">
+              Service Areas
+            </h3>
+            <ul className="space-y-3 text-sm font-medium">
+              {[
+                { name: "Bayside", href: "/areas#bayside" },
+                { name: "Inner East", href: "/areas#inner-east" },
+                { name: "Inner North", href: "/areas#inner-north" },
+                { name: "Inner West", href: "/areas#inner-west" },
+                { name: "South East", href: "/areas#south-east" },
+                { name: "Western Suburbs", href: "/areas#western-suburbs" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link

@@ -226,12 +226,17 @@ export default function AboutPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             {serviceAreas.map((area, i) => (
               <ScrollAnimation key={area} delay={i * 0.05}>
-                <div className="bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-sm font-medium flex items-center gap-2 text-white hover:bg-white/10 transition-colors">
+                <Link href="/areas" className="bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-sm font-medium flex items-center gap-2 text-white hover:bg-white/10 transition-colors">
                   <MapPin className="h-4 w-4 shrink-0 text-white/40" />
                   <span>{area}</span>
-                </div>
+                </Link>
               </ScrollAnimation>
             ))}
+          </div>
+          <div className="mt-6">
+            <Link href="/areas" className="text-sm font-medium text-white/50 hover:text-white transition-colors">
+              View all 200+ service areas →
+            </Link>
           </div>
         </div>
       </section>

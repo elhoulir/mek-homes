@@ -52,7 +52,7 @@ export default function SuburbSearch({ suburbs, variant = "full" }: SuburbSearch
           Find a Carpenter in Your Area
         </h2>
         <p className="text-[#666666] text-sm mb-6">
-          We service 70+ suburbs across Melbourne
+          We service 200+ suburbs across Melbourne
         </p>
 
         {/* Search bar */}
