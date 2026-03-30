@@ -69,10 +69,10 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="hidden md:flex gap-3 lg:gap-4 max-h-[480px]"
+              className="hidden md:flex gap-3 lg:gap-4 h-[420px] lg:h-[480px]"
             >
               {/* Large image */}
-              <div className="flex-[1.3] relative rounded-2xl overflow-hidden">
+              <div className="flex-[1.3] relative rounded-2xl overflow-hidden min-h-0">
                 <Image
                   src={heroPhotos[0].src}
                   alt={heroPhotos[0].label}
@@ -87,9 +87,9 @@ export default function Home() {
                 </span>
               </div>
               {/* Two stacked images */}
-              <div className="flex-1 flex flex-col gap-3 lg:gap-4">
+              <div className="flex-1 flex flex-col gap-3 lg:gap-4 min-h-0">
                 {heroPhotos.slice(1).map((photo) => (
-                  <div key={photo.label} className="flex-1 relative rounded-2xl overflow-hidden">
+                  <div key={photo.label} className="flex-1 relative rounded-2xl overflow-hidden min-h-0">
                     <Image
                       src={photo.src}
                       alt={photo.label}
@@ -184,8 +184,8 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Featured large cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Desktop: Featured large cards (2) + secondary grid (4) */}
+          <div className="hidden md:grid grid-cols-2 gap-6">
             {services.slice(0, 2).map((service, index) => (
               <motion.div
                 key={service.slug}
@@ -204,7 +204,7 @@ export default function Home() {
                       alt={service.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="50vw"
                     />
                   </div>
                   <div className="p-8">
@@ -219,8 +219,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Secondary smaller cards */}
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="hidden md:grid mt-6 grid-cols-2 lg:grid-cols-4 gap-6">
             {services.slice(2, 6).map((service, index) => (
               <motion.div
                 key={service.slug}
@@ -239,7 +238,7 @@ export default function Home() {
                       alt={service.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      sizes="(max-width: 1024px) 50vw, 25vw"
                     />
                   </div>
                   <div className="p-5">
@@ -248,6 +247,41 @@ export default function Home() {
                     <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[#111111] group-hover:translate-x-1 transition-transform">
                       Learn More →
                     </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mobile: 3 compact horizontal cards */}
+          <div className="md:hidden space-y-3">
+            {services.slice(0, 3).map((service, index) => (
+              <motion.div
+                key={service.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="group flex rounded-xl bg-white border border-[#E5E5E5] overflow-hidden"
+                >
+                  <div className="relative w-28 shrink-0 overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                      sizes="112px"
+                    />
+                  </div>
+                  <div className="flex-1 p-4 flex flex-col justify-center">
+                    <h3 className="font-heading font-semibold text-base text-[#111111]">{service.title}</h3>
+                    <p className="mt-1 text-sm text-[#444444] line-clamp-1">{service.description}</p>
+                  </div>
+                  <div className="flex items-center pr-3 text-[#CCCCCC]">
+                    <span className="text-lg">→</span>
                   </div>
                 </Link>
               </motion.div>
