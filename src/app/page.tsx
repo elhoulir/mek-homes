@@ -1,17 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { CheckCircle2, Star } from "lucide-react";
-import AnimatedCounter from "@/components/AnimatedCounter";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import CredentialBadges from "@/components/CredentialBadges";
 import { services } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
-
-const rotatingWords = ["Kitchens", "Bathrooms", "Decks", "Living Spaces"];
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -20,103 +16,120 @@ const fadeInUp = {
   transition: { duration: 0.6 },
 };
 
-export default function Home() {
-  const [wordIndex, setWordIndex] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWordIndex((i) => (i + 1) % rotatingWords.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+const heroPhotos = [
+  { src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80", label: "Kitchen Renovation" },
+  { src: "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=400&q=80", label: "Decking" },
+  { src: "https://images.unsplash.com/photo-1622372738946-62e02505feb3?w=400&q=80", label: "Custom Carpentry" },
+];
 
+export default function Home() {
   return (
     <>
-      {/* ── 1. Hero Section ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center -mt-20">
-        <Image
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
-          alt="Carpentry and renovation work"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
-
-        <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 py-32 md:py-0">
-          <div className="mx-auto max-w-7xl">
+      {/* ── 1. Hero Section — Split Layout ────────────────────────────── */}
+      <section className="bg-[#0A0A0A] -mt-20 pt-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left: Copy */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-2xl"
             >
-              <h1 className="font-heading font-bold leading-[1.05] tracking-tight text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white">
-                Craftsmanship That Transforms Your Home
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/50 mb-4">
+                Melbourne Carpentry Experts
+              </p>
+              <h1 className="font-heading font-bold leading-[1.05] tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white">
+                We Build Homes Melbourne Trusts
               </h1>
-
-              <div className="mt-4 h-12 overflow-hidden flex items-center">
-                <span className="text-2xl md:text-3xl font-heading font-semibold text-white/60 mr-2">
-                  Specialising in
-                </span>
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={wordIndex}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.4 }}
-                    className="text-2xl md:text-3xl font-heading font-bold text-white"
-                  >
-                    {rotatingWords[wordIndex]}
-                  </motion.span>
-                </AnimatePresence>
-              </div>
-
-              <p className="mt-6 text-lg text-white/70">
-                Trusted by 500+ Melbourne homeowners to deliver exceptional results — on time, on budget, every time.
+              <p className="mt-6 text-lg text-white/60 leading-relaxed">
+                Quality renovations and carpentry, delivered with precision. On time, on budget, every time.
               </p>
 
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Link href="/contact" className="btn-primary text-center w-full sm:w-auto min-h-[44px] flex items-center justify-center">
                   Get a Free Quote
                 </Link>
-                <Link href="/services" className="btn-outline text-center w-full sm:w-auto min-h-[44px] flex items-center justify-center">
-                  View Our Services
-                </Link>
+                <a href="tel:0400000000" className="btn-outline text-center w-full sm:w-auto min-h-[44px] flex items-center justify-center">
+                  Call 0400 000 000
+                </a>
+              </div>
+
+              {/* Inline social proof */}
+              <div className="mt-6 flex items-center gap-1.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                ))}
+                <span className="ml-2 text-sm text-white/50">
+                  4.9 on Google · 150+ projects completed
+                </span>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── 2. Social Proof Stats Bar ───────────────────────────────────── */}
-      <section className="section-padding py-12 px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { target: 150, suffix: "+", label: "Projects Completed" },
-              { target: 10, suffix: "+", label: "Years Experience" },
-              { target: 4.9, suffix: "", label: "Google Rating", icon: true, decimals: 1 },
-              { target: 100, suffix: "%", label: "Fully Insured" },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="flex flex-col items-center gap-2"
-              >
-                <div className="font-heading font-bold text-4xl md:text-5xl text-white flex items-center gap-1">
-                  <AnimatedCounter target={stat.target} suffix={stat.suffix} decimals={'decimals' in stat ? stat.decimals as number : 0} />
-                  {stat.icon && <Star className="h-6 w-6 fill-amber-400 text-amber-400 inline-block" />}
+            {/* Right: Photo Grid */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="hidden md:flex gap-3 lg:gap-4 max-h-[480px]"
+            >
+              {/* Large image */}
+              <div className="flex-[1.3] relative rounded-2xl overflow-hidden">
+                <Image
+                  src={heroPhotos[0].src}
+                  alt={heroPhotos[0].label}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 1024px) 50vw, 35vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <span className="absolute bottom-4 left-4 text-sm font-medium text-white">
+                  {heroPhotos[0].label}
+                </span>
+              </div>
+              {/* Two stacked images */}
+              <div className="flex-1 flex flex-col gap-3 lg:gap-4">
+                {heroPhotos.slice(1).map((photo) => (
+                  <div key={photo.label} className="flex-1 relative rounded-2xl overflow-hidden">
+                    <Image
+                      src={photo.src}
+                      alt={photo.label}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 30vw, 20vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <span className="absolute bottom-3 left-3 text-xs font-medium text-white">
+                      {photo.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Mobile: 2-up photo row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="md:hidden grid grid-cols-2 gap-3"
+            >
+              {heroPhotos.slice(0, 2).map((photo) => (
+                <div key={photo.label} className="relative rounded-xl overflow-hidden aspect-square">
+                  <Image
+                    src={photo.src}
+                    alt={photo.label}
+                    fill
+                    className="object-cover"
+                    sizes="50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <span className="absolute bottom-2 left-2 text-xs font-medium text-white">
+                    {photo.label}
+                  </span>
                 </div>
-                <p className="text-sm font-medium text-white/50 uppercase tracking-wide">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
