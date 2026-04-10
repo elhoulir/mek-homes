@@ -56,11 +56,6 @@ export default async function ServicePage({
           <p className="mt-4 max-w-2xl text-lg text-white/50">
             {service.description}
           </p>
-          <div className="mt-8">
-            <Link href="#contact-form" className="btn-primary inline-flex">
-              Get a Free Quote
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -75,6 +70,33 @@ export default async function ServicePage({
               <p className="text-[#444444] leading-relaxed text-lg">
                 {service.longDescription}
               </p>
+
+              {/* Our Process */}
+              <ScrollAnimation className="mt-12">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-[#111111]">
+                  Our Process
+                </h2>
+                <p className="text-[#444444] leading-relaxed text-lg">
+                  {service.processDescription}
+                </p>
+              </ScrollAnimation>
+
+              {/* Why Choose MEK for this service */}
+              <ScrollAnimation className="mt-12">
+                <div className="rounded-2xl bg-[#0A0A0A] p-6 sm:p-8">
+                  <h2 className="text-xl md:text-2xl font-heading font-bold mb-5 text-white">
+                    Why Choose MEK for {service.title}
+                  </h2>
+                  <ul className="space-y-4">
+                    {service.whyChoose.map((point) => (
+                      <li key={point} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-white mt-0.5 shrink-0" />
+                        <span className="text-white/80">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollAnimation>
 
               {/* Features */}
               <ScrollAnimation className="mt-12">
@@ -111,31 +133,21 @@ export default async function ServicePage({
               </ScrollAnimation>
             </div>
 
-            {/* Right Sticky Column */}
+            {/* Right Sticky Column — Contact Form */}
             <div className="lg:w-1/3">
-              <div className="sticky top-24 bg-white border border-[#E5E5E5] rounded-2xl p-6">
-                {/* Service Image */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl mb-6">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                </div>
-
-                <p className="font-heading font-semibold text-lg mb-4 text-[#111111]">
-                  Ready to transform your space?
-                </p>
-
-                <div className="flex flex-col gap-3">
-                  <Link href="#contact-form" className="btn-primary text-center">
-                    Get a Free Quote
-                  </Link>
-                  <a href="tel:0400000000" className="btn-outline text-center">
-                    Call 0400 000 000
-                  </a>
+              <div className="lg:sticky lg:top-24">
+                <div className="rounded-2xl overflow-hidden shadow-lg">
+                  <div className="bg-[#0A0A0A] px-6 py-5">
+                    <h3 className="text-lg font-heading font-bold text-white mb-1">
+                      Get a Free Quote
+                    </h3>
+                    <p className="text-white/50 text-sm">
+                      Tell us about your {service.title.toLowerCase()} project
+                    </p>
+                  </div>
+                  <div className="bg-white px-6 py-6">
+                    <ContactFormEmbed variant="light" preselectedService={service.contactFormValue} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -147,66 +159,41 @@ export default async function ServicePage({
       {/* Where We Offer */}
       {(() => {
         const featuredRegions = ["Inner East", "Bayside", "Inner South", "Inner North"];
-        const grouped = featuredRegions.reduce<Record<string, { name: string; slug: string }[]>>(
-          (acc, region) => {
-            acc[region] = suburbs
-              .filter((s) => s.region === region)
-              .slice(0, 4)
-              .map((s) => ({ name: s.name, slug: s.slug }));
-            return acc;
-          },
-          {}
+        const allSuburbs = featuredRegions.flatMap((region) =>
+          suburbs
+            .filter((s) => s.region === region)
+            .slice(0, 4)
+            .map((s) => ({ name: s.name, slug: s.slug }))
         );
         return (
-          <section className="section-padding bg-[#F7F7F7]">
+          <section className="py-14 bg-[#F7F7F7]">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-[#111111] mb-8">
-                Where We Offer {service.title}
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {featuredRegions.map((region) => (
-                  <div key={region}>
-                    <h3 className="text-xs font-semibold uppercase tracking-wider text-[#999999] mb-3">
-                      {region}
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {grouped[region].map((suburb) => (
-                        <Link
-                          key={suburb.slug}
-                          href={`/areas/${suburb.slug}`}
-                          className="inline-block rounded-full border border-[#E5E5E5] bg-white px-4 py-1.5 text-sm text-[#444444] transition-colors hover:border-[#111111] hover:text-[#111111]"
-                        >
-                          {suburb.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8">
+              <div className="flex flex-wrap items-end justify-between gap-3 mb-5">
+                <h2 className="text-xl md:text-2xl font-heading font-bold text-[#111111]">
+                  Where We Offer {service.title}
+                </h2>
                 <Link
                   href="/areas"
-                  className="inline-flex items-center text-sm font-medium text-[#444444] hover:text-[#111111] transition-colors"
+                  className="text-sm font-semibold text-[#111111] underline underline-offset-4 decoration-[#CCCCCC] hover:decoration-[#111111]"
                 >
                   View all areas &rarr;
                 </Link>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {allSuburbs.map((suburb) => (
+                  <Link
+                    key={suburb.slug}
+                    href={`/areas/${suburb.slug}`}
+                    className="inline-block rounded-full border border-[#E5E5E5] bg-white px-3.5 py-1.5 text-sm text-[#444444] transition-colors hover:border-[#111111] hover:text-[#111111]"
+                  >
+                    {suburb.name}
+                  </Link>
+                ))}
               </div>
             </div>
           </section>
         );
       })()}
-
-      {/* Contact Form */}
-      <section id="contact-form" className="section-padding bg-[#0A0A0A]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#141414] rounded-2xl p-8">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
-              Get a Quote for {service.title}
-            </h2>
-            <ContactFormEmbed preselectedService={service.contactFormValue} variant="dark" />
-          </div>
-        </div>
-      </section>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
 export default function Footer() {
@@ -7,14 +8,15 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-warm-300 shadow-black/10">
-                <span className="font-heading text-xl font-bold text-black">M</span>
-              </div>
-              <span className="font-heading text-2xl font-bold tracking-wide text-white">
-                MEK HOMES
-              </span>
-            </div>
+            <Link href="/" className="inline-block">
+              <Image
+                src="/logo.svg"
+                alt="MEK Homes"
+                width={180}
+                height={48}
+                className="h-11 w-auto"
+              />
+            </Link>
             <p className="mt-6 text-sm leading-relaxed text-warm-300">
               Transforming Melbourne homes with award-winning craftsmanship,
               bespoke carpentry, and unparalleled dedication to quality.

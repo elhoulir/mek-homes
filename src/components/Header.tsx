@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Menu, Phone } from "lucide-react";
+import { Menu, Phone, Mail } from "lucide-react";
 import { usePathname } from "next/navigation";
 import BottomSheetNav from "./BottomSheetNav";
 
@@ -22,9 +23,7 @@ export default function Header() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
-    { name: "Areas", href: "/areas" },
     { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
   ];
 
   const isHome = pathname === "/";
@@ -32,8 +31,22 @@ export default function Header() {
 
   return (
     <>
+      {/* Top bar — desktop only */}
+      <div className="hidden lg:block fixed top-0 left-0 right-0 z-50 bg-[#050505] border-b border-white/5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-end gap-6 h-9 text-xs text-white/50">
+          <a href="mailto:info@mekhomes.com.au" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <Mail className="h-3 w-3" />
+            info@mekhomes.com.au
+          </a>
+          <a href="tel:0400000000" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <Phone className="h-3 w-3" />
+            0400 000 000
+          </a>
+        </div>
+      </div>
+
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 lg:top-9 top-0 ${
           solid
             ? "bg-[#0A0A0A]/95 backdrop-blur-sm border-b border-white/10 py-3"
             : "bg-transparent py-5"
@@ -41,28 +54,15 @@ export default function Header() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <Link href="/" className="group flex items-center gap-3">
-              <div
-                className={`flex h-11 w-11 items-center justify-center rounded-lg shadow-black/10 transition-all duration-300 group-hover:scale-105 ${
-                  solid ? "bg-white" : "bg-white/20 backdrop-blur-sm"
-                }`}
-              >
-                <span
-                  className={`font-heading text-2xl font-bold transition-colors duration-300 ${
-                    solid ? "text-black" : "text-white"
-                  }`}
-                >
-                  M
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading text-xl font-bold tracking-wide text-white transition-colors duration-300">
-                  MEK HOMES
-                </span>
-                <span className="text-[10px] uppercase tracking-widest text-white/60 transition-colors duration-300">
-                  Premium Carpentry
-                </span>
-              </div>
+            <Link href="/" className="group flex items-center">
+              <Image
+                src="/logo.svg"
+                alt="MEK Homes"
+                width={160}
+                height={44}
+                priority
+                className="h-10 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
+              />
             </Link>
 
             <nav className="hidden items-center gap-8 lg:flex">
@@ -82,18 +82,9 @@ export default function Header() {
                 </Link>
               ))}
 
-              <div className="flex items-center gap-4">
-                <a
-                  href="tel:0400000000"
-                  className="flex items-center gap-1.5 text-sm text-white/50 hover:text-white transition-colors duration-300"
-                >
-                  <Phone className="h-3.5 w-3.5" />
-                  <span>0400 000 000</span>
-                </a>
-                <Link href="/contact" className="btn-primary">
-                  Get a Quote
-                </Link>
-              </div>
+              <Link href="/contact" className="btn-primary">
+                Get a Quote
+              </Link>
             </nav>
 
             <button

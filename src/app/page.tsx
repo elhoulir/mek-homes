@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, Star, Phone, FileText, Hammer, ThumbsUp, Search, MapPin } from "lucide-react";
+import { Star, Phone, Search, MapPin } from "lucide-react";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import SuburbSearch from "@/components/SuburbSearch";
 import { services } from "@/data/services";
@@ -357,79 +357,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 5. How It Works ──────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-20 bg-[#0A0A0A] px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-white">How It Works</h2>
-            <p className="mt-3 text-white/50">From first call to finished project — in four simple steps</p>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {[
-              { icon: Phone, step: "01", title: "Free Consultation", desc: "Call or fill out our form. We'll discuss your project and arrange a site visit." },
-              { icon: FileText, step: "02", title: "Detailed Quote", desc: "We measure up, plan the work, and provide a transparent, itemised quote." },
-              { icon: Hammer, step: "03", title: "We Build", desc: "Our licensed carpenters get to work — on time, on budget, with daily clean-up." },
-              { icon: ThumbsUp, step: "04", title: "You Enjoy", desc: "Final walkthrough, your sign-off, and a quality guarantee on every job." },
-            ].map((item, i) => (
-              <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center"
-              >
-                <div className="mx-auto w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
-                  <item.icon className="h-6 w-6 text-white/70" />
-                </div>
-                <span className="text-xs font-medium text-white/30 uppercase tracking-wider">{item.step}</span>
-                <h3 className="font-heading font-semibold text-white mt-1 text-lg">{item.title}</h3>
-                <p className="mt-2 text-sm text-white/50 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. Why Choose MEK ───────────────────────────────────────────── */}
-      <section className="section-padding bg-[#111111] px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <motion.div {...fadeInUp} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80" alt="Quality carpentry work by MEK Homes" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-            </div>
-            <div>
-              <h2 className="font-heading font-bold text-3xl md:text-4xl text-white">Why MEK Homes</h2>
-              <p className="mt-4 text-white/60 text-lg leading-relaxed">
-                We bring together experienced tradespeople, transparent processes, and a genuine commitment to quality — so you can renovate with confidence.
-              </p>
-              <ul className="mt-8 space-y-5">
-                {[
-                  "Licensed & registered carpenters",
-                  "Fully insured for your peace of mind",
-                  "Transparent quoting — no hidden costs",
-                  "Free consultation and detailed quote",
-                  "Clean worksite guarantee — every day",
-                ].map((point) => (
-                  <li key={point} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-white shrink-0 mt-0.5" />
-                    <span className="text-white/70">{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* ── 6. Testimonials ─────────────────────────────────────────────── */}
+      {/* ── Testimonials ─────────────────────────────────────────────── */}
       <section className="section-padding bg-[#F7F7F7] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <motion.div {...fadeInUp} className="mb-12 text-center">
             <h2 className="font-heading font-bold text-3xl md:text-5xl text-[#111111]">What Our Clients Say</h2>
           </motion.div>
           <TestimonialCarousel testimonials={testimonials} />
+        </div>
+      </section>
+
+      {/* ── About Us ──────────────────────────────────────────────────── */}
+      <section className="section-padding bg-[#0A0A0A] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <motion.div {...fadeInUp} className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1500&auto=format&fit=crop"
+                alt="MEK Homes team at work"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+            <motion.div {...fadeInUp}>
+              <p className="text-sm font-medium uppercase tracking-widest text-white/40 mb-4">
+                About Us
+              </p>
+              <h2 className="font-heading font-bold text-3xl md:text-4xl text-white mb-6">
+                Over a decade of building trust across Melbourne
+              </h2>
+              <p className="text-white/60 leading-relaxed mb-4">
+                MEK Homes started as a small carpentry operation in Melbourne&apos;s inner east. Ten years and 500+ projects later, we&apos;re still the same tight-knit team — just with a longer list of happy homeowners.
+              </p>
+              <p className="text-white/60 leading-relaxed mb-8">
+                Every project is led by the same carpenter from first consult to final walkthrough. No subcontractors, no runarounds — just honest work done right.
+              </p>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-white font-medium underline underline-offset-4 decoration-white/30 hover:decoration-white transition-colors"
+              >
+                Learn more about us
+                <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
 

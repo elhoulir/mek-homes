@@ -359,27 +359,6 @@ export default async function SuburbPage({
                 </p>
               </div>
 
-              {/* Services grid */}
-              <div>
-                <h3 className="text-xl font-heading font-bold text-[#111111] mb-4">
-                  Services Available in {suburb.name}
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {services.map((service) => (
-                    <Link
-                      key={service.slug}
-                      href={`/services/${service.slug}`}
-                      className="group flex items-center gap-3 bg-white border border-[#E5E5E5] rounded-xl px-4 py-3.5 hover:shadow-sm hover:border-[#CCCCCC] transition-all"
-                    >
-                      <span className="text-sm font-medium text-[#111111] group-hover:text-[#000000]">
-                        {service.title}
-                      </span>
-                      <ChevronRight className="h-4 w-4 text-[#CCCCCC] group-hover:text-[#111111] transition-colors ml-auto shrink-0" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
               {/* Why choose MEK */}
               <div className="rounded-2xl bg-[#0A0A0A] p-6 sm:p-8">
                 <h3 className="text-xl font-heading font-bold text-white mb-5">
@@ -400,6 +379,33 @@ export default async function SuburbPage({
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Services available (compact) */}
+              <div>
+                <h3 className="text-xl font-heading font-bold text-[#111111] mb-4">
+                  Services Available in {suburb.name}
+                </h3>
+                <ul className="divide-y divide-[#E5E5E5] border-y border-[#E5E5E5]">
+                  {services.slice(0, 5).map((service) => (
+                    <li key={service.slug}>
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="group flex items-center justify-between py-3 text-[#111111] hover:text-[#000000] transition-colors"
+                      >
+                        <span className="text-sm font-medium">{service.title}</span>
+                        <ChevronRight className="h-4 w-4 text-[#CCCCCC] group-hover:text-[#111111] group-hover:translate-x-0.5 transition-all" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/services"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[#111111] hover:text-[#000000] underline underline-offset-4 decoration-[#CCCCCC] hover:decoration-[#111111]"
+                >
+                  View all services
+                  <ChevronRight className="h-4 w-4" />
+                </Link>
               </div>
 
               {/* Nearby suburbs */}
