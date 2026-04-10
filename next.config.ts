@@ -12,13 +12,48 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/services/lockup",
-        destination: "/services/lockup-and-fix",
+        source: "/services/home-renovations",
+        destination: "/services/renovations",
         permanent: true,
       },
       {
-        source: "/services/fix",
-        destination: "/services/lockup-and-fix",
+        source: "/services/custom-carpentry",
+        destination: "/services/renovations",
+        permanent: true,
+      },
+      {
+        source: "/services/decking-pergolas",
+        destination: "/services/decking",
+        permanent: true,
+      },
+      {
+        source: "/services/kitchen-renovations",
+        destination: "/services/renovations",
+        permanent: true,
+      },
+      {
+        source: "/services/bathroom-renovations",
+        destination: "/services/renovations",
+        permanent: true,
+      },
+      {
+        source: "/services/structural-carpentry",
+        destination: "/services/lockup",
+        permanent: true,
+      },
+      {
+        source: "/services/doors-windows",
+        destination: "/services/renovations",
+        permanent: true,
+      },
+      {
+        source: "/services/fencing-gates",
+        destination: "/services/pergolas",
+        permanent: true,
+      },
+      {
+        source: "/services/lockup-and-fix",
+        destination: "/services/lockup",
         permanent: true,
       },
     ];

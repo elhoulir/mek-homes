@@ -37,9 +37,9 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section className="section-padding bg-[#F7F7F7]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {services.map((service, i) => (
-              <ScrollAnimation key={service.slug} delay={(i % 3) * 0.1}>
+              <ScrollAnimation key={service.slug} delay={(i % 3) * 0.1} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <Link
                   href={`/services/${service.slug}`}
                   className="group block rounded-2xl bg-white border border-[#E5E5E5] overflow-hidden h-full hover:shadow-lg hover:border-[#CCCCCC] hover:-translate-y-1 transition-all duration-300"

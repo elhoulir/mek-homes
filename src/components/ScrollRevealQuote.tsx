@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 interface Testimonial {
@@ -36,7 +36,13 @@ function RevealWord({ word, index, total, scrollYProgress }: {
 
 export default function ScrollRevealQuote({ testimonials }: ScrollRevealQuoteProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [current] = useState(() => Math.floor(Math.random() * testimonials.length));
+  const [current, setCurrent] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setCurrent(Math.floor(Math.random() * testimonials.length));
+    setMounted(true);
+  }, [testimonials.length]);
 
   const { scrollYProgress } = useScroll({
     target: ref,

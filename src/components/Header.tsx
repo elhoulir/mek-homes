@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+
 import { useState, useEffect } from "react";
 import { Menu, Phone, Mail } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -26,8 +27,7 @@ export default function Header() {
     { name: "About", href: "/about" },
   ];
 
-  const isHome = pathname === "/";
-  const solid = scrolled || !isHome;
+  const solid = scrolled;
 
   return (
     <>
@@ -48,7 +48,7 @@ export default function Header() {
       <header
         className={`fixed left-0 right-0 z-50 transition-all duration-300 lg:top-9 top-0 ${
           solid
-            ? "bg-[#0A0A0A]/95 backdrop-blur-sm border-b border-white/10 py-3"
+            ? "bg-white shadow-md border-b border-[#E5E5E5] py-3"
             : "bg-transparent py-5"
         }`}
       >
@@ -59,9 +59,11 @@ export default function Header() {
                 src="/logo.svg"
                 alt="MEK Homes"
                 width={160}
-                height={44}
+                height={45}
                 priority
-                className="h-10 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
+                className={`h-14 w-auto transition-all duration-300 group-hover:scale-[1.02] ${
+                  solid ? "invert" : ""
+                }`}
               />
             </Link>
 
@@ -73,22 +75,29 @@ export default function Header() {
                   className={`relative text-sm font-medium transition-colors duration-300
                     after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform hover:after:scale-x-100
                     ${
-                      pathname === link.href
-                        ? "text-white"
-                        : "text-white/60 hover:text-white"
+                      solid
+                        ? pathname === link.href
+                          ? "text-[#111111]"
+                          : "text-[#111111]/60 hover:text-[#111111]"
+                        : pathname === link.href
+                          ? "text-white"
+                          : "text-white/60 hover:text-white"
                     }`}
                 >
                   {link.name}
                 </Link>
               ))}
 
-              <Link href="/contact" className="btn-primary">
+              <Link href="/contact" className={solid
+                ? "rounded-xl bg-[#111111] text-white px-5 py-2.5 text-sm font-medium hover:bg-[#333333] transition-colors"
+                : "btn-primary"
+              }>
                 Get a Quote
               </Link>
             </nav>
 
             <button
-              className="lg:hidden text-white transition-colors duration-300"
+              className={`lg:hidden transition-colors duration-300 ${solid ? "text-[#111111]" : "text-white"}`}
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >

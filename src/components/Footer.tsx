@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -13,8 +14,8 @@ export default function Footer() {
                 src="/logo.svg"
                 alt="MEK Homes"
                 width={180}
-                height={48}
-                className="h-11 w-auto"
+                height={51}
+                className="h-14 w-auto"
               />
             </Link>
             <p className="mt-6 text-sm leading-relaxed text-warm-300">
@@ -29,18 +30,17 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4 text-sm font-medium">
               {[
-                { name: "Home Renovations", href: "/services/home-renovations" },
-                { name: "Custom Carpentry", href: "/services/custom-carpentry" },
-                { name: "Decking & Pergolas", href: "/services/decking-pergolas" },
-                { name: "Kitchens & Bathrooms", href: "/services/kitchen-renovations" },
+                { name: "New Homes", href: "/services/new-homes" },
+                { name: "Renovations", href: "/services/renovations" },
+                { name: "Extensions", href: "/services/extensions" },
+                { name: "Pergolas & Decking", href: "/services/pergolas" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="group flex items-center gap-2 transition-colors hover:text-white"
+                    className="transition-colors hover:text-white"
                   >
-                    <ArrowRight className="h-4 w-4 text-warm-300 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
-                    <span className="transition-transform group-hover:translate-x-1">{link.name}</span>
+                    {link.name}
                   </Link>
                 </li>
               ))}

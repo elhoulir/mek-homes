@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Space_Grotesk } from "next/font/google";
+import { Outfit, Space_Grotesk, Inter_Tight } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageWrapper from "@/components/PageWrapper";
@@ -19,6 +19,12 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 });
 
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  weight: "900",
+  variable: "--font-inter-tight",
+});
+
 export const metadata: Metadata = {
   title: "MEK Homes | Carpentry & Renovations Melbourne",
   description:
@@ -34,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${outfit.variable} ${spaceGrotesk.variable} font-sans bg-[#0A0A0A] text-white`}>
+      <body className={`${outfit.variable} ${spaceGrotesk.variable} ${interTight.variable} font-sans bg-[#0A0A0A] text-white`}>
         <Header />
         <main className="pt-20">
           <PageWrapper>{children}</PageWrapper>

@@ -129,15 +129,14 @@ export default function ContactFormEmbed({
           className={inputClasses}
         >
           <option value="">Select a service</option>
-          <option value="renovation">Home Renovations</option>
-          <option value="carpentry">Custom Carpentry</option>
-          <option value="decking">Decking &amp; Pergolas</option>
-          <option value="kitchen">Kitchen Renovations</option>
-          <option value="bathroom">Bathroom Renovations</option>
-          <option value="structural">Structural Carpentry</option>
-          <option value="doors-windows">Doors &amp; Windows</option>
-          <option value="fencing">Fencing &amp; Gates</option>
-          <option value="lockup-fix">Lockup &amp; Fix</option>
+          <option value="new-homes">New Homes</option>
+          <option value="renovations">Renovations</option>
+          <option value="extensions">Extensions</option>
+          <option value="renovations-extensions">Renovations &amp; Extensions</option>
+          <option value="pergolas">Pergolas</option>
+          <option value="decking">Decking</option>
+          <option value="lockup">Lockup</option>
+          <option value="fix">Fix</option>
           <option value="other">Other</option>
         </select>
       </div>

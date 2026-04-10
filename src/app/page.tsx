@@ -18,11 +18,10 @@ const fadeInUp = {
   transition: { duration: 0.6 },
 };
 
-// Groups of 3 services for rotation
+// Groups of 4 services for rotation
 const heroServiceSets = [
-  [0, 1, 2], // Home Renovations, Custom Carpentry, Decking & Pergolas
-  [3, 4, 5], // Kitchen, Bathroom, Structural
-  [6, 7, 8], // Doors & Windows, Fencing, Lockup & Fix
+  [0, 1, 2, 3], // New Homes, Renovations, Extensions, Renovations & Extensions
+  [4, 5, 6, 7], // Pergolas, Decking, Lockup, Fix
 ];
 
 export default function Home() {
